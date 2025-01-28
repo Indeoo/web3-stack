@@ -1,1 +1,1 @@
-sybil-engine==9.9.1
+sybil-engine==10.0.2

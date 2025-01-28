@@ -4,14 +4,14 @@ import webbrowser
 from loguru import logger
 from sybil_engine.module.module import Module
 from sybil_engine.utils.accumulator import add_accumulator, get_value
-from sybil_engine.utils.module_memory import get_by_key, accumulate_by_key, remove_key
 from sybil_engine.utils.statistic_utils import get_statistic_writer, statistic_date_string
 
 from web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
 from sybil_engine.utils.telegram import add_config
 
-APPEAL_ACCOUNTS = "APPEAL_ACCOUNTS"
+from web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key
 
+APPEAL_ACCOUNTS = "APPEAL_ACCOUNTS"
 APPEAL_ACCOUNTS_AMOUNT = "APPEAL_ACCOUNTS_AMOUNT"
 
 
@@ -47,17 +47,16 @@ class LineaAppeal(Module):
                 random.randint(accounts['from'], accounts['to'])
             )
 
-        if get_by_key(APPEAL_ACCOUNTS):
-            accumulate_by_key(
-                APPEAL_ACCOUNTS, {
-                    "address": accounts.address,
-                    "reason": reason,
-                }
-            )
+        accumulate_by_key(
+            APPEAL_ACCOUNTS, {
+                "address": account.address,
+                "reason": reason,
+            }
+        )
 
         if (get_by_key(APPEAL_ACCOUNTS_AMOUNT) == len(get_by_key(APPEAL_ACCOUNTS))
                 or get_value("Acc Num") == get_value("Acc Amount")):
-            wallets = get_by_key(APPEAL_ACCOUNTS_AMOUNT)
+            wallets = get_by_key(APPEAL_ACCOUNTS)
             address_list = [wallet["address"] for wallet in wallets]
             formatted_string = "\n".join(f"{wallet['address']}\n{wallet['reason']}" for wallet in wallets)
             self.open_appeal_form(account, address_list, formatted_string)
