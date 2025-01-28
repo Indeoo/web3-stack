@@ -70,8 +70,8 @@ class LineaAppeal(Module):
     def open_appeal_form(self, account, address_list, formatted_string):
         payload = {
             "entry.1292139045": account.address,
-            "entry.1099559693": address_list,
-            "entry.1296389817": formatted_string
+            "entry.1099559693": address_list.replace("\n", "%0A"),
+            "entry.1296389817": formatted_string.replace("\n", "%0A")
         }
         query_string = "&".join(f"{key}={value}" for key, value in payload.items())
         pre_filled_url = f"{self.base_url}?{query_string}"
