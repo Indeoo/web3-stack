@@ -28,7 +28,7 @@ class LineaAppeal(Module):
 
         statistics = get_statistic_writer()
         statistics.init_if_required(
-            statistic_date_string,
+            f"linea_appeal_{statistic_date_string}",
             ["#", "MainAddress", "GPT Answer"]
         )
 
