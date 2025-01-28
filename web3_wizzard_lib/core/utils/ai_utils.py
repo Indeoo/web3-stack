@@ -24,7 +24,7 @@ class ChatGPT:
 
         response = requests.post(url, headers=headers, json=data)
 
-        return response.json()
+        return response.json()['choices'][0]['message']['content']
 
 
 class MockAIChat:

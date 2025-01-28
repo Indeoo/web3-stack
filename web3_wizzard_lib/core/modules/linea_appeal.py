@@ -29,17 +29,16 @@ class LineaAppeal(Module):
         statistics = get_statistic_writer()
         statistics.init_if_required(
             statistic_date_string,
-            ["#", "MainAddress", "Secondary addresses", "GPT Answer"]
+            ["#", "MainAddress", "GPT Answer"]
         )
 
         chat_gpt = get_ai_chat(ai_type, token)
         reason = chat_gpt.ask(self.linea_appeal_reason)
-
         logger.info(reason)
-        reason = reason['choices'][0]['message']['content']
+
         statistics.write_row(
             statistic_date_string,
-            [account.app_id, account.address, "", reason]
+            [account.app_id, account.address, reason]
         )
 
         if not get_by_key(APPEAL_ACCOUNTS_AMOUNT):
