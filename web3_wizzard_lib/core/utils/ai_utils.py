@@ -1,5 +1,7 @@
 import requests
 
+from web3_wizzard_lib.core.utils.benchmark_utils import benchmark
+
 
 class AIChat:
     def ask(self, question):
@@ -10,6 +12,7 @@ class ChatGPT:
     def __init__(self, token):
         self.token = token
 
+    @benchmark
     def ask(self, question):
         url = "https://api.openai.com/v1/chat/completions"
         headers = {

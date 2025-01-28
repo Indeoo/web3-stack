@@ -61,8 +61,9 @@ class LineaAppeal(Module):
                 or get_value("Acc Num") == get_value("Acc Amount")):
             wallets = get_by_key(APPEAL_ACCOUNTS)
             address_list = [wallet["address"] for wallet in wallets]
+            address_list.remove(account.address)
             formatted_string = "\n".join(f"{wallet['address']}\n{wallet['reason']}" for wallet in wallets)
-            self.open_appeal_form(account, address_list, formatted_string)
+            self.open_appeal_form(account, "\n".join(address_list), formatted_string)
             remove_key(APPEAL_ACCOUNTS)
             remove_key(APPEAL_ACCOUNTS_AMOUNT)
 
