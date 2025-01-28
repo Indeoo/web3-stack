@@ -41,7 +41,7 @@ class LineaAppeal(Module):
             [account.app_id, account.address, reason]
         )
 
-        if not get_by_key(APPEAL_ACCOUNTS_AMOUNT):
+        if get_by_key(APPEAL_ACCOUNTS_AMOUNT) is None:
             add_config(
                 APPEAL_ACCOUNTS_AMOUNT,
                 random.randint(accounts['from'], accounts['to'])
@@ -53,6 +53,9 @@ class LineaAppeal(Module):
                 "reason": reason,
             }
         )
+
+        logger.info(f"Acc: {get_value("Acc Num")}")
+        logger.info(f"Acc Amount: {get_value("Acc Amount")}")
 
         if (get_by_key(APPEAL_ACCOUNTS_AMOUNT) == len(get_by_key(APPEAL_ACCOUNTS))
                 or get_value("Acc Num") == get_value("Acc Amount")):
