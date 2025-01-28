@@ -7,9 +7,8 @@ from sybil_engine.utils.accumulator import add_accumulator, get_value
 from sybil_engine.utils.statistic_utils import get_statistic_writer, statistic_date_string
 
 from web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
-from sybil_engine.utils.telegram import add_config
 
-from web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key
+from web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key, add_value
 
 APPEAL_ACCOUNTS = "APPEAL_ACCOUNTS"
 APPEAL_ACCOUNTS_AMOUNT = "APPEAL_ACCOUNTS_AMOUNT"
@@ -42,7 +41,7 @@ class LineaAppeal(Module):
         )
 
         if get_by_key(APPEAL_ACCOUNTS_AMOUNT) is None:
-            add_config(
+            add_value(
                 APPEAL_ACCOUNTS_AMOUNT,
                 random.randint(accounts['from'], accounts['to'])
             )

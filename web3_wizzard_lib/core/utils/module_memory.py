@@ -2,6 +2,8 @@ memory = {
 
 }
 
+def add_value(key, value):
+    memory[key] = value
 
 def add_memory_list(key, value):
     memory[key] = value
