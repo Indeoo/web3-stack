@@ -1,0 +1,436 @@
+[
+  {
+    "name": "BASIS_POINTS_DIVISOR",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x126082cf",
+    "signature": "BASIS_POINTS_DIVISOR()",
+    "stateMutability": "view"
+  },
+  {
+    "name": "gov",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x12d43a51",
+    "signature": "gov()",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getTotalStaked",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_yieldTokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x2413c8c1",
+    "signature": "getTotalStaked(address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getTokenSupply",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address",
+        "internalType": "contract IERC20"
+      },
+      {
+        "name": "_excludedAccounts",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x2ac0184c",
+    "signature": "getTokenSupply(address,address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getTokenBalancesWithSupplies",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_tokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x2e3e3342",
+    "signature": "getTokenBalancesWithSupplies(address,address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getFeeBasisPoints",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_vault",
+        "type": "address",
+        "internalType": "contract IVault"
+      },
+      {
+        "name": "_tokenIn",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_tokenOut",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_amountIn",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x440f018c",
+    "signature": "getFeeBasisPoints(address,address,address,uint256)",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getFees",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_vault",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_tokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x86d4d0f5",
+    "signature": "getFees(address,address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getStakingInfo",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_yieldTrackers",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x937a0be8",
+    "signature": "getStakingInfo(address,address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "PRICE_PRECISION",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x95082d25",
+    "signature": "PRICE_PRECISION()",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getFundingRates",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_vault",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_weth",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_tokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0x95a7535a",
+    "signature": "getFundingRates(address,address,address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "setConfig",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_hasMaxGlobalShortSizes",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "outputs": [],
+    "payable": null,
+    "constant": null,
+    "selector": "0x9b0183c3",
+    "signature": "setConfig(bool)",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "POSITION_PROPS_LENGTH",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0xad7e5497",
+    "signature": "POSITION_PROPS_LENGTH()",
+    "stateMutability": "view"
+  },
+  {
+    "name": "hasMaxGlobalShortSizes",
+    "type": "function",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0xc6f1d676",
+    "signature": "hasMaxGlobalShortSizes()",
+    "stateMutability": "view"
+  },
+  {
+    "name": "setGov",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_gov",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "payable": null,
+    "constant": null,
+    "selector": "0xcfad57a2",
+    "signature": "setGov(address)",
+    "stateMutability": "nonpayable"
+  },
+  {
+    "name": "getTokenBalances",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_tokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0xd802178e",
+    "signature": "getTokenBalances(address,address[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getPositions",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_vault",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_account",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_collateralTokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "_indexTokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "_isLong",
+        "type": "bool[]",
+        "internalType": "bool[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0xdc383cab",
+    "signature": "getPositions(address,address,address[],address[],bool[])",
+    "stateMutability": "view"
+  },
+  {
+    "name": "getTotalBalance",
+    "type": "function",
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address",
+        "internalType": "contract IERC20"
+      },
+      {
+        "name": "_accounts",
+        "type": "address[]",
+        "internalType": "address[]"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "payable": null,
+    "constant": null,
+    "selector": "0xfbdb05ca",
+    "signature": "getTotalBalance(address,address[])",
+    "stateMutability": "view"
+  }
+]

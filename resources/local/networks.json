@@ -1,0 +1,119 @@
+{
+  "ZKSYNC": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "max_l0_fee": 0.1,
+    "rpc": "http://65.109.24.46:8011",
+    "scan": "https://explorer.zksync.io/tx",
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    },
+    "chain_id": 260
+  },
+  "BASE": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "stargate_eth_pool": 13,
+    "max_l0_fee": 0.1,
+    "stargate_chain_id": 184,
+    "rpc": "http://65.109.24.46:8543",
+    "scan": "https://explorer.zksync.io/tx",
+    "gas_price_gwei": 2,
+    "l1_gas_price_gwei": 2,
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    },
+    "chain_id": 18453
+  },
+  "LINEA": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "stargate_eth_pool": 13,
+    "stargate_chain_id": 183,
+    "rpc": "http://65.109.24.46:8541/",
+    "scan": "http://localhost:4000/tx",
+    "gas_price_gwei": 2,
+    "l1_gas_price_gwei": 2,
+    "max_l0_fee": 0.1,
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    },
+    "chain_id": 559144
+  },
+  "ARBITRUM": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "rpc": "http://65.109.24.46:8549",
+    "scan": "https://explorer.zksync.io/tx",
+    "max_l0_fee": 1,
+    "stargate_chain_id": 110,
+    "stargate_usdc_pool": 1,
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    },
+    "chain_id": 421613
+  },
+    "SCROLL": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "rpc": "http://65.109.24.46:8551",
+    "scan": "https://blockscout.scroll.io/tx",
+    "max_l0_fee": 1,
+    "stargate_chain_id": 110,
+    "stargate_usdc_pool": 1,
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    },
+    "chain_id": 5534352
+  },
+  "BSC": {
+    "gas_token": "BNB",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 2,
+    "stargate_usdc_pool": 1
+  },
+  "FANTOM": {
+    "gas_token": "FTM",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 21
+  },
+  "OPTIMISM": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1
+  },
+  "POLYGON": {
+    "gas_token": "MATIC",
+    "poa": true,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1
+  },
+  "AVALANCHE": {
+    "gas_token": "AVAX",
+    "poa": true,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1
+  }
+}

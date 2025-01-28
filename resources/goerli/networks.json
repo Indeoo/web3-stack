@@ -1,0 +1,139 @@
+{
+  "ZKSYNC": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 280,
+    "rpc": "https://testnet.era.zksync.dev",
+    "scan": "https://goerli.explorer.zksync.io/tx",
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "BASE": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "chain_id": 84531,
+    "stargate_chain_id": 10160,
+    "rpc": "https://goerli.base.org",
+    "scan": "https://goerli.basescan.org/tx",
+    "transaction_sleep_interval": {
+      "from": 1,
+      "to": 1
+    }
+  },
+  "LINEA": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "chain_id": 59140,
+    "stargate_chain_id": 10157,
+    "rpc": "https://rpc.goerli.linea.build/",
+    "scan": "https://goerli.lineascan.build/tx",
+    "max_l0_fee": 0.0008,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "ARBITRUM": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "chain": "ARBITRUM",
+    "chain_id": 10143,
+    "stargate_chain_id": 10143,
+    "rpc": "https://arbitrum-goerli.public.blastapi.io",
+    "scan": "https://goerli.arbiscan.io/tx",
+    "max_l0_fee": 0.006,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "BSC": {
+    "gas_token": "BNB",
+    "poa": true,
+    "eip1599": false,
+    "usdc_pool": 2,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 10102,
+    "rpc": "https://data-seed-prebsc-1-s1.binance.org:8545/",
+    "scan": "https://testnet.bscscan.com",
+    "max_l0_fee": 0.0045,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "FANTOM": {
+    "gas_token": "FTM",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 21,
+    "stargate_chain_id": 10112,
+    "rpc": "https://rpc.testnet.fantom.network/",
+    "scan": "https://testnet.ftmscan.com/tx",
+    "max_l0_fee": 0.5,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "OPTIMISM": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 10132,
+    "rpc": "https://goerli.optimism.io/",
+    "scan": "https://goerli-optimism.etherscan.io/tx",
+    "max_l0_fee": 0.01,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "POLYGON": {
+    "gas_token": "MATIC",
+    "poa": true,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 10109,
+    "rpc": "https://rpc-mumbai.maticvigil.com",
+    "scan": "https://mumbai.polygonscan.com/tx",
+    "swap": "0x817436a076060D158204d955E5403b6Ed0A5fac0",
+    "gas_price_gwei": 0.25,
+    "max_l0_fee": 6,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "AVALANCHE": {
+    "gas_token": "AVAX",
+    "poa": true,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 10106,
+    "rpc": "https://api.avax-test.network/ext/bc/C/rpc",
+    "scan": "https://testnet.explorer.avax.network/tx",
+    "gas_price_gwei": 0.03,
+    "max_l0_fee": 0.5,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  }
+}

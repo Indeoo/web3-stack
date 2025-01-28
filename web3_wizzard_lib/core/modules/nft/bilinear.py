@@ -1,0 +1,22 @@
+from sybil_engine.data.contracts import get_contracts_for_chain
+from sybil_engine.data.networks import get_chain_instance
+from sybil_engine.utils.web3_utils import init_web3
+
+from web3_wizzard_lib.core.contract.bilinear_contract import BilinearContract
+from web3_wizzard_lib.core.modules.nft.sub_module import SubModule
+
+
+class Bilinear(SubModule):
+    module_name = 'BILINEAR'
+
+    def execute(self, account, chain='LINEA'):
+        chain_instance = get_chain_instance(chain)
+        web3 = init_web3(chain_instance, account.proxy)
+
+        contract_address = get_contracts_for_chain(chain)['BILINEAR']
+        as_match_nft = BilinearContract(contract_address, web3)
+
+        as_match_nft.claim(account)
+
+    def log(self):
+        return "BILINEAR LINEA NFT"

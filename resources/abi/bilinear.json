@@ -1,0 +1,1375 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "collection",
+        "type": "address"
+      }
+    ],
+    "name": "AlreadyActiveDrop",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CallerNotMatchingCreator",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DeprecatedDrop",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DropAlreadyStarted",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DropEnded",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "DropNotStarted",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidAddressZero",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidArrayLength",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDate",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDrop",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDropCreator",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDropDuration",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidDropUpdate",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidMsgValue",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidOwnershipOrApproval",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidPlatformFee",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidProof",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidQuantity",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidStageDuration",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidTokenId",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidTokenLimits",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidTokenLimitsIds",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidTokenLimitsLength",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidTokenType",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "NativeTransferFailed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "TokenLimitReached",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnsufficientCreationAllowance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnsupportedCurrency",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnsupportedDropCollection",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroStagesQuantity",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroTokenLimit",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "previousAdmin",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "newAdmin",
+        "type": "address"
+      }
+    ],
+    "name": "AdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "beacon",
+        "type": "address"
+      }
+    ],
+    "name": "BeaconUpgraded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dropId",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "currency",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum TokenType",
+            "name": "tokenType",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "mintPrices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "maxClaimQuantitiesPerWallet",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "merkleRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct Stage[]",
+            "name": "stages",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "limits",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenLimits",
+            "name": "tokenLimits",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Drop",
+        "name": "drop",
+        "type": "tuple"
+      }
+    ],
+    "name": "DropCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dropId",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "currency",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum TokenType",
+            "name": "tokenType",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "mintPrices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "maxClaimQuantitiesPerWallet",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "merkleRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct Stage[]",
+            "name": "stages",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "limits",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenLimits",
+            "name": "tokenLimits",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Drop",
+        "name": "drop",
+        "type": "tuple"
+      }
+    ],
+    "name": "DropRegistered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dropId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "claimer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "quantities",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "tip",
+        "type": "uint256"
+      }
+    ],
+    "name": "ERC1155Claimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dropId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "claimer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "tip",
+        "type": "uint256"
+      }
+    ],
+    "name": "ERC721Claimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "version",
+        "type": "uint8"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Paused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldFee",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint96",
+        "name": "_fee",
+        "type": "uint96"
+      }
+    ],
+    "name": "PlatformFeeModified",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "oldReceiver",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_receiver",
+        "type": "address"
+      }
+    ],
+    "name": "PlatformFeeReceiverModified",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "Unpaused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "implementation",
+        "type": "address"
+      }
+    ],
+    "name": "Upgraded",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_dropId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "cancelDrop",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "merkleProof",
+        "type": "bytes32[]"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256[]",
+            "name": "tokenIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "quantities",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct DropProtocol.ClaimParams",
+        "name": "_claimParams",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256[]",
+            "name": "leafTokenIds",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "leafPrices",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "leafMaxQuantities",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct DropProtocol.LeafParams",
+        "name": "_leafParams",
+        "type": "tuple"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tip",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_dropId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "claim",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "currency",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum TokenType",
+            "name": "tokenType",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "mintPrices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "maxClaimQuantitiesPerWallet",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "merkleRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct Stage[]",
+            "name": "stages",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "limits",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenLimits",
+            "name": "tokenLimits",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Drop",
+        "name": "_drop",
+        "type": "tuple"
+      }
+    ],
+    "name": "createDrop",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "currencyManager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_collectionAddress",
+        "type": "address"
+      }
+    ],
+    "name": "getCurrentDropByCollection",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "currency",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum TokenType",
+            "name": "tokenType",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "mintPrices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "maxClaimQuantitiesPerWallet",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "merkleRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct Stage[]",
+            "name": "stages",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "limits",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenLimits",
+            "name": "tokenLimits",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Drop",
+        "name": "drop",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_dropId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getDrop",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "currency",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum TokenType",
+            "name": "tokenType",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "mintPrices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "maxClaimQuantitiesPerWallet",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "merkleRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct Stage[]",
+            "name": "stages",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "limits",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenLimits",
+            "name": "tokenLimits",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Drop",
+        "name": "drop",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPlatformFeeAndReceiver",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_currencyManager",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_transferManager",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "proxiableUUID",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "_enabled",
+        "type": "bool"
+      }
+    ],
+    "name": "setCreationAllowanceEnabled",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint96",
+        "name": "_fee",
+        "type": "uint96"
+      }
+    ],
+    "name": "setPlatformFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_receiver",
+        "type": "address"
+      }
+    ],
+    "name": "setPlatformFeeReceiver",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_transferManager",
+        "type": "address"
+      }
+    ],
+    "name": "setTransferManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "setUserCreationAllowance",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "transferManager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "unpause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "_dropId",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "creator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "collection",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "currency",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "enum TokenType",
+            "name": "tokenType",
+            "type": "uint8"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "duration",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "mintPrices",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "maxClaimQuantitiesPerWallet",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "merkleRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct Stage[]",
+            "name": "stages",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint256[]",
+                "name": "tokenIds",
+                "type": "uint256[]"
+              },
+              {
+                "internalType": "uint256[]",
+                "name": "limits",
+                "type": "uint256[]"
+              }
+            ],
+            "internalType": "struct TokenLimits",
+            "name": "tokenLimits",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Drop",
+        "name": "_newDrop",
+        "type": "tuple"
+      }
+    ],
+    "name": "updateDrop",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      }
+    ],
+    "name": "upgradeTo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newImplementation",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "upgradeToAndCall",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "root",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32[]",
+        "name": "proof",
+        "type": "bytes32[]"
+      },
+      {
+        "internalType": "address",
+        "name": "addr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "tokenIds",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "prices",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "quantities",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "enum TokenType",
+        "name": "tokenType",
+        "type": "uint8"
+      }
+    ],
+    "name": "verifyProof",
+    "outputs": [],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]

@@ -1,0 +1,1243 @@
+{
+  "campaigns": {
+    "0": {
+      "eligibility": {
+        "campaignsCompleted": {
+          "campaigns": []
+        }
+      },
+      "quest": {
+        "referralTask": {
+          "referralTaskEnabled": false
+        },
+        "taskIds": [
+          "66d6c2eba46881a4079a611e",
+          "66d6e936a46881a4079ad1c0",
+          "66d72214a46881a4079b8c35",
+          "66d73e5c9085ecd322196091"
+        ],
+        "tasks": [
+          {
+            "_id": "66d6c2eba46881a4079a611e",
+            "adminInputs": [
+              {
+                "key": "API_REQUEST_ID",
+                "inputType": "SELECT_ASYNC",
+                "label": "Select Integrated Task APIs",
+                "placeholder": "Search APIs",
+                "value": "66d578c0a46881a4079676fb",
+                "optionsFrom": "https://api.intract.io/api/v1/enterprise/task-options?type=TaskAPI",
+                "_id": "66d9ada89085ecd32220b6e5"
+              }
+            ],
+            "asyncVerifyConfig": {
+              "isAsyncVerify": false,
+              "isScatterEnabled": false,
+              "maxRetryCount": 0,
+              "maxScatterInSeconds": 0,
+              "retryTimeInSeconds": 0,
+              "verifyTimeInSeconds": 0
+            },
+            "campaignId": "66bb5618c8ff56cba848ea8f",
+            "completedUsersCount": 31403,
+            "createdAt": "2024-09-03T08:03:56.307Z",
+            "customInitiationURL": "https://www.nile.build/manage/v1/0x0040f36784dda0821e74ba67f86e084d70d67a3a",
+            "description": "Provide liquidity to Zero/ETH on Nile (atleast $15).",
+            "firstAttemptWaitTimeInSeconds": 5,
+            "flashTaskConfig": {
+              "isFlashTask": false
+            },
+            "initiatedUsersCount": 36374,
+            "isAddedLater": false,
+            "isDeleted": false,
+            "isRequiredTask": true,
+            "isTaskMigrated": false,
+            "isThroughoutCampaignDuration": true,
+            "isVisibleAfterCompletion": true,
+            "logo": {
+              "value": "bi-distribute-vertical",
+              "type": "icon"
+            },
+            "maxFailedCountConfig": {
+              "maxFailedCount": 0,
+              "isMaxFailedCountEnabled": false,
+              "isDiminishingXpEnabled": false
+            },
+            "metricBasedXpConfig": {
+              "functionType": "NONE"
+            },
+            "name": "Verify task with your API",
+            "powVerifyConfig": {
+              "isPOWVerify": false
+            },
+            "rateLimitConfig": {
+              "isRateLimitEnabled": false,
+              "rateLimitDurationSecs": []
+            },
+            "reAttemptWaitTimeInSeconds": 10,
+            "recurrenceConfig": {
+              "isRecurring": false,
+              "frequencyInDays": 0
+            },
+            "recurrenceMetrics": {
+              "bracketMetrics": [],
+              "numTimesCompletedMetrics": []
+            },
+            "reliabilityConfig": {
+              "isDown": false
+            },
+            "requiredLogins": [
+              "EVMWallet"
+            ],
+            "slides": [
+              {
+                "title": "Note while completing the task.",
+                "content": "<p>You can swap on this platform only in case you do not have Zero for liquidity. Go to the \"Swap\" option on left corner.</p>"
+              }
+            ],
+            "tags": [],
+            "templateFamily": "CUSTOM",
+            "templateType": "ApiBasedVerification",
+            "timeSeriesMetrics": {
+              "completedUsers": [
+                {
+                  "timestamp": "2024-09-05T00:00:00.000Z",
+                  "count": 1106
+                },
+                {
+                  "timestamp": "2024-09-06T00:00:00.000Z",
+                  "count": 3284
+                },
+                {
+                  "timestamp": "2024-09-07T00:00:00.000Z",
+                  "count": 5401
+                },
+                {
+                  "timestamp": "2024-09-08T00:00:00.000Z",
+                  "count": 8782
+                },
+                {
+                  "timestamp": "2024-09-09T00:00:00.000Z",
+                  "count": 9859
+                },
+                {
+                  "timestamp": "2024-09-10T00:00:00.000Z",
+                  "count": 2977
+                }
+              ]
+            },
+            "updatedAt": "2024-09-10T07:46:26.441Z",
+            "userInputs": {
+              "initiateButton": {
+                "isExist": true,
+                "label": "Initiate",
+                "baseLink": "https://www.nile.build/manage/v1/0x0040f36784dda0821e74ba67f86e084d70d67a3a"
+              },
+              "verifyButton": {
+                "label": "Verify"
+              },
+              "dynamicInputs": []
+            },
+            "verificationData": {},
+            "xp": 25
+          },
+          {
+            "_id": "66d6e936a46881a4079ad1c0",
+            "adminInputs": [
+              {
+                "key": "API_REQUEST_ID",
+                "inputType": "SELECT_ASYNC",
+                "label": "Select Integrated Task APIs",
+                "placeholder": "Search APIs",
+                "value": "66d6ea09a46881a4079ae470",
+                "optionsFrom": "https://api.intract.io/api/v1/enterprise/task-options?type=TaskAPI",
+                "_id": "66d9ada89085ecd32220b6e8"
+              }
+            ],
+            "asyncVerifyConfig": {
+              "isAsyncVerify": false,
+              "isScatterEnabled": false,
+              "maxRetryCount": 0,
+              "maxScatterInSeconds": 0,
+              "retryTimeInSeconds": 0,
+              "verifyTimeInSeconds": 0
+            },
+            "campaignId": "66bb5618c8ff56cba848ea8f",
+            "completedUsersCount": 38201,
+            "createdAt": "2024-09-03T10:47:19.640Z",
+            "customInitiationURL": "https://app.zerolend.xyz/dashboard/?utm_source=Intract&utm_medium=Website&utm_campaign=Linea+LXP+Last+Rush+",
+            "description": "Supply any asset on Linea on Zerolend (atleast $15).",
+            "firstAttemptWaitTimeInSeconds": 5,
+            "flashTaskConfig": {
+              "isFlashTask": false
+            },
+            "initiatedUsersCount": 40631,
+            "isAddedLater": false,
+            "isDeleted": false,
+            "isRequiredTask": true,
+            "isTaskMigrated": false,
+            "isThroughoutCampaignDuration": true,
+            "isVisibleAfterCompletion": true,
+            "logo": {
+              "value": "bi-distribute-vertical",
+              "type": "icon"
+            },
+            "maxFailedCountConfig": {
+              "maxFailedCount": 0,
+              "isMaxFailedCountEnabled": false,
+              "isDiminishingXpEnabled": false
+            },
+            "metricBasedXpConfig": {
+              "functionType": "NONE"
+            },
+            "name": "Verify task with your API",
+            "powVerifyConfig": {
+              "isPOWVerify": false
+            },
+            "rateLimitConfig": {
+              "isRateLimitEnabled": false,
+              "rateLimitDurationSecs": []
+            },
+            "reAttemptWaitTimeInSeconds": 10,
+            "recurrenceConfig": {
+              "isRecurring": false,
+              "frequencyInDays": 0
+            },
+            "recurrenceMetrics": {
+              "bracketMetrics": [],
+              "numTimesCompletedMetrics": []
+            },
+            "reliabilityConfig": {
+              "isDown": false
+            },
+            "requiredLogins": [
+              "EVMWallet"
+            ],
+            "slides": [],
+            "tags": [],
+            "templateFamily": "CUSTOM",
+            "templateType": "ApiBasedVerification",
+            "timeSeriesMetrics": {
+              "completedUsers": [
+                {
+                  "timestamp": "2024-09-05T00:00:00.000Z",
+                  "count": 1848
+                },
+                {
+                  "timestamp": "2024-09-06T00:00:00.000Z",
+                  "count": 6068
+                },
+                {
+                  "timestamp": "2024-09-07T00:00:00.000Z",
+                  "count": 7205
+                },
+                {
+                  "timestamp": "2024-09-08T00:00:00.000Z",
+                  "count": 9031
+                },
+                {
+                  "timestamp": "2024-09-09T00:00:00.000Z",
+                  "count": 10669
+                },
+                {
+                  "timestamp": "2024-09-10T00:00:00.000Z",
+                  "count": 3388
+                }
+              ]
+            },
+            "updatedAt": "2024-09-10T07:46:26.441Z",
+            "userInputs": {
+              "initiateButton": {
+                "isExist": true,
+                "label": "Initiate",
+                "baseLink": "https://app.zerolend.xyz/dashboard/?utm_source=Intract&utm_medium=Website&utm_campaign=Linea+LXP+Last+Rush+"
+              },
+              "verifyButton": {
+                "label": "Verify"
+              },
+              "dynamicInputs": []
+            },
+            "verificationData": {},
+            "xp": 25
+          },
+          {
+            "_id": "66d72214a46881a4079b8c35",
+            "adminInputs": [
+              {
+                "key": "API_REQUEST_ID",
+                "inputType": "SELECT_ASYNC",
+                "label": "Select Integrated Task APIs",
+                "placeholder": "Search APIs",
+                "value": "66d578e0a46881a407967790",
+                "optionsFrom": "https://api.intract.io/api/v1/enterprise/task-options?type=TaskAPI",
+                "_id": "66d9ada89085ecd32220b6eb"
+              }
+            ],
+            "asyncVerifyConfig": {
+              "isAsyncVerify": false,
+              "isScatterEnabled": false,
+              "maxRetryCount": 0,
+              "maxScatterInSeconds": 0,
+              "retryTimeInSeconds": 0,
+              "verifyTimeInSeconds": 0
+            },
+            "campaignId": "66bb5618c8ff56cba848ea8f",
+            "completedUsersCount": 31295,
+            "createdAt": "2024-09-03T14:49:58.039Z",
+            "customInitiationURL": "https://www.nile.build/manage/v1/0xfc6a4cd4007c3d24d37114d81a801a56f9536625",
+            "description": "Provide liquidity to Nile/ETH on Nile (atleast $15).",
+            "firstAttemptWaitTimeInSeconds": 5,
+            "flashTaskConfig": {
+              "isFlashTask": false
+            },
+            "initiatedUsersCount": 33170,
+            "isAddedLater": false,
+            "isDeleted": false,
+            "isRequiredTask": true,
+            "isTaskMigrated": false,
+            "isThroughoutCampaignDuration": true,
+            "isVisibleAfterCompletion": true,
+            "logo": {
+              "value": "bi-distribute-vertical",
+              "type": "icon"
+            },
+            "maxFailedCountConfig": {
+              "maxFailedCount": 0,
+              "isMaxFailedCountEnabled": false,
+              "isDiminishingXpEnabled": false
+            },
+            "metricBasedXpConfig": {
+              "functionType": "NONE"
+            },
+            "name": "Verify task with your API",
+            "powVerifyConfig": {
+              "isPOWVerify": false
+            },
+            "rateLimitConfig": {
+              "isRateLimitEnabled": false,
+              "rateLimitDurationSecs": []
+            },
+            "reAttemptWaitTimeInSeconds": 10,
+            "recurrenceConfig": {
+              "isRecurring": false,
+              "frequencyInDays": 0
+            },
+            "recurrenceMetrics": {
+              "bracketMetrics": [],
+              "numTimesCompletedMetrics": []
+            },
+            "reliabilityConfig": {
+              "isDown": false
+            },
+            "requiredLogins": [
+              "EVMWallet"
+            ],
+            "slides": [
+              {
+                "title": "Note while completing the task",
+                "content": "<p>You can swap on this platform only in case you do not have Nile for liquidity. Go to the \"Swap\" option on left corner.</p>"
+              }
+            ],
+            "tags": [],
+            "templateFamily": "CUSTOM",
+            "templateType": "ApiBasedVerification",
+            "timeSeriesMetrics": {
+              "completedUsers": [
+                {
+                  "timestamp": "2024-09-05T00:00:00.000Z",
+                  "count": 1036
+                },
+                {
+                  "timestamp": "2024-09-06T00:00:00.000Z",
+                  "count": 4340
+                },
+                {
+                  "timestamp": "2024-09-07T00:00:00.000Z",
+                  "count": 5660
+                },
+                {
+                  "timestamp": "2024-09-08T00:00:00.000Z",
+                  "count": 7907
+                },
+                {
+                  "timestamp": "2024-09-09T00:00:00.000Z",
+                  "count": 9465
+                },
+                {
+                  "timestamp": "2024-09-10T00:00:00.000Z",
+                  "count": 2895
+                }
+              ]
+            },
+            "updatedAt": "2024-09-10T07:46:26.441Z",
+            "userInputs": {
+              "initiateButton": {
+                "isExist": true,
+                "label": "Initiate",
+                "baseLink": "https://www.nile.build/manage/v1/0xfc6a4cd4007c3d24d37114d81a801a56f9536625"
+              },
+              "verifyButton": {
+                "label": "Verify"
+              },
+              "dynamicInputs": []
+            },
+            "verificationData": {},
+            "xp": 25
+          },
+          {
+            "_id": "66d73e5c9085ecd322196091",
+            "adminInputs": [
+              {
+                "key": "API_REQUEST_ID",
+                "inputType": "SELECT_ASYNC",
+                "label": "Select Integrated Task APIs",
+                "placeholder": "Search APIs",
+                "value": "66d536caa46881a40795a7cf",
+                "optionsFrom": "https://api.intract.io/api/v1/enterprise/task-options?type=TaskAPI",
+                "_id": "66d9b75b9085ecd32220e0a5"
+              }
+            ],
+            "asyncVerifyConfig": {
+              "isAsyncVerify": false,
+              "isScatterEnabled": false,
+              "maxRetryCount": 0,
+              "maxScatterInSeconds": 0,
+              "retryTimeInSeconds": 0,
+              "verifyTimeInSeconds": 0
+            },
+            "campaignId": "66bb5618c8ff56cba848ea8f",
+            "completedUsersCount": 24396,
+            "createdAt": "2024-09-03T16:50:37.898Z",
+            "customInitiationURL": "https://app.zerolend.xyz/stake/?utm_source=Intract&utm_medium=website&utm_campaign=Linea+LXP+Last+Rush",
+            "description": "Stake Zero/ETH on Zerolend.",
+            "firstAttemptWaitTimeInSeconds": 5,
+            "flashTaskConfig": {
+              "isFlashTask": false
+            },
+            "initiatedUsersCount": 28859,
+            "isAddedLater": false,
+            "isDeleted": false,
+            "isRequiredTask": false,
+            "isTaskMigrated": false,
+            "isThroughoutCampaignDuration": true,
+            "isVisibleAfterCompletion": true,
+            "logo": {
+              "value": "bi-distribute-vertical",
+              "type": "icon"
+            },
+            "maxFailedCountConfig": {
+              "maxFailedCount": 0,
+              "isMaxFailedCountEnabled": false,
+              "isDiminishingXpEnabled": false
+            },
+            "metricBasedXpConfig": {
+              "functionType": "NONE"
+            },
+            "name": "Verify task with your API",
+            "powVerifyConfig": {
+              "isPOWVerify": false
+            },
+            "rateLimitConfig": {
+              "isRateLimitEnabled": false,
+              "rateLimitDurationSecs": []
+            },
+            "reAttemptWaitTimeInSeconds": 10,
+            "recurrenceConfig": {
+              "isRecurring": false,
+              "frequencyInDays": 0
+            },
+            "recurrenceMetrics": {
+              "bracketMetrics": [],
+              "numTimesCompletedMetrics": []
+            },
+            "reliabilityConfig": {
+              "isDown": false
+            },
+            "requiredLogins": [
+              "EVMWallet"
+            ],
+            "slides": [
+              {
+                "title": "Steps to complete the task",
+                "content": "<p>To complete the task , pls refer to the guide below :</p><p><a href=\"https://docs.zerolend.xyz/tutorials/stake-zero-zlp-tokens\" rel=\"noopener noreferrer\" target=\"_blank\">https://docs.zerolend.xyz/tutorials/stake-zero-zlp-tokens</a></p>"
+              }
+            ],
+            "tags": [],
+            "templateFamily": "CUSTOM",
+            "templateType": "ApiBasedVerification",
+            "timeSeriesMetrics": {
+              "completedUsers": [
+                {
+                  "timestamp": "2024-09-05T00:00:00.000Z",
+                  "count": 634
+                },
+                {
+                  "timestamp": "2024-09-06T00:00:00.000Z",
+                  "count": 2972
+                },
+                {
+                  "timestamp": "2024-09-07T00:00:00.000Z",
+                  "count": 4140
+                },
+                {
+                  "timestamp": "2024-09-08T00:00:00.000Z",
+                  "count": 6472
+                },
+                {
+                  "timestamp": "2024-09-09T00:00:00.000Z",
+                  "count": 7832
+                },
+                {
+                  "timestamp": "2024-09-10T00:00:00.000Z",
+                  "count": 2350
+                }
+              ]
+            },
+            "updatedAt": "2024-09-10T07:46:26.441Z",
+            "userInputs": {
+              "initiateButton": {
+                "isExist": true,
+                "label": "Initiate",
+                "baseLink": "https://app.zerolend.xyz/stake/?utm_source=Intract&utm_medium=website&utm_campaign=Linea+LXP+Last+Rush"
+              },
+              "verifyButton": {
+                "label": "Verify"
+              },
+              "dynamicInputs": []
+            },
+            "verificationData": {},
+            "xp": 25
+          }
+        ]
+      },
+      "leaderboard": {
+        "lastSynced": "2024-09-05T13:10:00.458Z",
+        "rankColumn": "XP",
+        "isExist": true
+      },
+      "announcements": {
+        "discord": {
+          "isActive": true,
+          "isSent": false
+        }
+      },
+      "luckyDraw": {
+        "isActive": false,
+        "isLuckyWinnersSelected": false,
+        "selectWinnersAfter": "2024-09-19T14:00:00.000Z"
+      },
+      "leaderboardReward": {
+        "isActive": false,
+        "isLeaderboardWinnersSelected": false,
+        "selectWinnersAfter": "2024-09-19T14:00:00.000Z"
+      },
+      "journeysCompletion": {
+        "isActive": false,
+        "isJourneysCompleted": false,
+        "journeysCompletedAfter": "2024-09-19T14:00:00.000Z"
+      },
+      "staggeredConfig": {
+        "isActive": false
+      },
+      "cryptoTwitterBuzz": {
+        "kols": []
+      },
+      "customCompletions": {
+        "requiredXPs": 0
+      },
+      "twitterShare": {
+        "text": "",
+        "link": ""
+      },
+      "timeSeriesMetrics": {
+        "pageViewUsers": [
+          {
+            "timestamp": "2024-09-05T00:00:00.000Z",
+            "count": 5401
+          },
+          {
+            "timestamp": "2024-09-06T00:00:00.000Z",
+            "count": 11166
+          },
+          {
+            "timestamp": "2024-09-07T00:00:00.000Z",
+            "count": 8873
+          },
+          {
+            "timestamp": "2024-09-08T00:00:00.000Z",
+            "count": 10730
+          },
+          {
+            "timestamp": "2024-09-09T00:00:00.000Z",
+            "count": 11742
+          },
+          {
+            "timestamp": "2024-09-10T00:00:00.000Z",
+            "count": 3786
+          }
+        ],
+        "initiatedUsers": [
+          {
+            "timestamp": "2024-09-05T00:00:00.000Z",
+            "count": 3258
+          },
+          {
+            "timestamp": "2024-09-06T00:00:00.000Z",
+            "count": 8179
+          },
+          {
+            "timestamp": "2024-09-07T00:00:00.000Z",
+            "count": 7920
+          },
+          {
+            "timestamp": "2024-09-08T00:00:00.000Z",
+            "count": 9700
+          },
+          {
+            "timestamp": "2024-09-09T00:00:00.000Z",
+            "count": 11251
+          },
+          {
+            "timestamp": "2024-09-10T00:00:00.000Z",
+            "count": 3606
+          }
+        ],
+        "completedUsers": [
+          {
+            "timestamp": "2024-09-05T00:00:00.000Z",
+            "count": 990
+          },
+          {
+            "timestamp": "2024-09-06T00:00:00.000Z",
+            "count": 2996
+          },
+          {
+            "timestamp": "2024-09-07T00:00:00.000Z",
+            "count": 5037
+          },
+          {
+            "timestamp": "2024-09-08T00:00:00.000Z",
+            "count": 8610
+          },
+          {
+            "timestamp": "2024-09-09T00:00:00.000Z",
+            "count": 9685
+          },
+          {
+            "timestamp": "2024-09-10T00:00:00.000Z",
+            "count": 2906
+          }
+        ]
+      },
+      "seoMetadata": {
+        "title": "",
+        "description": "",
+        "keywords": ""
+      },
+      "bannerPosition": {
+        "x": 1.2804097311139566,
+        "y": 0
+      },
+      "_id": "66bb5618c8ff56cba848ea8f",
+      "name": "Linea LXP Latest Rush",
+      "category": "CUSTOM",
+      "description": "<p>Get a chance to participate in one of the most attractive points system of 2024, the Linea LXP.</p><p><br></p><p>Get Linea LXP and Linea ecosystem tokens - a $1000 reward in <span style=\"color: rgb(40, 146, 255);\">$ZERO</span> (ZeroLend), the largest lending platform on Linea and $1000 in <span style=\"color: rgb(40, 146, 255);\">$NILE</span> (Nile Exchange), the largest DEX on Linea.</p><p><br></p><p><strong>Rewards Breakdown:&nbsp;</strong></p><p>- 25 Linea LXP per task&nbsp;</p><p>- $500 in <span style=\"color: rgb(40, 146, 255);\">$ZERO</span> to the largest <span style=\"color: rgb(40, 146, 255);\">$ZERO</span>/<span style=\"color: rgb(40, 146, 255);\">$ETH</span> staker + exclusive Linea merch (sponsored by ZeroLend)</p><p>- $100 each in <span style=\"color: rgb(40, 146, 255);\">$ZERO</span> to 5 users selected in a raffle who complete all tasks + ZeroLend merch to all&nbsp;</p><p>- $1000 in <span style=\"color: rgb(40, 146, 255);\">$NILE</span> tokens to be distributed equally to all participants who complete all 4 tasks</p>",
+      "isIntractAcademyCampaign": false,
+      "startDate": "2024-09-05T13:10:00.458Z",
+      "endDate": "2024-09-19T14:00:00.000Z",
+      "claimDate": "2024-10-19T14:00:00.000Z",
+      "startDateTz": "UTC",
+      "endDateTz": "UTC",
+      "startImmediately": true,
+      "noEndTime": false,
+      "slug": "linea-lxp-last-rush-",
+      "enterpriseSlug": "zerolend",
+      "followerCount": 363,
+      "campaignType": "QUEST",
+      "taskGroupList": [],
+      "taskSections": [
+        {
+          "title": "default",
+          "displayData": [
+            {
+              "unitType": "TASK",
+              "unitId": "66d6c2eba46881a4079a611e"
+            },
+            {
+              "unitType": "TASK",
+              "unitId": "66d6e936a46881a4079ad1c0"
+            },
+            {
+              "unitType": "TASK",
+              "unitId": "66d72214a46881a4079b8c35"
+            },
+            {
+              "unitType": "TASK",
+              "unitId": "66d73e5c9085ecd322196091"
+            }
+          ],
+          "isDefaultSection": true,
+          "_id": "66d9ada89085ecd32220b670",
+          "tags": []
+        }
+      ],
+      "reward": [
+        {
+          "whitelistReward": {
+            "name": "LXP",
+            "image": "https://static.highongrowth.xyz/enterprise/660c1fa77851c55d93a1c0e0/1505a62137a74498bd3d5ece1e4b08bd.png",
+            "enableCustomPoints": true,
+            "pointsPerUser": 100
+          },
+          "externalDropReward": {
+            "funcParams": []
+          },
+          "_id": "66d845149085ecd3221c9d70",
+          "category": "WHITELIST",
+          "method": "UNLIMITED",
+          "numRewards": null,
+          "countLeft": null,
+          "countWon": 30251,
+          "countInitiated": 0,
+          "countClaimed": 0,
+          "isUnlimited": true,
+          "isLuckyWinnersSelected": false,
+          "isLeaderboardWinnersSelected": false,
+          "isDistributedOnPlatform": true,
+          "isDistributedOnPlatformAfterLaunch": false
+        }
+      ],
+      "channels": [
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "Default channel",
+          "medium": "DEFAULT",
+          "isPaid": false,
+          "isDefault": true,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d224",
+              "totalUsersCompleted": 31436
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d225",
+              "totalUsersCompleted": 38279
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d226",
+              "totalUsersCompleted": 31338
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d227",
+              "totalUsersCompleted": 24417
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b6f5"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "Homepage channel",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "homepage",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d228"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d229"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d22a"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d22b"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b6fa"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "HOMEPAGE_BANNER",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "HOMEPAGE_BANNER",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d22c"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d22d"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d22e"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d22f"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b6ff"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "HOMEPAGE_TOKEN",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "HOMEPAGE_TOKEN",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d230"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d231"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d232"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d233"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b704"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "HOMEPAGE_NFT",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "HOMEPAGE_NFT",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d234"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d235"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d236"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d237"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b709"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "HOMEPAGE_TOP_COMMUNITY",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "HOMEPAGE_TOP_COMMUNITY",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d238"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d239"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d23a"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d23b"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b70e"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "HOMEPAGE_TRENDING",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "HOMEPAGE_TRENDING",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d23c"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d23d"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d23e"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d23f"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b713"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "QUEST_TRENDING",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "QUEST_TRENDING",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d240"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d241"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d242"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d243"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b718"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "EXPLORE",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "EXPLORE",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d244"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d245"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d246"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d247"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b71d"
+        },
+        {
+          "funnel": {
+            "logins": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            },
+            "completed": {
+              "uniqueUsers": 0,
+              "newUsers": 0,
+              "newTwitterUsers": 0,
+              "newDiscordUsers": 0,
+              "newWalletUsers": 0,
+              "newOnchainUsers": 0
+            }
+          },
+          "name": "COMMUNITY",
+          "medium": "HOMEPAGE",
+          "uniqueCode": "COMMUNITY",
+          "isPaid": false,
+          "isDefault": false,
+          "taskData": [
+            {
+              "taskId": "66d6c2eba46881a4079a611e",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d248"
+            },
+            {
+              "taskId": "66d6e936a46881a4079ad1c0",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d249"
+            },
+            {
+              "taskId": "66d72214a46881a4079b8c35",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d24a"
+            },
+            {
+              "taskId": "66d73e5c9085ecd322196091",
+              "isDeleted": false,
+              "_id": "66d9b3c19085ecd32220d24b"
+            }
+          ],
+          "_id": "66d9ada89085ecd32220b722"
+        }
+      ],
+      "status": "ACTIVE",
+      "isDeleted": false,
+      "enterpriseId": "660c1fa77851c55d93a1c0e0",
+      "source": "INTRACT",
+      "tags": [
+        {
+          "key": "chainId",
+          "value": "59144",
+          "_id": "66d9ada89085ecd32220b6f2"
+        },
+        {
+          "key": "REWARD",
+          "value": "WHITELIST",
+          "_id": "66d9ada89085ecd32220b773"
+        }
+      ],
+      "isContinuous": false,
+      "isVerified": false,
+      "autoXpClaim": true,
+      "isEnterpriseApproved": true,
+      "isDisclaimerRemoved": false,
+      "enterpriseName": "ZeroLend",
+      "enterpriseLogo": "https://static.highongrowth.xyz/enterprise/660c1fa77851c55d93a1c0e0/9ad173e5bfd3473899d078e7a68f35f9.jpg",
+      "campaignCategory": "NONE",
+      "lowSuccessRate": false,
+      "pageViewUsersCount": 51671,
+      "initiatedUsersCount": 43887,
+      "completedUsersCount": 30218,
+      "isTaskMigrated": false,
+      "totalXp": 100,
+      "narrativeTexts": [
+        {
+          "key": "default",
+          "text": "XP = LXP ; complete the campaign and win 100 LXP",
+          "_id": "66d9ada89085ecd32220b6f3"
+        }
+      ],
+      "ecosystems": [],
+      "projectsIncluded": [],
+      "createdAt": "2024-08-13T12:48:24.729Z",
+      "updatedAt": "2024-09-10T07:46:32.518Z",
+      "baseLink": "https://quest.intract.io/66bb5618c8ff56cba848ea8f",
+      "banner": "https://static.highongrowth.xyz/enterprise/660c1fa77851c55d93a1c0e0/6a6d63f836ae4a56988408a26be86df5.jpg",
+      "restrictedLocations": [],
+      "publishCampaign": true,
+      "isLocked": false
+    }
+  }
+}

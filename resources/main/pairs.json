@@ -1,0 +1,516 @@
+{
+  "ZKSYNC": {
+    "syncswap": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>WBTC",
+        "tokens": [
+          "ETH",
+          "WBTC"
+        ],
+        "slippage": 3
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 1
+      },
+      {
+        "name": "ETH>zkUSD",
+        "tokens": [
+          "ETH",
+          "zkUSD"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>ceBNB",
+        "tokens": [
+          "ETH",
+          "ceBNB"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "USDC>FRAX",
+        "tokens": [
+          "USDC",
+          "FRAX"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "USDC>ceMATIC",
+        "tokens": [
+          "USDC",
+          "ceMATIC"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "USDC>zkUSD",
+        "tokens": [
+          "USDC",
+          "zkUSD"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "USDC>ceBNB",
+        "tokens": [
+          "USDC",
+          "ceBNB"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>ZKDOGE",
+        "tokens": [
+          "ETH",
+          "ZKDOGE"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>MUTE",
+        "tokens": [
+          "ETH",
+          "MUTE"
+        ],
+        "app": "syncswap",
+        "slippage": 5
+      },
+      {
+        "name": "USDC>WBTC",
+        "tokens": [
+          "USDC",
+          "WBTC"
+        ],
+        "app": "syncswap",
+        "slippage": 5
+      }
+    ],
+    "mute": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>WBTC",
+        "tokens": [
+          "ETH",
+          "WBTC"
+        ],
+        "slippage": 3
+      },
+      {
+        "name": "ETH>BOLT",
+        "tokens": [
+          "ETH",
+          "BOLT"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "USDC>BOLT",
+        "tokens": [
+          "USDC",
+          "BOLT"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "USDC>ZKDOGE",
+        "tokens": [
+          "USDC",
+          "ZKDOGE"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>ZKINA",
+        "tokens": [
+          "USDC",
+          "ZKINA"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>MUTE",
+        "tokens": [
+          "ETH",
+          "MUTE"
+        ],
+        "app": "mute",
+        "slippage": 5
+      },
+      {
+        "name": "USDC>WBTC",
+        "tokens": [
+          "USDC",
+          "WBTC"
+        ],
+        "app": "mute",
+        "slippage": 5
+      }
+    ],
+    "woofi": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "maverick": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "velocore": [
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>WBTC",
+        "tokens": [
+          "ETH",
+          "WBTC"
+        ],
+        "slippage": 3
+      },
+      {
+        "name": "ETH>VC",
+        "tokens": [
+          "ETH",
+          "VC"
+        ],
+        "slippage": 5
+      }
+    ],
+    "pancake": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 2
+      }
+    ],
+    "odos": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 2
+      }
+    ]
+  },
+  "LINEA": {
+    "syncswap": [
+      {
+        "name": "ETH>wstETH",
+        "tokens": [
+          "ETH",
+          "wstETH"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 2
+      }
+    ],
+    "woofi": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "horizondex": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "pancake": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "lineaswap": [
+      {
+        "name": "ETH>LIN",
+        "tokens": [
+          "ETH",
+          "LIN"
+        ],
+        "slippage": 5
+      }
+    ],
+    "odos": [
+      {
+        "name": "ETH>wstETH",
+        "tokens": [
+          "ETH",
+          "wstETH"
+        ],
+        "slippage": 5
+      }
+    ],
+    "izumi": [
+      {
+        "name": "ETH>wstETH",
+        "tokens": [
+          "ETH",
+          "wstETH"
+        ],
+        "slippage": 5
+      },
+      {
+        "name": "ETH>weETH",
+        "tokens": [
+          "ETH",
+          "weETH"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 2
+      }
+    ]
+  },
+  "BASE": {
+    "woofi": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "maverick": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDbC",
+        "tokens": [
+          "ETH",
+          "USDbC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "horizondex": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "pancake": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "odos": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ]
+  },
+  "SCROLL": {
+    "syncswap": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 2
+      }
+    ],
+    "xy.finance": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 1
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 1
+      }
+    ],
+    "zebra": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 1
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "slippage": 1
+      }
+    ]
+  },
+  "ARBITRUM": {
+    "pancake": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      }
+    ],
+    "woofi": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDCe",
+        "tokens": [
+          "ETH",
+          "USDCe"
+        ],
+        "slippage": 2
+      }
+    ]
+  }
+}

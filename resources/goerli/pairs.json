@@ -1,0 +1,113 @@
+{
+  "ZKSYNC": [
+    {
+      "syncswap": [
+        {
+          "name": "ETH>USDC",
+          "tokens": [
+            "ETH",
+            "USDC"
+          ],
+          "amount": {
+            "from": 0.0005,
+            "to": 0.0015
+          },
+          "app": "syncswap"
+        },
+        {
+          "name": "ETH>WBTC",
+          "tokens": [
+            "ETH",
+            "WBTC"
+          ],
+          "amount": {
+            "from": 0.0005,
+            "to": 0.0015
+          },
+          "app": "syncswap"
+        }
+      ]
+    }
+  ],
+  "BASE": [
+    {
+      "woofi": {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "maverick_pool_address": "0x06e6736ca9e922766279a22b75a600fe8b8473b6",
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      "maverick": {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "maverick_pool_address": "0x06e6736ca9e922766279a22b75a600fe8b8473b6",
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      "horizondex": {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "maverick_pool_address": "0x06e6736ca9e922766279a22b75a600fe8b8473b6",
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      "pancake": {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "maverick_pool_address": "0x06e6736ca9e922766279a22b75a600fe8b8473b6",
+        "amount": "all_balance",
+        "slippage": 2
+      }
+    }
+  ],
+  "LINEA": [
+    {
+      "syncswap": [
+        {
+          "name": "ETH>USDC",
+          "tokens": [
+            "ETH",
+            "USDC"
+          ],
+          "amount": "all_balance",
+          "slippage": 2
+        }
+      ],
+      "woofi": [
+        {
+          "name": "ETH>USDC",
+          "tokens": [
+            "ETH",
+            "USDC"
+          ],
+          "amount": "all_balance",
+          "slippage": 2
+        }
+      ],
+      "pancake": [
+        {
+          "name": "ETH>USDC",
+          "tokens": [
+            "ETH",
+            "USDC"
+          ],
+          "amount": "all_balance",
+          "slippage": 2
+        }
+      ]
+    }
+  ]
+}

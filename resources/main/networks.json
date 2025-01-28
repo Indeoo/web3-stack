@@ -1,0 +1,272 @@
+{
+  "ETH_MAINNET": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "rpc": "https://rpc.ankr.com/eth",
+    "scan": "https://etherscan.io/",
+    "api_scan": "https://api.etherscan.io/",
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 1
+  },
+  "ZKSYNC": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 324,
+    "rpc": "https://mainnet.era.zksync.io/",
+    "scan": "https://explorer.zksync.io/",
+    "api_scan": "https://block-explorer-api.mainnet.zksync.io",
+    "api_scan_key": "test",
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 324
+  },
+  "BASE": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": true,
+    "stargate_usdc_pool": 1,
+    "stargate_eth_pool": 13,
+    "stargate_chain_id": 184,
+    "rpc": "https://mainnet.base.org",
+    "scan": "https://basescan.org/",
+    "api_scan": "https://api.basescan.org/",
+    "api_scan_key": "H12SMQKJFJGE6J1ZJ8AVBTJ9C9EN4DSCRG",
+    "max_l0_fee": 0.002,
+    "transaction_sleep_interval": {
+      "from": 40,
+      "to": 60
+    },
+    "chain_id": 8453
+  },
+  "LINEA": {
+    "gas_token": "ETH",
+    "poa": true,
+    "eip1599": false,
+    "stargate_usdc_pool": 1,
+    "stargate_eth_pool": 13,
+    "chain_id": 59144,
+    "stargate_chain_id": 183,
+    "rpc": "https://rpc.linea.build",
+    "scan": "https://lineascan.build",
+    "api_scan": "https://api.lineascan.build",
+    "api_scan_key": "RKIM8E4TQ6QY8HFQBRH4ZDRFMQ7QMRU6I3",
+    "max_l0_fee": 0.0008,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "ARBITRUM": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "chain_id": 42161,
+    "stargate_chain_id": 110,
+    "rpc": "https://arbitrum.llamarpc.com",
+    "scan": "https://arbiscan.io/",
+    "api_scan": "https://api.arbiscan.io/",
+    "api_scan_key": "DU1MTB1UWKJVVW374181RMQUFFIDNCYNXA",
+    "max_l0_fee": 0.006,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    }
+  },
+  "ARBITRUM_NOVA": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 110,
+    "rpc": "https://arbitrum-nova.drpc.org",
+    "scan": "https://nova.arbiscan.io",
+    "scan_api": "https://api.nova.arbiscan.io",
+    "max_l0_fee": 0.006,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 42170
+  },
+  "SCROLL": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": false,
+    "usdc_pool": 1,
+    "rpc": "https://rpc.ankr.com/scroll",
+    "scan": "https://blockscout.scroll.io/",
+    "api_scan": "https://api.scrollscan.com/",
+    "api_scan_key": "Z83HMVNPX7CDS5TAA129V3UNA9X35Q2EEY",
+    "max_l0_fee": 1,
+    "stargate_chain_id": 214,
+    "stargate_usdc_pool": 1,
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    },
+    "chain_id": 534352
+  },
+  "BSC": {
+    "gas_token": "BNB",
+    "poa": true,
+    "eip1599": false,
+    "usdc_pool": 2,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 102,
+    "rpc": "https://bsc-dataseed1.binance.org/",
+    "scan": "https://bscscan.com",
+    "max_l0_fee": 0.0045,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 56
+  },
+  "FANTOM": {
+    "gas_token": "FTM",
+    "poa": false,
+    "eip1599": true,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 21,
+    "stargate_chain_id": 112,
+    "rpc": "https://rpc.ankr.com/fantom",
+    "scan": "https://ftmscan.com",
+    "max_l0_fee": 5,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 250
+  },
+  "OPTIMISM": {
+    "gas_token": "ETH",
+    "poa": false,
+    "eip1599": true,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 111,
+    "rpc": "https://optimism.blockpi.network/v1/rpc/public",
+    "scan": "https://explorer.optimism.io",
+    "max_l0_fee": 0.0008,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 10
+  },
+  "POLYGON": {
+    "gas_token": "MATIC",
+    "poa": true,
+    "eip1599": true,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 109,
+    "rpc": "https://polygon-rpc.com/",
+    "scan": "https://polygonscan.com",
+    "max_l0_fee": 6,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 137
+  },
+  "AVALANCHE": {
+    "gas_token": "AVAX",
+    "poa": true,
+    "eip1599": true,
+    "usdc_pool": 1,
+    "stargate_usdc_pool": 1,
+    "stargate_chain_id": 106,
+    "rpc": "https://api.avax.network/ext/bc/C/rpc",
+    "scan": "https://snowtrace.io",
+    "max_l0_fee": 0.5,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 43114
+  },
+  "ZKFAIR": {
+    "gas_token": "USDC",
+    "rpc": "https://rpc.zkfair.io",
+    "scan": "https://scan.zkfair.io",
+    "poa": false,
+    "eip1599": false,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 42766
+  },
+  "COREDAO": {
+    "gas_token": "CORE",
+    "rpc": "https://rpc.coredao.org/",
+    "scan": "https://explorer.coredao.org",
+    "poa": false,
+    "eip1599": false,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 1116
+  },
+  "MANTA": {
+    "gas_token": "ETH",
+    "rpc": "https://1rpc.io/manta",
+    "scan": "https://manta.socialscan.io",
+    "poa": false,
+    "eip1599": true,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 169
+  },
+  "ZORA": {
+    "gas_token": "ETH",
+    "rpc": "https://rpc.zora.co",
+    "scan": "https://zora.superscan.network",
+    "poa": false,
+    "eip1599": true,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 7777777
+  },
+  "POLYGON_ZK": {
+    "gas_token": "ETH",
+    "rpc": "https://polygon-zkevm-mainnet.public.blastapi.io",
+    "scan": "https://zkevm.polygonscan.com",
+    "poa": false,
+    "eip1599": false,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 1101
+  },
+  "X_LAYER": {
+    "gas_token": "OKB",
+    "rpc": "https://rpc.xlayer.tech",
+    "scan": "https://www.oklink.com/xlayer",
+    "poa": false,
+    "eip1599": false,
+    "transaction_sleep_interval": {
+      "from": 20,
+      "to": 40
+    },
+    "chain_id": 196
+  }
+}
