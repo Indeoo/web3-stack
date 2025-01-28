@@ -32,13 +32,6 @@ class LineaAppeal(Module):
         )
 
         chat_gpt = get_ai_chat(ai_type, token)
-        reason = chat_gpt.ask(self.linea_appeal_reason)
-        logger.info(reason)
-
-        statistics.write_row(
-            statistic_date_string,
-            [account.app_id, account.address, reason]
-        )
 
         if get_by_key(APPEAL_ACCOUNTS_AMOUNT) is None:
             add_value(
@@ -49,7 +42,6 @@ class LineaAppeal(Module):
         accumulate_by_key(
             APPEAL_ACCOUNTS, {
                 "address": account.address,
-                "reason": reason,
             }
         )
 
@@ -58,11 +50,18 @@ class LineaAppeal(Module):
 
         if (get_by_key(APPEAL_ACCOUNTS_AMOUNT) == len(get_by_key(APPEAL_ACCOUNTS))
                 or get_value("Acc Num") == get_value("Acc Amount")):
+            reason = chat_gpt.ask(self.linea_appeal_reason)
+            logger.info(reason)
+
+            statistics.write_row(
+                statistic_date_string,
+                [account.app_id, account.address, reason]
+            )
+
             wallets = get_by_key(APPEAL_ACCOUNTS)
             address_list = [wallet["address"] for wallet in wallets]
             address_list.remove(account.address)
-            formatted_string = "\n".join(f"{wallet['address']}\n{wallet['reason']}" for wallet in wallets)
-            self.open_appeal_form(account, "\n".join(address_list), formatted_string)
+            self.open_appeal_form(account, "\n".join(address_list), reason)
             remove_key(APPEAL_ACCOUNTS)
             remove_key(APPEAL_ACCOUNTS_AMOUNT)
 
