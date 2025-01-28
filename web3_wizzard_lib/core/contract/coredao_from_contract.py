@@ -1,10 +1,10 @@
 from sybil_engine.contract.contract import Contract
 from sybil_engine.contract.transaction_executor import l0_evm_transaction
+from sybil_engine.utils.file_loader import load_abi
 
 from web3_wizzard_lib.core.modules.stargate.l0_data import l0_chain_ids
 
-with open("resources/abi/coredao_bridge.json") as f:
-    abi = f.read()
+abi = load_abi("resources/abi/coredao_bridge.json")
 
 
 class CoreDaoFromContract(Contract):

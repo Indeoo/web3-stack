@@ -8,6 +8,9 @@ setup(
     version='0.2.1',
     py_modules=['web3_wizzard_lib'],
     packages=find_packages(),
+    package_data={
+        'web3_wizzard_lib': ['resources/**/*'],
+    },
     install_requires=requirements,
     data_files=[('', ['requirements.txt'])],
     author='Indeoo',

@@ -1,8 +1,8 @@
 from sybil_engine.contract.contract import Contract
 from sybil_engine.contract.transaction_executor import evm_transaction
+from sybil_engine.utils.file_loader import load_abi
 
-with open("resources/abi/stargate_v2.json") as f:
-    abi = f.read()
+abi = load_abi("resources/abi/stargate_v2.json")
 
 
 class StargateV2Contract(Contract):

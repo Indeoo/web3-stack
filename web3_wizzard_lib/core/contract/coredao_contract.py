@@ -1,9 +1,8 @@
 from sybil_engine.contract.contract import Contract
 from sybil_engine.contract.transaction_executor import l0_evm_transaction
+from sybil_engine.utils.file_loader import load_abi
 
-with open("resources/abi/coredao.json") as f:
-    abi = f.read()
-
+abi = load_abi("resources/abi/coredao.json")
 
 class CoreDaoContract(Contract):
     def __init__(self, contract_address, web3):

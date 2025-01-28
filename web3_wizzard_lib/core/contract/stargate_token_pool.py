@@ -1,10 +1,9 @@
 from loguru import logger
 from sybil_engine.contract.contract import Contract
+from sybil_engine.utils.file_loader import load_abi
 from web3 import Web3
 
-with open("resources/abi/stargate_token_pool.json") as f:
-    abi = f.read()
-
+abi = load_abi("resources/abi/stargate_token_pool.json")
 
 MAX_ALLOWANCE = 115792089237316195423570985008687907853269984665640564039457584007913129639935
 
