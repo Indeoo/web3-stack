@@ -11,7 +11,7 @@ from sybil_engine.utils.retry import retry
 from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.contract.linea_ens_names_contract import LineaEnsNamesContract
-from web3_wizzard_lib.core.modules.nft.sub_module import SubModule
+from web3_wizzard_lib.core.utils.sub_module import SubModule
 from web3_wizzard_lib.core.modules.nft_minter import SkipRetryException
 
 

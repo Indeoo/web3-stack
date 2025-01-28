@@ -10,7 +10,7 @@ from sybil_engine.utils.utils import ConfigurationException, randomized_sleeping
 from sybil_engine.utils.validation_utils import validate_interval
 
 from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
-from web3_wizzard_lib.core.modules.nft.sub_module import SubModule
+from web3_wizzard_lib.core.utils.sub_module import SubModule
 
 
 class NFTMinter(RepeatableModule):

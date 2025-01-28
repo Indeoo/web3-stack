@@ -9,7 +9,7 @@ from sybil_engine.utils.utils import SwapException
 from sybil_engine.utils.validation_utils import validate_amount_interval, validate_token
 from sybil_engine.utils.web3_utils import init_web3
 
-from web3_wizzard_lib.core.modules.swap.swap_facade import swap_facade
+from web3_wizzard_lib.core.modules.swap.swap_list import swap_facade
 
 
 class ConcreteSwap(Module):

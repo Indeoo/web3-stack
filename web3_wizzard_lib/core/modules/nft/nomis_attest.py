@@ -6,7 +6,7 @@ from sybil_engine.utils.retry import retry
 from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.contract.nomis_attest_contract import NomisAttestContract
-from web3_wizzard_lib.core.modules.nft.sub_module import SubModule
+from web3_wizzard_lib.core.utils.sub_module import SubModule
 
 
 class NomisAttest(SubModule):

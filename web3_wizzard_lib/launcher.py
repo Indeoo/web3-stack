@@ -8,7 +8,7 @@ from sybil_engine.app import launch_with_data
 from sybil_engine.utils.configuration_loader import load_module_vars
 
 import web3_wizzard_lib.core.modules
-from web3_wizzard_lib.core.modules.swap.swap_facade import swap_facade
+from web3_wizzard_lib.core.modules.swap.swap_list import swap_facade
 import importlib.util
 
 

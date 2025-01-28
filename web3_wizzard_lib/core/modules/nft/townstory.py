@@ -8,7 +8,7 @@ from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.contract.townstory_contract import TownstoryContract
 from web3_wizzard_lib.core.modules.nft.sign import sign_msg
-from web3_wizzard_lib.core.modules.nft.sub_module import SubModule
+from web3_wizzard_lib.core.utils.sub_module import SubModule
 
 
 class Townstory(SubModule):
