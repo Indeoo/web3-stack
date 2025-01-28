@@ -25,3 +25,18 @@ class ChatGPT:
         response = requests.post(url, headers=headers, json=data)
 
         return response.json()
+
+
+class MockAIChat:
+    def __init__(self, token):
+        self.token = token
+
+    def ask(self, question):
+        return f"ANSWER {question}"
+
+
+def get_ai_chat(ai_config, token):
+    if ai_config == 'CHAT_GPT':
+        return ChatGPT(token)
+    else:
+        return MockAIChat(token)
