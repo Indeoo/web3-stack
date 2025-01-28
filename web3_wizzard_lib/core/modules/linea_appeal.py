@@ -1,70 +1,87 @@
+import random
 import webbrowser
 
 from loguru import logger
 from sybil_engine.module.module import Module
-import requests
+from sybil_engine.utils.accumulator import add_accumulator, get_value
+from sybil_engine.utils.statistic_utils import get_statistic_writer, statistic_date_string
+
+from web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
+from sybil_engine.utils.telegram import add_config
+
+from web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key
+
+APPEAL_ACCOUNTS = "APPEAL_ACCOUNTS"
+APPEAL_ACCOUNTS_AMOUNT = "APPEAL_ACCOUNTS_AMOUNT"
 
 
 class LineaAppeal(Module):
     module_name = 'LINEA_APPEAL'
-    module_config = None
+    module_config = "linea_appeal_config"
+    base_url = "https://docs.google.com/forms/d/e/1FAIpQLSfkbHzC1hZTy6u5R8S5i6wQ2xCyUZQjvucmlyChwg04fJIO5Q/viewform"
 
-    # with open("resources/linea_appeal.txt") as f:
-    #     linea_appeal_reason = f.read()
+    with open("resources/linea_appeal.txt") as f:
+        linea_appeal_reason = f.read()
 
-    linea_appeal_reason = """
-        Меня проект Linea забанили акки и пометили как сибила. Планирую писать апелляции с указанием причин почему я не сибил. 
-        Вот список аргументов: 
-        1. Получал дроп LayerZero. 
-        2. Получал дроп ZKsync 
-        3. Получал дроп ODOS 
-        4. Был активен в более чем 10 сетях 
-        5. Потратил 60-100$ на кампании Линея начиная от Defi Voyage 
-        6. Прошел POH 
-        7. Получил дроп Scroll 
-        8. Обьем торгов по аккаунту более 100 тыс$. Возьми составь аргументации для 10 аккаунтов, 
-        выбрав рандомно от 5 до 8 из этих причин для разбана. Все на англ.
-        """
+    def execute(self, token, accounts, statistic_write, ai_type, account):
+        add_accumulator("Acc Num", 1)
 
-    def execute(self, account, chain="LINEA", statistic_write="GOOGLE"):
-        base_url = "https://docs.google.com/forms/d/e/1FAIpQLSfkbHzC1hZTy6u5R8S5i6wQ2xCyUZQjvucmlyChwg04fJIO5Q/viewform"
+        statistics = get_statistic_writer()
+        statistics.init_if_required(
+            f"linea_appeal_{statistic_date_string}",
+            ["#", "MainAddress", "GPT Answer"]
+        )
 
-        reason = self.get_reason()
-
+        chat_gpt = get_ai_chat(ai_type, token)
+        reason = chat_gpt.ask(self.linea_appeal_reason)
         logger.info(reason)
 
+        statistics.write_row(
+            statistic_date_string,
+            [account.app_id, account.address, reason]
+        )
+
+        if get_by_key(APPEAL_ACCOUNTS_AMOUNT) is None:
+            add_config(
+                APPEAL_ACCOUNTS_AMOUNT,
+                random.randint(accounts['from'], accounts['to'])
+            )
+
+        accumulate_by_key(
+            APPEAL_ACCOUNTS, {
+                "address": account.address,
+                "reason": reason,
+            }
+        )
+
+        logger.info(f"Acc: {get_value("Acc Num")}")
+        logger.info(f"Acc Amount: {get_value("Acc Amount")}")
+
+        if (get_by_key(APPEAL_ACCOUNTS_AMOUNT) == len(get_by_key(APPEAL_ACCOUNTS))
+                or get_value("Acc Num") == get_value("Acc Amount")):
+            wallets = get_by_key(APPEAL_ACCOUNTS)
+            address_list = [wallet["address"] for wallet in wallets]
+            address_list.remove(account.address)
+            formatted_string = "\n".join(f"{wallet['address']}\n{wallet['reason']}" for wallet in wallets)
+            self.open_appeal_form(account, "\n".join(address_list), formatted_string)
+            remove_key(APPEAL_ACCOUNTS)
+            remove_key(APPEAL_ACCOUNTS_AMOUNT)
+
+    def open_appeal_form(self, account, address_list, formatted_string):
         payload = {
             "entry.1292139045": account.address,
-            "entry.1099559693": "",
-            "entry.1296389817": reason['choices'][0]['message']['content']
-            # Add other entries based on the form's structure
+            "entry.1099559693": address_list,
+            "entry.1296389817": formatted_string
         }
-
-        # Build the pre-filled URL
         query_string = "&".join(f"{key}={value}" for key, value in payload.items())
-        pre_filled_url = f"{base_url}?{query_string}"
-
-        # Open the pre-filled form in the default web browser
+        pre_filled_url = f"{self.base_url}?{query_string}"
         print(f"Opening form: {pre_filled_url}")
         webbrowser.open(pre_filled_url)
 
-    def get_reason(self):
-        # logger.info(self.linea_appeal_reason)
-        reason = self.get_chat_gpt(self.linea_appeal_reason)
-        return reason
-
-    def get_chat_gpt(self, linea_appeal_reason):
-        url = "https://api.openai.com/v1/chat/completions"
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer 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"
-        }
-        data = {
-            "model": "gpt-4o-mini",
-            "messages": [{"role": "user", "content": linea_appeal_reason}],
-            "temperature": 0.7
-        }
-
-        response = requests.post(url, headers=headers, json=data)
-
-        return response.json()
+    def parse_params(self, module_params):
+        return (
+            module_params['ai_token'],
+            module_params['accounts'],
+            module_params['write_mode'],
+            module_params['ai_type']
+        )
