@@ -20,7 +20,7 @@ class ChatGPT:
             "Authorization": f"Bearer {self.token}"
         }
         data = {
-            "model": "gpt-4o-mini",
+            "model": "gpt-4o",
             "messages": [{"role": "user", "content": question}],
             "temperature": 0.7
         }
