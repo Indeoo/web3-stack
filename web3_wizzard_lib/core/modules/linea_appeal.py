@@ -25,6 +25,9 @@ class LineaAppeal(Module):
     with open("resources/ai_style_randomized.txt") as f:
         lines = f.readlines()
 
+    with open("resources/ai_reason_randomized.txt") as f:
+        reason_lines = f.readlines()
+
     def execute(self, token, accounts, statistic_write, ai_type, account):
         add_accumulator("Acc Num", 1)
 
@@ -54,9 +57,12 @@ class LineaAppeal(Module):
         if (get_by_key(APPEAL_ACCOUNTS_AMOUNT) == len(get_by_key(APPEAL_ACCOUNTS))
                 or get_value("Acc Num") == get_value("Acc Amount")):
             ai_style_randomized = random.choice(self.lines)
+            selected_lines = random.sample(self.reason_lines, k=random.choice([2, 3]))
 
             reason = chat_gpt.ask(
-                self.linea_appeal_reason.replace("{random_style}", ai_style_randomized)
+                self.linea_appeal_reason
+                    .replace("{random_style}", ai_style_randomized)
+                    .replace("{random_reasons}", str(selected_lines))
             )
             logger.info(reason)
 
