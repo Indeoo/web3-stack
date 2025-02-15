@@ -24,16 +24,16 @@ class NewRageModule(Module):
             raise ConfigurationException("No such token supported by Rage withdraw module")
         rage = NewRageContract(contract_address, web3)
 
-        balance = rage.balance_of(account)
-        shares = rage.convert_to_shares(balance)
+        #balance = rage.balance_of(account)
+        shares = rage.max_redeem(account)
 
-        if balance > 0:
-            logger.info(f"Withdraw {balance} {token} which is {shares} shares")
+        if shares > 0:
+            logger.info(f"Withdraw  {shares} shares {token}")
             rage.redeem(account, shares)
         else:
             logger.info(f"Account {account.address} has 0 balance in Rage")
 
-        add_accumulator("Total rage withdraw", balance)
+        #add_accumulator("Total rage withdraw", balance)
 
     def log(self):
         return "RAGE WITHDRAW"

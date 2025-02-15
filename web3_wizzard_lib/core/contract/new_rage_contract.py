@@ -26,3 +26,6 @@ class NewRageContract(Contract):
 
     def convert_to_shares(self, amount):
         return self.contract.functions.convertToShares(amount).call()
+
+    def max_redeem(self, account):
+        return self.contract.functions.maxRedeem(account.address).call()
