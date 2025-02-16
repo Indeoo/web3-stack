@@ -10,11 +10,11 @@ class GmxRewardRouter(Contract):
         super().__init__(contract_address, web3, abi)
 
     @evm_transaction
-    def unstake_and_redeem(self, account, shares):
+    def unstake_and_redeem(self, account, glp_amount):
         txn_params = self.build_generic_data(account.address, False)
 
-        contract_txn = self.contract.functions.redeem(
-            shares,
+        contract_txn = self.contract.functions.unstakeAndRedeemGlpETH(
+            glp_amount,
             0,
             account.address,
         ).build_transaction(txn_params)
