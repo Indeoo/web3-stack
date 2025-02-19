@@ -134,6 +134,16 @@ class GoogleStatisticsWriter(StatisticsWriter):
         ).execute()
         logger.info(f'Row written: {row}')
 
+    def get_leftmost_sheet(self):
+        """
+        Returns the name of the leftmost sheet in the spreadsheet.
+        The leftmost sheet is the first sheet in the sheets collection.
+        """
+        spreadsheet = self.service.spreadsheets().get(spreadsheetId=self.sheet).execute()
+        if 'sheets' in spreadsheet and len(spreadsheet['sheets']) > 0:
+            return spreadsheet['sheets'][0]['properties']['title']
+        return None
+
 
 def get_statistic_writer():
     if get_config("STATISTICS_MODE") == "CSV":
