@@ -5,7 +5,7 @@ with open("requirements.txt", "r", encoding="utf-8") as file:
 
 setup(
     name='web3_wizzard_lib',
-    version='1.4.1',
+    version='1.4.2',
     py_modules=['web3_wizzard_lib'],
     packages=find_packages(),
     package_data={
