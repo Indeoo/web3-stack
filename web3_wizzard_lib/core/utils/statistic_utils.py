@@ -1,9 +1,9 @@
 import csv
 import datetime
 import os
-from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from loguru import logger
+from sybil_engine.utils.google_utils import get_google_credentials
 
 from sybil_engine.utils.telegram import get_config
 
@@ -48,9 +48,8 @@ class CsvStatisticsWriter(StatisticsWriter):
 
 class GoogleStatisticsWriter(StatisticsWriter):
     def __init__(self, sheet):
-        self.SERVICE_ACCOUNT_FILE = 'data/service-accounts.json'
         self.SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-        self.credentials = Credentials.from_service_account_file(self.SERVICE_ACCOUNT_FILE, scopes=self.SCOPES)
+        self.credentials = get_google_credentials()
         self.service = build('sheets', 'v4', credentials=self.credentials)
 
         self.sheet = sheet
