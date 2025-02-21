@@ -1,8 +1,8 @@
-import requests
 from sybil_engine.module.module import Module
 from sybil_engine.utils.accumulator import add_accumulator, get_value
 
 from web3_wizzard_lib.core.utils.statistic_utils import statistic_date_string, get_statistic_writer
+from web3_wizzard_lib.utils.debank_utils import debank_request
 
 TOTAL_USD = "TotalUSD"
 DEBANK_ACC_NUM = "DEBANK_ACC_NUM"
@@ -34,7 +34,7 @@ class DebankChecker(Module):
     ]
 
     def execute(self, account, statistic_write='GOOGLE'):
-        data = self.debank_request(account)
+        data = debank_request(account)
 
         job_name = f"debank_{statistic_date_string}"
         statistics_writer = get_statistic_writer()
@@ -73,19 +73,6 @@ class DebankChecker(Module):
                 cumulative_row.append(self.cumulative_chain_sums.get(chain_name, 0))
 
             statistics_writer.write_row(job_name, cumulative_row)
-
-    def debank_request(self, account):
-        url = "https://pro-openapi.debank.com/v1/user/total_balance"
-        params = {
-            'id': account.address
-        }
-        headers = {
-            'accept': 'application/json',
-            'AccessKey': '6cd56a970242386fa2a57e380c39f00f10b31778'
-        }
-        response = requests.get(url, headers=headers, params=params)
-        data = response.json()
-        return data
 
     def log(self):
         return "Debank Checker"
