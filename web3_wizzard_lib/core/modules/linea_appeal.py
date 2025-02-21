@@ -4,11 +4,11 @@ import webbrowser
 from loguru import logger
 from sybil_engine.module.module import Module
 from sybil_engine.utils.accumulator import add_accumulator, get_value
-from sybil_engine.utils.statistic_utils import get_statistic_writer, statistic_date_string
 
 from web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
 
 from web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key, add_value
+from web3_wizzard_lib.core.utils.statistic_utils import get_statistic_writer, statistic_date_string
 
 APPEAL_ACCOUNTS = "APPEAL_ACCOUNTS"
 APPEAL_ACCOUNTS_AMOUNT = "APPEAL_ACCOUNTS_AMOUNT"
@@ -19,16 +19,16 @@ class LineaAppeal(Module):
     module_config = "linea_appeal_config"
     base_url = "https://docs.google.com/forms/d/e/1FAIpQLSfkbHzC1hZTy6u5R8S5i6wQ2xCyUZQjvucmlyChwg04fJIO5Q/viewform"
 
-    with open("resources/linea_appeal.txt") as f:
-        linea_appeal_reason = f.read()
-
-    with open("resources/ai_style_randomized.txt") as f:
-        lines = f.readlines()
-
-    with open("resources/ai_reason_randomized.txt") as f:
-        reason_lines = f.readlines()
-
     def execute(self, token, accounts, statistic_write, ai_type, account):
+        with open("resources/linea_appeal.txt") as f:
+            self.linea_appeal_reason = f.read()
+
+        with open("resources/ai_style_randomized.txt") as f:
+            self.lines = f.readlines()
+
+        with open("resources/ai_reason_randomized.txt") as f:
+            self.reason_lines = f.readlines()
+
         add_accumulator("Acc Num", 1)
 
         statistics = get_statistic_writer()

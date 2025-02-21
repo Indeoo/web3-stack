@@ -9,7 +9,7 @@ from web3_wizzard_lib.core.contract.odos import Odos
 class OdosSwap(Dex):
     dex_name = 'odos'
     swap_contract = 'ODOS'
-    supported_chains = ['ZKSYNC', 'BASE', 'LINEA']
+    supported_chains = ['ZKSYNC', 'BASE', 'LINEA', 'ARBITRUM']
 
     def __init__(self, chain_instance, web3):
         super().__init__(chain_instance, web3)

@@ -8,6 +8,7 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.utils import SwapException
 from sybil_engine.utils.validation_utils import validate_amount_interval, validate_token
 from sybil_engine.utils.web3_utils import init_web3
+from web3 import Web3
 
 from web3_wizzard_lib.core.modules.swap.swap_list import swap_facade
 
@@ -31,10 +32,20 @@ class ConcreteSwap(Module):
         from_token_contract = Erc20Token(chain, from_token, web3)
         to_token_contract = Erc20Token(chain, to_token, web3)
 
+        if Web3.is_address(from_token):
+            from_token_symbol = from_token_contract.symbol()
+        else:
+            from_token_symbol = from_token
+
+        if Web3.is_address(to_token):
+            to_token_symbol = to_token_contract.symbol()
+        else:
+            to_token_symbol = to_token
+
         pair_to_swap = self.create_pair_to_swap(
-            from_token_contract.symbol(),
+            from_token_symbol,
             swap_app,
-            to_token_contract.symbol(),
+            to_token_symbol,
         )
 
         amount_to_swap = amount_to_swap_from_interval(

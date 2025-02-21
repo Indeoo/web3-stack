@@ -15,7 +15,7 @@ class NilePool(Pool):
         super().__init__(chain_instance, web3)
         self.nile_contract = NileContract(self.velocore_pool_contract_address, self.web3)
 
-    @retry(max_attempts=10, retry_interval={'from': 10, 'to': 20})
+    @retry(max_attempts=2, retry_interval={'from': 10, 'to': 20})
     def deposit(self, amount_interval, account, token, min_native_balance, chain):
         amount = interval_to_eth_balance(amount_interval, account, chain, self.web3)
 
@@ -33,7 +33,7 @@ class NilePool(Pool):
         logger.info(f"Deposit {amount} and {nile_token.balance(account)}")
         self.nile_contract.add_liquidity_eth(account, nile_token.erc20_contract.contract_address, pool_amount, amount)
 
-    @retry(max_attempts=10, retry_interval={'from': 10, 'to': 20})
+    @retry(max_attempts=2, retry_interval={'from': 10, 'to': 20})
     def withdraw(self, account, token, chain):
         weth_zero_address = get_tokens_for_chain(chain)[f"WETH_{token}_LP"]
 
