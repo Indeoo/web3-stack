@@ -15,5 +15,5 @@ def debank_request(account):
     return data
 
 
-def debank_total_balance(account):
-    return debank_request(account).get('total_usd_value', 0)
+def debank_total_balance(address):
+    return debank_request(address).get('total_usd_value', 0)
