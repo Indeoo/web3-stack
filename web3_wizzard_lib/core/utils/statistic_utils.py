@@ -55,46 +55,45 @@ class GoogleStatisticsWriter(StatisticsWriter):
         self.sheet = sheet
 
     def copy_sheet(self, source_sheet_name, destination_sheet_name):
-        # Get the source sheet ID
-        source_sheet = self.service.spreadsheets().get(spreadsheetId=self.sheet).execute()
-        source_sheet_id = next(
-            (sheet['properties']['sheetId'] for sheet in source_sheet['sheets'] if
-             sheet['properties']['title'] == source_sheet_name),
+        # Retrieve the spreadsheet data to locate the source sheet
+        spreadsheet = self.service.spreadsheets().get(spreadsheetId=self.sheet).execute()
+        source_sheet_info = next(
+            (sheet for sheet in spreadsheet['sheets'] if sheet['properties']['title'] == source_sheet_name),
             None
         )
-
-        if source_sheet_id is None:
+        if source_sheet_info is None:
             raise ValueError(f"Sheet '{source_sheet_name}' not found.")
+        source_sheet_id = source_sheet_info['properties']['sheetId']
 
-        # Create the request body for copying the sheet
+        # Copy the sheet to the same spreadsheet (appended as the rightmost tab)
         request_body = {
             'destinationSpreadsheetId': self.sheet
         }
-
-        # Copy the sheet to the same spreadsheet with the specified name
         result = self.service.spreadsheets().sheets().copyTo(
             spreadsheetId=self.sheet,
             sheetId=source_sheet_id,
             body=request_body
         ).execute()
+        new_sheet_id = result['sheetId']
 
-        # Rename the copied sheet
+        # Update the new sheet's properties: rename it and set its index to 0 (leftmost)
         body = {
             'requests': [
                 {
                     'updateSheetProperties': {
                         'properties': {
-                            'sheetId': result['sheetId'],
-                            'title': destination_sheet_name
+                            'sheetId': new_sheet_id,
+                            'title': destination_sheet_name,
+                            'index': 0
                         },
-                        'fields': 'title'
+                        'fields': 'title,index'
                     }
                 }
             ]
         }
         self.service.spreadsheets().batchUpdate(spreadsheetId=self.sheet, body=body).execute()
 
-        logger.info(f"Sheet copied. New sheet name: {destination_sheet_name}")
+        logger.info(f"Sheet copied. New sheet '{destination_sheet_name}' placed at the leftmost position.")
 
     def init_if_required(self, sheet_name, header):
         if not self._sheet_exists(sheet_name):

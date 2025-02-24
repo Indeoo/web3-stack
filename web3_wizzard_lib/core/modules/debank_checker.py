@@ -34,7 +34,7 @@ class DebankChecker(Module):
     ]
 
     def execute(self, account, statistic_write='GOOGLE'):
-        data = debank_request(account)
+        data = debank_request(account.address)
 
         job_name = f"debank_{statistic_date_string}"
         statistics_writer = get_statistic_writer()
