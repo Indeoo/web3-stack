@@ -1,10 +1,10 @@
 import requests
 
 
-def debank_request(account):
+def debank_request(address):
     url = "https://pro-openapi.debank.com/v1/user/total_balance"
     params = {
-        'id': account.address
+        'id': address
     }
     headers = {
         'accept': 'application/json',
