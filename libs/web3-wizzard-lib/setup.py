@@ -9,7 +9,7 @@ setup(
     py_modules=['web3-wizzard-lib'],
     packages=find_packages(),
     package_data={
-        'web3-wizzard-lib': ['resources/**/*'],
+        'web3_wizzard_lib': ['resources/**/*'],
     },
     install_requires=requirements,
     data_files=[('', ['requirements.txt'])],
