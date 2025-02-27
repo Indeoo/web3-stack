@@ -112,13 +112,13 @@ pip-wheel-metadata/
 /wallets_1/*
 /wallets_2/*
 
-/libs/web3-wizzard-lib/data/*
-!/libs/web3-wizzard-lib/data/wallets
-!/libs/web3-wizzard-lib/data/wallets/*
-!/libs/web3-wizzard-lib/data/scenarios
-!/libs/web3-wizzard-lib/data/scenarios/*
-!/libs/web3-wizzard-lib/data/config_default.py
-!/libs/web3-wizzard-lib/data/module_config_default.py
+/libs/web3-wizzard-lib/web3-wizzard-lib/data/*
+!/libs/web3-wizzard-lib/web3-wizzard-lib/data/wallets
+!/libs/web3-wizzard-lib/web3-wizzard-lib/data/wallets/*
+!/libs/web3-wizzard-lib/web3-wizzard-lib/data/scenarios
+!/libs/web3-wizzard-lib/web3-wizzard-lib/data/scenarios/*
+!/libs/web3-wizzard-lib/web3-wizzard-lib/data/config_default.py
+!/libs/web3-wizzard-lib/web3-wizzard-lib/data/module_config_default.py
 
 /resources/logs/*
 node_modules
