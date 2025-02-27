@@ -1,0 +1,2 @@
+2025-02-20 14:25:41+0200 [-] Log opened.
+2025-02-20 14:25:45+0200 [-] /Users/indeoo/.pyenv/versions/3.12.5/lib/python3.12/unittest/case.py:580: builtins.RuntimeWarning: TestResult has no addDuration method

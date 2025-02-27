@@ -1,0 +1,389 @@
+{
+  "MOCK_CHAIN": {
+    "syncswap": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "syncswap_pool_address": "0x80115c708E12eDd42E504c1cD52Aea96C547c05c",
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "syncswap_pool_address": "0xd3D91634Cf4C04aD1B76cE2c06F7385A897F54D3",
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "ETH>WBTC",
+        "tokens": [
+          "ETH",
+          "WBTC"
+        ],
+        "syncswap_pool_address": "0xb3479139e07568BA954C8a14D5a8B3466e35533d",
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 3
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "syncswap_pool_address": "0xd3D91634Cf4C04aD1B76cE2c06F7385A897F54D3",
+        "amount": "all_balance",
+        "slippage": 1
+      },
+      {
+        "name": "ETH>zkUSD",
+        "tokens": [
+          "ETH",
+          "zkUSD"
+        ],
+        "syncswap_pool_address": "0xF78B8CDBAA242451FEF742Dd2e6232f4c92Af900",
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      },
+      {
+        "name": "ETH>ceBNB",
+        "tokens": [
+          "ETH",
+          "ceBNB"
+        ],
+        "syncswap_pool_address": "0x8De3827E7Ba9cdD6BE9b88BA25F8A22dA0D7851d",
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      },
+      {
+        "name": "USDC>FRAX",
+        "tokens": [
+          "USDC",
+          "FRAX"
+        ],
+        "syncswap_pool_address": "0x8D33feCc3E9f694594f8B62912985267cF5d664d",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "slippage": 5
+      },
+      {
+        "name": "USDC>ceMATIC",
+        "tokens": [
+          "USDC",
+          "ceMATIC"
+        ],
+        "syncswap_pool_address": "0x900369dF765A8d565E55fd64467899afa04494b5",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "slippage": 5
+      },
+      {
+        "name": "USDC>zkUSD",
+        "tokens": [
+          "USDC",
+          "zkUSD"
+        ],
+        "syncswap_pool_address": "0x92EaE0B3A75F3eF6C50369cE8CA96B285d2139B8",
+        "token_address": "0xfC7E56298657B002b3e656400E746b7212912757",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "slippage": 5
+      },
+      {
+        "name": "USDC>ceBNB",
+        "tokens": [
+          "USDC",
+          "ceBNB"
+        ],
+        "syncswap_pool_address": "0xe3F150737A798379bd346eA874cAe62675b7F96d",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "slippage": 5
+      },
+      {
+        "name": "ETH>ZKDOGE",
+        "tokens": [
+          "ETH",
+          "ZKDOGE"
+        ],
+        "syncswap_pool_address": "0x99395aD2788aD3a16ac0dB1cDAC3bAE1159EE887",
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      },
+      {
+        "name": "ETH>MUTE",
+        "tokens": [
+          "ETH",
+          "MUTE"
+        ],
+        "syncswap_pool_address": "0x176b23f1dDfEedd10fC250B8f769362492ef810B",
+        "amount": {
+          "from": 0.0003,
+          "to": 0.0009
+        },
+        "app": "syncswap",
+        "slippage": 5
+      },
+      {
+        "name": "USDC>WBTC",
+        "tokens": [
+          "USDC",
+          "WBTC"
+        ],
+        "syncswap_pool_address": "0xAE931C65E7cC843BB46AE63CC9DE54adbF2E647D",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "app": "syncswap",
+        "slippage": 5
+      }
+    ],
+    "MockDex": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      }
+    ],
+    "mute": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "ETH>WBTC",
+        "tokens": [
+          "ETH",
+          "WBTC"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 3
+      },
+      {
+        "name": "ETH>BOLT",
+        "tokens": [
+          "ETH",
+          "BOLT"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      },
+      {
+        "name": "USDC>BOLT",
+        "tokens": [
+          "USDC",
+          "BOLT"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      },
+      {
+        "name": "USDC>ZKDOGE",
+        "tokens": [
+          "USDC",
+          "ZKDOGE"
+        ],
+        "syncswap_pool_address": "0x80115c708E12eDd42E504c1cD52Aea96C547c05c",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "slippage": 5
+      },
+      {
+        "name": "ETH>ZKINA",
+        "tokens": [
+          "USDC",
+          "ZKINA"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      },
+      {
+        "name": "ETH>MUTE",
+        "tokens": [
+          "ETH",
+          "MUTE"
+        ],
+        "amount": {
+          "from": 0.0003,
+          "to": 0.0009
+        },
+        "app": "mute",
+        "slippage": 5
+      },
+      {
+        "name": "USDC>WBTC",
+        "tokens": [
+          "USDC",
+          "WBTC"
+        ],
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "app": "mute",
+        "slippage": 5
+      }
+    ],
+    "woofi": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      }
+    ],
+    "maverick": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "maverick_pool_address": "0x41c8cf74c27554a8972d3bf3d2bd4a14d8b604ab",
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "USDC>LUSD",
+        "tokens": [
+          "USDC",
+          "LUSD"
+        ],
+        "maverick_pool_address": "0x6a9143a5f9baf73841992dcb737844e5ad16a283",
+        "amount": {
+          "from": 0.1,
+          "to": 0.20
+        },
+        "slippage": 5
+      }
+    ],
+    "velocore": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "ETH>WBTC",
+        "tokens": [
+          "ETH",
+          "WBTC"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 3
+      },
+      {
+        "name": "ETH>VC",
+        "tokens": [
+          "ETH",
+          "VC"
+        ],
+        "amount": {
+          "from": 0.0001,
+          "to": 0.0003
+        },
+        "slippage": 5
+      }
+    ],
+    "pancake": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      }
+    ],
+    "odos": [
+      {
+        "name": "ETH>USDC",
+        "tokens": [
+          "ETH",
+          "USDC"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      },
+      {
+        "name": "ETH>USDT",
+        "tokens": [
+          "ETH",
+          "USDT"
+        ],
+        "amount": "all_balance",
+        "slippage": 2
+      }
+    ]
+  }
+}
