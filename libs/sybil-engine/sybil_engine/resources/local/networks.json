@@ -1,0 +1,15 @@
+{
+  "MOCK_CHAIN": {
+    "rpc": "http://localhost:228",
+    "gas_token": "ETH",
+    "chain_id": 131277322940537,
+    "poa": false,
+    "eip1599": false,
+    "scan": "http://mockscan/tx/",
+    "api_scan_key": "api_key",
+    "transaction_sleep_interval": {
+      "from": 0,
+      "to": 0
+    }
+  }
+}
