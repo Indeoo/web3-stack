@@ -5,7 +5,7 @@ with open("requirements.txt", "r", encoding="utf-8") as file:
 
 setup(
     name='pk_encryptor',
-    version='0.0.3',
+    version='0.0.4',
     py_modules=['pk_encryptor'],
     packages=find_packages(),
     package_data={
