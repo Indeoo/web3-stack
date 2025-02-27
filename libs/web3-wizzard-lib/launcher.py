@@ -34,6 +34,6 @@ def launch():
     logger.info(Module.__subclasses__())
 
     modules_data = Modules(None, swap_facade)
-    #modules_data = load_module_vars("web3-wizzard-lib.core.modules")['modules_data']
+    #modules_data = load_module_vars("web3-wizzard-lib.utils.modules")['modules_data']
 
     launch_with_data(modules_data)

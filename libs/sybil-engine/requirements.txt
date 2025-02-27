@@ -2,7 +2,6 @@ loguru==0.7.2
 setuptools==69.5.1
 ccxt==4.2.100
 tqdm==4.66.2
-cryptography==42.0.5
 web3==7.2.0
 requests==2.31.0
 pyTelegramBotAPI==4.17.0
@@ -18,3 +17,4 @@ eth-tester==0.10.0b4
 py-evm==0.10.1b2
 fake-useragent==1.4.0
 Faker~=27.0.0
+pk-encryptor==0.0.1

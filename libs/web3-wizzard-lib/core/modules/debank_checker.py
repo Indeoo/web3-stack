@@ -25,7 +25,7 @@ class DebankChecker(Module):
         'polygon',
         'avalanche',
         'scroll',
-        'core',
+        'utils',
         'fantom',
         'zora',
         'arbitrum nova',

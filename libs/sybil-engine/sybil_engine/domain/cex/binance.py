@@ -2,7 +2,6 @@ from binance.error import ClientError
 from binance.spot import Spot
 
 from sybil_engine.domain.cex.cex import CEX
-from sybil_engine.utils.decryptor import read_cex_data
 
 from sybil_engine.utils.utils import ConfigurationException
 

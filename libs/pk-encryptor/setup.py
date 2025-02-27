@@ -4,18 +4,18 @@ with open("requirements.txt", "r", encoding="utf-8") as file:
     requirements = file.readlines()
 
 setup(
-    name='sybil_engine',
-    version='10.3.3',
-    py_modules=['sybil_engine'],
+    name='pk_encryptor',
+    version='0.0.1',
+    py_modules=['pk_encryptor'],
     packages=find_packages(),
     package_data={
-        'sybil_engine': ['resources/**/*'],
+        'pk_encryptor': ['resources/**/*'],
     },
     install_requires=requirements,
     data_files=[('', ['requirements.txt'])],
     author='Indeoo',
     author_email='indeooars@gmail.com',
-    description='Engine for web3 smart contracts automatization.',
+    description='pk_encryptor.',
     long_description=open('README.md', 'r', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/Indeoo/web3-wizzard-lib/',

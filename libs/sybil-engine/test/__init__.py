@@ -20,8 +20,8 @@ min_native_balance = interval_to_eth_balance({'from': 1, 'to': 1}, test_account,
 
 global_vars = globals()
 
-for loader, module_name, is_pkg in pkgutil.iter_modules(['core/contract']):
-    module = importlib.import_module('.' + module_name, package='core.contract')
+for loader, module_name, is_pkg in pkgutil.iter_modules(['utils/contract']):
+    module = importlib.import_module('.' + module_name, package='utils.contract')
     global_vars[module_name] = module
 
 
