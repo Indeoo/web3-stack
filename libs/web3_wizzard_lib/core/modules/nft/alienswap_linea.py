@@ -1,0 +1,22 @@
+from sybil_engine.data.contracts import get_contracts_for_chain
+from sybil_engine.data.networks import get_chain_instance
+from sybil_engine.utils.web3_utils import init_web3
+
+from libs.web3_wizzard_lib.core.contract.alienswap_contract import AlienSwapContract
+from libs.web3_wizzard_lib.core.utils.sub_module import SubModule
+
+
+class AlienSwap(SubModule):
+    module_name = 'ALIENSWAP_LINEA'
+
+    def execute(self, account, chain='LINEA'):
+        chain_instance = get_chain_instance(chain)
+        web3 = init_web3(chain_instance, account.proxy)
+
+        contract_address = get_contracts_for_chain(chain)['ALIENSWAP_LINEA']
+        as_match_nft = AlienSwapContract(contract_address, web3)
+
+        as_match_nft.purchase(account, 1)
+
+    def log(self):
+        return "ALIENSWAP LINEA NFT"
