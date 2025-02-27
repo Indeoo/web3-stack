@@ -1,6 +1,6 @@
 from sybil_engine.domain.dex import Dex
 
-from libs.web3_wizzard_lib.core.contract.lineaswaprouter import LineaSwapRouter
+from web3_wizzard_lib.core.contract.lineaswaprouter import LineaSwapRouter
 
 
 class LineaSwap(Dex):

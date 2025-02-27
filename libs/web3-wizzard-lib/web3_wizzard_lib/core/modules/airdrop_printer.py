@@ -4,7 +4,7 @@ from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.module.module import Module
 from web3 import Web3
 
-from libs.web3_wizzard_lib.core.utils.statistic_utils import get_statistic_writer, statistic_date_string
+from web3_wizzard_lib.core.utils.statistic_utils import get_statistic_writer, statistic_date_string
 
 
 class AirdropPrinter(Module):

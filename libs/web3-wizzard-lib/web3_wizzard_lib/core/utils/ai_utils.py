@@ -1,6 +1,6 @@
 import requests
 
-from libs.web3_wizzard_lib.core.utils.benchmark_utils import benchmark
+from web3_wizzard_lib.core.utils.benchmark_utils import benchmark
 
 
 class AIChat:

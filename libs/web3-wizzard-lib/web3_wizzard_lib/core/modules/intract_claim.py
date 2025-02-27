@@ -6,8 +6,8 @@ from sybil_engine.utils.file_loader import load_abi
 from sybil_engine.utils.utils import AccountException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.intract.intract_api import IntractAPI
-from libs.web3_wizzard_lib.core.modules.intract.utils import TgReport, WindowName, make_text_border
+from web3_wizzard_lib.core.modules.intract.intract_api import IntractAPI
+from web3_wizzard_lib.core.modules.intract.utils import TgReport, WindowName, make_text_border
 
 VERIFY_DATA = load_abi("resources/verify_data.json")
 

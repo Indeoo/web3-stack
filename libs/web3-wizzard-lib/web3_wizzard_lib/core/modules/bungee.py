@@ -10,7 +10,7 @@ from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.validation_utils import validate_chain, validate_refuel_interval
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.bungee import bungee_chain_ids, Bungee
+from web3_wizzard_lib.core.contract.bungee import bungee_chain_ids, Bungee
 
 
 class BungeeRefuel(Module):

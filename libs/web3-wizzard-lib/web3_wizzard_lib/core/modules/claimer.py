@@ -4,8 +4,8 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.app_account_utils import AppAccount
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.claims.layerzero_claimer import claimer_zro
-from libs.web3_wizzard_lib.core.modules.claims.rabby_claimer import claimer_rabby
+from web3_wizzard_lib.core.modules.claims.layerzero_claimer import claimer_zro
+from web3_wizzard_lib.core.modules.claims.rabby_claimer import claimer_rabby
 
 native_prices = {
     'ETH': 3700,

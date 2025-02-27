@@ -4,7 +4,7 @@ from sybil_engine.contract.contract import Contract
 from sybil_engine.contract.transaction_executor import evm_transaction
 from sybil_engine.utils.file_loader import load_abi
 
-from libs.web3_wizzard_lib.core.modules.stargate.stargate_balance_utils import NativeBalance, Erc20Balance
+from web3_wizzard_lib.core.modules.stargate.stargate_balance_utils import NativeBalance, Erc20Balance
 
 abi = load_abi("resources/abi/pancake/router.json")
 

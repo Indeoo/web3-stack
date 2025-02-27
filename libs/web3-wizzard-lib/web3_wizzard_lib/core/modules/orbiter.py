@@ -2,7 +2,7 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.validation_utils import validate_amount_interval, validate_chain
 
-from libs.web3_wizzard_lib.core.modules.bridge.orbiter_sub import OrbiterSubModule
+from web3_wizzard_lib.core.modules.bridge.orbiter_sub import OrbiterSubModule
 
 
 class OrbiterModule(Module):

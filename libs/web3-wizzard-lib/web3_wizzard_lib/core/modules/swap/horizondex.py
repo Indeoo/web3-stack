@@ -1,6 +1,6 @@
 from sybil_engine.domain.dex import Dex
 
-from libs.web3_wizzard_lib.core.contract.horizondex_router import HorizonDexRouter
+from web3_wizzard_lib.core.contract.horizondex_router import HorizonDexRouter
 from ...contract.horizondex_quoter import HorizonDexQuoter
 
 

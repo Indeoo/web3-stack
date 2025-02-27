@@ -1,7 +1,7 @@
 from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.domain.dex import Dex
 
-from libs.web3_wizzard_lib.core.contract.maverick_multicall import MaverickMulticall
+from web3_wizzard_lib.core.contract.maverick_multicall import MaverickMulticall
 from ...contract.pancake_pool import PancakePool
 from ...contract.pancake_quoter import PancakeQuoter
 

@@ -9,8 +9,8 @@ from sybil_engine.utils.utils import ConfigurationException, randomized_sleeping
 from sybil_engine.utils.validation_utils import validate_chain, validate_refuel_interval
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.merkly_minter import MerklyMinter
-from libs.web3_wizzard_lib.core.modules.stargate.l0_data import l0_chain_ids
+from web3_wizzard_lib.core.contract.merkly_minter import MerklyMinter
+from web3_wizzard_lib.core.modules.stargate.l0_data import l0_chain_ids
 
 
 class MerklyRefuel(Module):

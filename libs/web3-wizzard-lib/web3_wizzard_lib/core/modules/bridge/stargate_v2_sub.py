@@ -6,8 +6,8 @@ from sybil_engine.domain.balance.balance_utils import interval_to_native_balance
 from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.stargate_v2_contract import StargateV2Contract
-from libs.web3_wizzard_lib.core.modules.bridge.bridge import Bridge
+from web3_wizzard_lib.core.contract.stargate_v2_contract import StargateV2Contract
+from web3_wizzard_lib.core.modules.bridge.bridge import Bridge
 
 chain_ids = {
     'LINEA': 30183,

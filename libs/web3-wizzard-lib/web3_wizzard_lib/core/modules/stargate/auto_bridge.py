@@ -6,7 +6,7 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.utils import randomized_sleeping
 from sybil_engine.utils.web3_utils import print_account_data, get_all_account_data
 
-from libs.web3_wizzard_lib.core.modules.stargate.bridge import StargateBridge
+from web3_wizzard_lib.core.modules.stargate.bridge import StargateBridge
 
 
 class StargateAutoBridge(Module):

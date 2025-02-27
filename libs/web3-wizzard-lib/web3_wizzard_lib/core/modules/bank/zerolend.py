@@ -3,8 +3,8 @@ from sybil_engine.data.contracts import get_contracts_for_chain
 from sybil_engine.data.tokens import get_tokens_for_chain
 from sybil_engine.domain.balance.tokens import Erc20Token
 
-from libs.web3_wizzard_lib.core.contract.zerolend_contract import ZeroLendContract
-from libs.web3_wizzard_lib.core.modules.bank.bank import Bank
+from web3_wizzard_lib.core.contract.zerolend_contract import ZeroLendContract
+from web3_wizzard_lib.core.modules.bank.bank import Bank
 
 
 class ZeroLend(Bank):

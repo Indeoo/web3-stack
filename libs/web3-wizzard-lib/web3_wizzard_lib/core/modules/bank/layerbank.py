@@ -3,10 +3,10 @@ from sybil_engine.data.contracts import get_contracts_for_chain
 from sybil_engine.data.tokens import get_tokens_for_chain
 from sybil_engine.domain.balance.tokens import Erc20Token
 
-from libs.web3_wizzard_lib.core.contract.layerbank_price import LayerBankPrice
-from libs.web3_wizzard_lib.core.contract.layerbank_token import LayerBankToken
-from libs.web3_wizzard_lib.core.contract.layerbankcontract import LayerBankContract
-from libs.web3_wizzard_lib.core.modules.bank.bank import Bank
+from web3_wizzard_lib.core.contract.layerbank_price import LayerBankPrice
+from web3_wizzard_lib.core.contract.layerbank_token import LayerBankToken
+from web3_wizzard_lib.core.contract.layerbankcontract import LayerBankContract
+from web3_wizzard_lib.core.modules.bank.bank import Bank
 
 
 class LayerBank(Bank):

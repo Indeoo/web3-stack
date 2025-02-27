@@ -5,7 +5,7 @@ from sybil_engine.module.module import Order, Module
 from sybil_engine.utils.accumulator import add_accumulator_balance
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.dmail_send_mail import DmailSend
+from web3_wizzard_lib.core.contract.dmail_send_mail import DmailSend
 
 
 class Erc20BalanceModule(Module):

@@ -6,9 +6,9 @@ from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.utils.utils import ModuleException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.stargate_router import StargateRouter
-from libs.web3_wizzard_lib.core.contract.stargate_router_eth import StargateRouterEth
-from libs.web3_wizzard_lib.core.modules.stargate.stargate_balance_utils import StargatePoolToken
+from web3_wizzard_lib.core.contract.stargate_router import StargateRouter
+from web3_wizzard_lib.core.contract.stargate_router_eth import StargateRouterEth
+from web3_wizzard_lib.core.modules.stargate.stargate_balance_utils import StargatePoolToken
 
 
 def add_to_pool(account, amount_to_pool, bridge_token, chain_instance, web3):

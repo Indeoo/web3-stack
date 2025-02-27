@@ -10,7 +10,7 @@ from sybil_engine.module.module import Order, RepeatableModule
 from sybil_engine.utils.utils import interval_to_int, ConfigurationException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.bridge.orbiter_sub import bridge_codes
+from web3_wizzard_lib.core.modules.bridge.orbiter_sub import bridge_codes
 
 
 class Layer2_20(RepeatableModule):

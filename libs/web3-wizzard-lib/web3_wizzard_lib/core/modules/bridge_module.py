@@ -2,10 +2,10 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.validation_utils import validate_amount_interval, validate_chain
 
-from libs.web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
-from libs.web3_wizzard_lib.core.modules.bridge.orbiter_sub import OrbiterSubModule
-from libs.web3_wizzard_lib.core.modules.bridge.scroll_bridge_sub import ScrollBridgeSubModule
-from libs.web3_wizzard_lib.core.modules.bridge.stargate_v2_sub import StargateV2SubModule
+from web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
+from web3_wizzard_lib.core.modules.bridge.orbiter_sub import OrbiterSubModule
+from web3_wizzard_lib.core.modules.bridge.scroll_bridge_sub import ScrollBridgeSubModule
+from web3_wizzard_lib.core.modules.bridge.stargate_v2_sub import StargateV2SubModule
 
 
 class BridgeModule(Module):

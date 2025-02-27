@@ -1,7 +1,7 @@
 from sybil_engine.contract.contract import Contract
 from sybil_engine.contract.transaction_executor import evm_transaction, l0_evm_transaction
 
-from libs.web3_wizzard_lib.core.modules.stargate.stargate_gas_checker import stargate_check_gas
+from web3_wizzard_lib.core.modules.stargate.stargate_gas_checker import stargate_check_gas
 
 with open("resources/abi/stargate_router.json") as f:
     abi = f.read()

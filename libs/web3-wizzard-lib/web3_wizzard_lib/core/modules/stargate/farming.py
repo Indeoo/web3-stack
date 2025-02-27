@@ -9,10 +9,10 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.utils import randomized_sleeping
 from sybil_engine.utils.web3_utils import init_web3, get_amount_to_bridge_usdc, get_max_balance_data
 
-from libs.web3_wizzard_lib.core.contract.stargate_farming import StargateFarming
-from libs.web3_wizzard_lib.core.contract.stargate_router import StargateRouter
-from libs.web3_wizzard_lib.core.modules.stargate.pool import add_to_pool, find_max_pool_chain, get_pool_token_name, get_pool_balances
-from libs.web3_wizzard_lib.core.modules.stargate.stargate_balance_utils import StargatePoolToken
+from web3_wizzard_lib.core.contract.stargate_farming import StargateFarming
+from web3_wizzard_lib.core.contract.stargate_router import StargateRouter
+from web3_wizzard_lib.core.modules.stargate.pool import add_to_pool, find_max_pool_chain, get_pool_token_name, get_pool_balances
+from web3_wizzard_lib.core.modules.stargate.stargate_balance_utils import StargatePoolToken
 
 all_chains = {
     'MAIN': {

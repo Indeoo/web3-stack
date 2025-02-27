@@ -1,7 +1,7 @@
 from sybil_engine.data.tokens import get_tokens_for_chain
 from sybil_engine.domain.balance.balance import Erc20Balance, NativeBalance
 
-from libs.web3_wizzard_lib.core.contract.stargate_token_pool import StargateTokenPool
+from web3_wizzard_lib.core.contract.stargate_token_pool import StargateTokenPool
 
 
 class StargatePoolToken:

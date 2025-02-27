@@ -9,7 +9,7 @@ from sybil_engine.utils.utils import AccountException
 from sybil_engine.utils.web3_utils import init_web3
 from web3 import Web3
 
-from libs.web3_wizzard_lib.core.contract.rage_claim import RageClaimer
+from web3_wizzard_lib.core.contract.rage_claim import RageClaimer
 
 
 class Rage(Module):

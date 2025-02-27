@@ -4,8 +4,8 @@ from sybil_engine.domain.balance.balance_utils import interval_to_eth_balance
 from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.utils.retry import retry
 
-from libs.web3_wizzard_lib.core.contract.nile_contract import NileContract
-from libs.web3_wizzard_lib.core.modules.liquidity.pool import Pool
+from web3_wizzard_lib.core.contract.nile_contract import NileContract
+from web3_wizzard_lib.core.modules.liquidity.pool import Pool
 
 
 class NilePool(Pool):

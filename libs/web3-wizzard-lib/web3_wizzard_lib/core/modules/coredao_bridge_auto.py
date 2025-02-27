@@ -1,7 +1,7 @@
 from sybil_engine.module.module import Order, RepeatableModule
 from sybil_engine.utils.utils import interval_to_int, randomized_sleeping
 
-from libs.web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
+from web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
 
 
 class CoreDaoBridgeAuto(RepeatableModule):

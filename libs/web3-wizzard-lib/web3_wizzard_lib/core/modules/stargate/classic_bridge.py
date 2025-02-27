@@ -1,6 +1,6 @@
 from sybil_engine.module.module import Module, Order
 
-from libs.web3_wizzard_lib.core.modules.stargate.bridge import StargateBridge
+from web3_wizzard_lib.core.modules.stargate.bridge import StargateBridge
 
 
 class StargateBridgeModule(Module):

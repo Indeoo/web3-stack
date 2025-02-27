@@ -9,7 +9,7 @@ from sybil_engine.utils.utils import randomized_sleeping
 from sybil_engine.utils.validation_utils import validate_interval, validate_token
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.swap.swap_list import swap_facade
+from web3_wizzard_lib.core.modules.swap.swap_list import swap_facade
 
 
 class SellAll(Module):

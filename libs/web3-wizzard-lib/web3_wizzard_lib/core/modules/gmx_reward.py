@@ -4,7 +4,7 @@ from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.module.module import Module
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.gmx_reward_router import GmxRewardRouter
+from web3_wizzard_lib.core.contract.gmx_reward_router import GmxRewardRouter
 
 
 class GMXRewardRouter(Module):

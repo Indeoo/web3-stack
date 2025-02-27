@@ -5,10 +5,10 @@ from loguru import logger
 from sybil_engine.module.module import Module
 from sybil_engine.utils.accumulator import add_accumulator, get_value
 
-from libs.web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
+from web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
 
-from libs.web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key, add_value
-from libs.web3_wizzard_lib.core.utils.statistic_utils import get_statistic_writer, statistic_date_string
+from web3_wizzard_lib.core.utils.module_memory import get_by_key, accumulate_by_key, remove_key, add_value
+from web3_wizzard_lib.core.utils.statistic_utils import get_statistic_writer, statistic_date_string
 
 APPEAL_ACCOUNTS = "APPEAL_ACCOUNTS"
 APPEAL_ACCOUNTS_AMOUNT = "APPEAL_ACCOUNTS_AMOUNT"

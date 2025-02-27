@@ -6,8 +6,8 @@ from loguru import logger
 from sybil_engine.domain.balance.balance_utils import from_eth_to_wei
 from sybil_engine.utils.app_account_utils import AppAccount
 
-from libs.web3_wizzard_lib.core.contract.scroll_canvas_mint_contract import ScrollCanvasMintContract
-from libs.web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
+from web3_wizzard_lib.core.contract.scroll_canvas_mint_contract import ScrollCanvasMintContract
+from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
 
 
 class ScrollCanvasMint(NftSubmodule):

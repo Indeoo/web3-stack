@@ -5,8 +5,8 @@ from sybil_engine.utils.retry import retry_self
 from sybil_engine.utils.utils import AccountException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.stargate.bridge_eth import bridge_eth
-from libs.web3_wizzard_lib.core.modules.stargate.bridge_tokens import bridge_usdc
+from web3_wizzard_lib.core.modules.stargate.bridge_eth import bridge_eth
+from web3_wizzard_lib.core.modules.stargate.bridge_tokens import bridge_usdc
 
 MAX_ATTEMPTS = 5
 

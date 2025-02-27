@@ -2,9 +2,9 @@ from loguru import logger
 from sybil_engine.domain.balance.balance_utils import interval_to_eth_balance, interval_to_erc20_balance
 from sybil_engine.domain.balance.tokens import Erc20Token
 
-from libs.web3_wizzard_lib.core.contract.velocore_lens import VelocoreLensContract
-from libs.web3_wizzard_lib.core.contract.velocore_pool import VelocorePoolContract
-from libs.web3_wizzard_lib.core.modules.liquidity.pool import Pool
+from web3_wizzard_lib.core.contract.velocore_lens import VelocoreLensContract
+from web3_wizzard_lib.core.contract.velocore_pool import VelocorePoolContract
+from web3_wizzard_lib.core.modules.liquidity.pool import Pool
 
 
 class VelocorePool(Pool):

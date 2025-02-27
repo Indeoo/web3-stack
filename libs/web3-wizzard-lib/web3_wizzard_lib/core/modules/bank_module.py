@@ -8,13 +8,13 @@ from sybil_engine.utils.retry import retry
 from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.bank.basilisk import Basilisk
-from libs.web3_wizzard_lib.core.modules.bank.eralend import Eralend
-from libs.web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
-from libs.web3_wizzard_lib.core.modules.bank.mendi_finance import MendiFinance
-from libs.web3_wizzard_lib.core.modules.bank.aave import Aave
-from libs.web3_wizzard_lib.core.modules.bank.reactorfusion import ReactorFusion
-from libs.web3_wizzard_lib.core.modules.bank.zerolend import ZeroLend
+from web3_wizzard_lib.core.modules.bank.basilisk import Basilisk
+from web3_wizzard_lib.core.modules.bank.eralend import Eralend
+from web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
+from web3_wizzard_lib.core.modules.bank.mendi_finance import MendiFinance
+from web3_wizzard_lib.core.modules.bank.aave import Aave
+from web3_wizzard_lib.core.modules.bank.reactorfusion import ReactorFusion
+from web3_wizzard_lib.core.modules.bank.zerolend import ZeroLend
 
 
 class Banking(Module):

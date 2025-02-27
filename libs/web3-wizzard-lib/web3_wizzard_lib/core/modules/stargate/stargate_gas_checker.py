@@ -49,7 +49,7 @@ def get_native_fee_balance(token, native_balance, from_chain_instance, to_chain_
     chain_contracts = get_contracts_for_chain(from_chain_instance['chain'])
 
     if token in ['ETH', 'USDC']:
-        from libs.web3_wizzard_lib.core.contract.stargate_router import StargateRouter
+        from web3_wizzard_lib.core.contract.stargate_router import StargateRouter
         stargate_router = StargateRouter(chain_contracts["STARGATE_ROUTER"], web3)
 
         wei_balance = stargate_router.count_native_fee_stargate(

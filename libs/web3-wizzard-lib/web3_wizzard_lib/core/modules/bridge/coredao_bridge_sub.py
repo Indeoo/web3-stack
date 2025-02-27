@@ -7,9 +7,9 @@ from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.utils.retry import retry
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.coredao_contract import CoreDaoContract
-from libs.web3_wizzard_lib.core.contract.coredao_from_contract import CoreDaoFromContract
-from libs.web3_wizzard_lib.core.modules.bridge.bridge import Bridge
+from web3_wizzard_lib.core.contract.coredao_contract import CoreDaoContract
+from web3_wizzard_lib.core.contract.coredao_from_contract import CoreDaoFromContract
+from web3_wizzard_lib.core.modules.bridge.bridge import Bridge
 
 
 class CoreDaoBridgeSubModule(Bridge):

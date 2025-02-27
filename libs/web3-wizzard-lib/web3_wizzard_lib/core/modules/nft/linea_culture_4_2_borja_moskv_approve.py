@@ -3,7 +3,7 @@ from sybil_engine.domain.balance.balance import NativeBalance
 from sybil_engine.domain.balance.balance_utils import from_eth_to_wei
 from sybil_engine.utils.app_account_utils import AppAccount
 
-from libs.web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
+from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
 
 
 class LineaCultureWeek4Day2Approve(NftSubmodule):

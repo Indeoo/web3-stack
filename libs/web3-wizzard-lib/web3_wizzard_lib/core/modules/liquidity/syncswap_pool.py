@@ -5,10 +5,10 @@ from sybil_engine.domain.balance.balance import NativeBalance
 from sybil_engine.domain.balance.balance_utils import interval_to_eth_balance
 from sybil_engine.domain.balance.tokens import Erc20Token
 
-from libs.web3_wizzard_lib.core.contract.syncswap_pool import SyncSwapPoolContract
-from libs.web3_wizzard_lib.core.contract.syncswap_classic_pool import SyncSwapClassicPool
-from libs.web3_wizzard_lib.core.contract.syncswap_router import SyncSwapRouter
-from libs.web3_wizzard_lib.core.modules.liquidity.pool import Pool
+from web3_wizzard_lib.core.contract.syncswap_pool import SyncSwapPoolContract
+from web3_wizzard_lib.core.contract.syncswap_classic_pool import SyncSwapClassicPool
+from web3_wizzard_lib.core.contract.syncswap_router import SyncSwapRouter
+from web3_wizzard_lib.core.modules.liquidity.pool import Pool
 
 
 class SyncswapPool(Pool):

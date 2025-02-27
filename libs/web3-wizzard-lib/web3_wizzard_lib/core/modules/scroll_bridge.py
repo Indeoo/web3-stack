@@ -2,7 +2,7 @@ from sybil_engine.module.module import Module
 from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.validation_utils import validate_amount_interval, validate_chain
 
-from libs.web3_wizzard_lib.core.modules.bridge.scroll_bridge_sub import ScrollBridgeSubModule
+from web3_wizzard_lib.core.modules.bridge.scroll_bridge_sub import ScrollBridgeSubModule
 
 
 class ScrollBridgeModule(Module):

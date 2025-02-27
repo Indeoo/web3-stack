@@ -1,6 +1,6 @@
 from sybil_engine.domain.dex import Dex
 
-from libs.web3_wizzard_lib.core.contract.velocore_router import VelocoreRouter
+from web3_wizzard_lib.core.contract.velocore_router import VelocoreRouter
 
 
 class Velocore(Dex):

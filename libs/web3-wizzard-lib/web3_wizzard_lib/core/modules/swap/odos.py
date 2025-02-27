@@ -3,7 +3,7 @@ from sybil_engine.domain.dex import Dex
 from sybil_engine.utils.retry import retry
 from sybil_engine.utils.utils import AccountException
 
-from libs.web3_wizzard_lib.core.contract.odos import Odos
+from web3_wizzard_lib.core.contract.odos import Odos
 
 
 class OdosSwap(Dex):

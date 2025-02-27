@@ -4,7 +4,7 @@ from sybil_engine.domain.balance.balance import NativeBalance
 from sybil_engine.utils.app_account_utils import AppAccount
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.utils.sub_module import SubModule
+from web3_wizzard_lib.core.utils.sub_module import SubModule
 
 
 class WizzardsOfLinea(SubModule):

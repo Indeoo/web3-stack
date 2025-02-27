@@ -1,7 +1,7 @@
 from sybil_engine.domain.dex import Dex
 
-from libs.web3_wizzard_lib.core.contract.pancake_quoter import PancakeQuoter
-from libs.web3_wizzard_lib.core.contract.pancake_router import PancakeRouter
+from web3_wizzard_lib.core.contract.pancake_quoter import PancakeQuoter
+from web3_wizzard_lib.core.contract.pancake_router import PancakeRouter
 
 
 class Pancake(Dex):

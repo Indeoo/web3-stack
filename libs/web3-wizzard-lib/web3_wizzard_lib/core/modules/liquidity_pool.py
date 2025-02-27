@@ -6,10 +6,10 @@ from sybil_engine.utils.app_account_utils import AppAccount
 from sybil_engine.utils.validation_utils import validate_amount_interval
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.modules.liquidity.syncswap_pool import SyncswapPool
-from libs.web3_wizzard_lib.core.modules.liquidity.velocore_pool import VelocorePool
-from libs.web3_wizzard_lib.core.modules.liquidity.nile_pool import NilePool
-from libs.web3_wizzard_lib.core.modules.liquidity.zerolend_liquidity import ZeroLendLiquidity
+from web3_wizzard_lib.core.modules.liquidity.syncswap_pool import SyncswapPool
+from web3_wizzard_lib.core.modules.liquidity.velocore_pool import VelocorePool
+from web3_wizzard_lib.core.modules.liquidity.nile_pool import NilePool
+from web3_wizzard_lib.core.modules.liquidity.zerolend_liquidity import ZeroLendLiquidity
 
 
 class LiquidityPool(Module):

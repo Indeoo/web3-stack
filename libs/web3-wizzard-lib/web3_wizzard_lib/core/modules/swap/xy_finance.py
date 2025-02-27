@@ -4,7 +4,7 @@ from sybil_engine.domain.dex import Dex
 from sybil_engine.utils.gas_utils import l1_gas_price
 from sybil_engine.utils.utils import AccountException
 
-from libs.web3_wizzard_lib.core.contract.xy_finance_contract import XYSwapContract
+from web3_wizzard_lib.core.contract.xy_finance_contract import XYSwapContract
 
 
 class XyFinance(Dex):

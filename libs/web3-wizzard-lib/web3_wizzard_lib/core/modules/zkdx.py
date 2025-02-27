@@ -8,8 +8,8 @@ from sybil_engine.utils.app_account_utils import AppAccount
 from sybil_engine.utils.utils import AccountException
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.zkdx_contract import ZKDXContract
-from libs.web3_wizzard_lib.core.contract.zkdx_data import ZKDXDataContract
+from web3_wizzard_lib.core.contract.zkdx_contract import ZKDXContract
+from web3_wizzard_lib.core.contract.zkdx_data import ZKDXDataContract
 
 
 class ZKDX(Module):

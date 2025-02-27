@@ -7,7 +7,7 @@ from sybil_engine.module.module import Order, RepeatableModule
 from sybil_engine.utils.utils import interval_to_int
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.dmail_send_mail import DmailSend
+from web3_wizzard_lib.core.contract.dmail_send_mail import DmailSend
 
 
 class Dmail(RepeatableModule):

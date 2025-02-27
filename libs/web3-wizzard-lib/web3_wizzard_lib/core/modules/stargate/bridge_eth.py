@@ -4,8 +4,8 @@ from sybil_engine.domain.balance.balance import NotEnoughNativeBalance
 from sybil_engine.domain.balance.balance_utils import from_wei_to_eth, from_eth_to_wei
 from sybil_engine.utils.utils import interval_to_round
 
-from libs.web3_wizzard_lib.core.contract.stargate_router_eth import StargateRouterEth
-from libs.web3_wizzard_lib.core.modules.stargate.stargate_gas_checker import get_native_fee_balance
+from web3_wizzard_lib.core.contract.stargate_router_eth import StargateRouterEth
+from web3_wizzard_lib.core.modules.stargate.stargate_gas_checker import get_native_fee_balance
 
 
 def bridge_eth(native_without_min, account, bridge_amount_interval, from_chain_instance, to_chain_instance, web3):

@@ -1,8 +1,8 @@
 from sybil_engine.domain.dex import Dex
 
-from libs.web3_wizzard_lib.core.contract.syncswap_classic_pool_factory import SyncSwapClassicPoolFactory
-from libs.web3_wizzard_lib.core.contract.syncswap_pool import SyncSwapPoolContract
-from libs.web3_wizzard_lib.core.contract.syncswap_router import SyncSwapRouter
+from web3_wizzard_lib.core.contract.syncswap_classic_pool_factory import SyncSwapClassicPoolFactory
+from web3_wizzard_lib.core.contract.syncswap_pool import SyncSwapPoolContract
+from web3_wizzard_lib.core.contract.syncswap_router import SyncSwapRouter
 
 
 class Syncswap(Dex):

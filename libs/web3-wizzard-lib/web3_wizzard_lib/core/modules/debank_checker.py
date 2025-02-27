@@ -1,8 +1,8 @@
 from sybil_engine.module.module import Module
 from sybil_engine.utils.accumulator import add_accumulator, get_value
 
-from libs.web3_wizzard_lib.core.utils.statistic_utils import statistic_date_string, get_statistic_writer
-from libs.web3_wizzard_lib.utils.debank_utils import debank_request
+from web3_wizzard_lib.core.utils.statistic_utils import statistic_date_string, get_statistic_writer
+from web3_wizzard_lib.utils.debank_utils import debank_request
 
 TOTAL_USD = "TotalUSD"
 DEBANK_ACC_NUM = "DEBANK_ACC_NUM"

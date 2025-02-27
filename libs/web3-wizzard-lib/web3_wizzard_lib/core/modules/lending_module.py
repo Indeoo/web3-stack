@@ -11,11 +11,11 @@ from sybil_engine.utils.utils import ConfigurationException, interval_to_round
 from sybil_engine.utils.validation_utils import validate_amount_interval, validate_interval
 from sybil_engine.utils.web3_utils import init_web3
 
-from libs.web3_wizzard_lib.core.contract.basiliskcontract import BasiliskContract
-from libs.web3_wizzard_lib.core.contract.eralendcontract import EraLendContract
-from libs.web3_wizzard_lib.core.contract.reactor_fusion_contract import ReactorFusionContract
-from libs.web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
-from libs.web3_wizzard_lib.core.modules.bank.aave import Aave
+from web3_wizzard_lib.core.contract.basiliskcontract import BasiliskContract
+from web3_wizzard_lib.core.contract.eralendcontract import EraLendContract
+from web3_wizzard_lib.core.contract.reactor_fusion_contract import ReactorFusionContract
+from web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
+from web3_wizzard_lib.core.modules.bank.aave import Aave
 
 
 class Lending(RepeatableModule):

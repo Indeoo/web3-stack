@@ -4,7 +4,7 @@ from sybil_engine.domain.balance.balance import Erc20Balance, NotEnoughNativeBal
 from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.utils.web3_utils import get_amount_to_bridge_usdc
 
-from libs.web3_wizzard_lib.core.contract.stargate_router import StargateRouter
+from web3_wizzard_lib.core.contract.stargate_router import StargateRouter
 
 
 def bridge_usdc(native_balance, account, bridge_amount_interval, from_chain_config, to_chain_config, web3):
