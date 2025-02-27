@@ -5,9 +5,9 @@ from eth_account import Account
 from loguru import logger
 from web3 import Web3
 
+from pk_encryptor.utils.decryptor import decrypt_private_key
 from sybil_engine.domain.cex.cex import get_cex_addresses
 from sybil_engine.utils.csv_reader import read_csv_rows
-from sybil_engine.utils.decryptor import decrypt_private_key
 from sybil_engine.utils.file_loader import load_file_rows
 from sybil_engine.utils.google_utils import get_google_spreadsheet
 from sybil_engine.utils.utils import ConfigurationException

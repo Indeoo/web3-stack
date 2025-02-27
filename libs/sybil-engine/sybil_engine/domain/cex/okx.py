@@ -5,10 +5,9 @@ from okx.Account import AccountAPI
 from okx.Funding import FundingAPI
 from okx.MarketData import MarketAPI
 
+from pk_encryptor.utils.decryptor import read_cex_data
 from sybil_engine.domain.cex.cex import CEX
 from sybil_engine.utils.utils import randomized_sleeping
-
-from sybil_engine.utils.decryptor import read_cex_data
 
 networks = {
     'ETH_MAINNET': 'ERC20',
