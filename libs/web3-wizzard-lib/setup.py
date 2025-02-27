@@ -4,12 +4,12 @@ with open("requirements.txt", "r", encoding="utf-8") as file:
     requirements = file.readlines()
 
 setup(
-    name='web3_wizzard_lib',
+    name='web3-wizzard-lib',
     version='1.6.2',
-    py_modules=['web3_wizzard_lib'],
+    py_modules=['web3-wizzard-lib'],
     packages=find_packages(),
     package_data={
-        'web3_wizzard_lib': ['resources/**/*'],
+        'web3-wizzard-lib': ['resources/**/*'],
     },
     install_requires=requirements,
     data_files=[('', ['requirements.txt'])],
