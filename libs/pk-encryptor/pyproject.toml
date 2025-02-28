@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pk_encryptor"
-version = "0.0.4"
+version = "0.0.5"
 description = "pk_encryptor."
 authors = [
     {name = "Indeoo", email = "indeooars@gmail.com"}
@@ -29,7 +29,7 @@ include = ["pk_encryptor*"]
 "pk_encryptor" = ["resources/**/*"]
 
 [tool.bump2version]
-current_version = "0.0.4"
+current_version = "0.0.5"
 commit = true
 tag = true
 tag_name = "pk-encryptor-{new_version}"
