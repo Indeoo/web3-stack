@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 license = {text = "MIT"}
 dependencies = [
-    "sybil-engine==10.3.5",
+    "sybil-engine==10.3.6",
 ]
 
 [project.urls]
