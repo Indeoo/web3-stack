@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web3-wizzard-lib"
+version = "1.6.2"
+description = "Engine for web3 smart contracts automatization."
+authors = [
+    {name = "Indeoo", email = "indeooars@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+dependencies = [
+    "sybil-engine==10.3.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/Indeoo/web3-wizzard-lib/"
+
+[tool.setuptools]
+py-modules = ["web3-wizzard-lib"]
+
+[tool.setuptools.packages.find]
+include = ["web3_wizzard_lib*"]
+
+[tool.setuptools.package-data]
+"web3-wizzard-lib" = ["resources/**/*"]
+
+[tool.bump2version]
+current_version = "1.6.2"
+commit = true
+tag = true
+tag_name = "web3-wizzard-lib-{new_version}"
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(-(?P<stage>[^.]*)\\.(\\d+))?"
+serialize = [
+    "{major}.{minor}.{patch}-{stage}.{devnum}",
+    "{major}.{minor}.{patch}"
+]
+
+[[tool.bump2version.files]]
+filename = "pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
