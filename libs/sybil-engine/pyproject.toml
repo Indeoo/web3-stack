@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sybil_engine"
+version = "10.3.3"
+description = "Engine for web3 smart contracts automatization."
+authors = [
+    {name = "Indeoo", email = "indeooars@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+dependencies = [
+    "loguru==0.7.2",
+    "setuptools==69.5.1",
+    "ccxt==4.2.100",
+    "tqdm==4.66.2",
+    "web3==7.2.0",
+    "requests==2.31.0",
+    "pyTelegramBotAPI==4.17.0",
+    "python-okx==0.2.8",
+    "termcolor==2.4.0",
+    "bumpversion==0.6.0",
+    "binance-connector==3.6.0",
+    "base58==2.1.1",
+    "google-api-python-client==2.126.0",
+    "google-auth-httplib2==0.2.0",
+    "google-auth-oauthlib==1.2.0",
+    "eth-tester==0.10.0b4",
+    "py-evm==0.10.1b2",
+    "fake-useragent==1.4.0",
+    "Faker~=27.0.0",
+    "pk-encryptor==0.0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/Indeoo/web3-wizzard-lib/"
+
+[tool.setuptools]
+py-modules = ["sybil_engine"]
+
+[tool.setuptools.packages.find]
+include = ["sybil_engine*"]
+
+[tool.setuptools.package-data]
+"sybil_engine" = ["resources/**/*"]
+
+[tool.bump2version]
+current_version = "10.3.3"
+commit = true
+tag = true
+tag_name = "sybil-engine-{new_version}"
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(-(?P<stage>[^.]*)\\.(\\d+))?"
+serialize = [
+    "{major}.{minor}.{patch}-{stage}.{devnum}",
+    "{major}.{minor}.{patch}"
+]
+
+[[tool.bump2version.files]]
+filename = "pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
