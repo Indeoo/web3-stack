@@ -27,19 +27,3 @@ include = ["pk_encryptor*"]
 
 [tool.setuptools.package-data]
 "pk_encryptor" = ["resources/**/*"]
-
-[tool.bump2version]
-current_version = "0.0.5"
-commit = true
-tag = true
-tag_name = "pk-encryptor-{new_version}"
-parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(-(?P<stage>[^.]*)\\.(\\d+))?"
-serialize = [
-    "{major}.{minor}.{patch}-{stage}.{devnum}",
-    "{major}.{minor}.{patch}"
-]
-
-[[tool.bump2version.files]]
-filename = "pyproject.toml"
-search = "version = \"{current_version}\""
-replace = "version = \"{new_version}\""
