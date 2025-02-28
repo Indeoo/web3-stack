@@ -13,17 +13,14 @@ readme = "README.md"
 requires-python = ">=3.7"
 license = {text = "MIT"}
 dependencies = [
-    "sybil-engine==10.3.3",
+    "sybil-engine==10.3.5",
 ]
 
 [project.urls]
 Homepage = "https://github.com/Indeoo/web3-wizzard-lib/"
 
 [tool.setuptools]
-py-modules = ["web3-wizzard-lib"]
-
-[tool.setuptools.packages.find]
-include = ["web3_wizzard_lib*"]
+packages = ["web3_wizzard_lib"]
 
 [tool.setuptools.package-data]
-"web3-wizzard-lib" = ["resources/**/*"]
+"web3_wizzard_lib" = ["resources/**/*"]
