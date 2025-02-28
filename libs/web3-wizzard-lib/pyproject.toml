@@ -19,7 +19,7 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/Indeoo/web3-wizzard-lib/"
 
-[tool.setuptools]
+[tool.setuptools.packages.find]
 packages = ["web3_wizzard_lib"]
 
 [tool.setuptools.package-data]
