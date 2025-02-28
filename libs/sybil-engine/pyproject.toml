@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sybil_engine"
-version = "10.3.3"
+version = "10.3.5"
 description = "Engine for web3 smart contracts automatization."
 authors = [
     {name = "Indeoo", email = "indeooars@gmail.com"}
@@ -48,7 +48,7 @@ include = ["sybil_engine*"]
 "sybil_engine" = ["resources/**/*"]
 
 [tool.bump2version]
-current_version = "10.3.3"
+current_version = "10.3.5"
 commit = true
 tag = true
 tag_name = "sybil-engine-{new_version}"

@@ -27,19 +27,3 @@ include = ["web3_wizzard_lib*"]
 
 [tool.setuptools.package-data]
 "web3-wizzard-lib" = ["resources/**/*"]
-
-[tool.bump2version]
-current_version = "1.6.2"
-commit = true
-tag = true
-tag_name = "web3-wizzard-lib-{new_version}"
-parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)(-(?P<stage>[^.]*)\\.(\\d+))?"
-serialize = [
-    "{major}.{minor}.{patch}-{stage}.{devnum}",
-    "{major}.{minor}.{patch}"
-]
-
-[[tool.bump2version.files]]
-filename = "pyproject.toml"
-search = "version = \"{current_version}\""
-replace = "version = \"{new_version}\""
