@@ -9,6 +9,7 @@ from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.bank.basilisk import Basilisk
+from web3_wizzard_lib.core.modules.bank.cog_bank import Cog
 from web3_wizzard_lib.core.modules.bank.compound_v3 import CompoundV3
 from web3_wizzard_lib.core.modules.bank.eralend import Eralend
 from web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
@@ -38,12 +39,11 @@ class Banking(Module):
 
         bank_app = self.get_bank_app(bank_app_name, chain, web3)
 
-        logger.info(f"{bank_app.app_name}")
+        logger.info(f"{bank_app.app_name} | {action}")
 
         self.perform_action(bank_app, action, amount, token, account)
 
     def perform_action(self, bank_app, action, amount, token, account):
-        logger.info(action)
         if action == 'SUPPLY':
             bank_app.supply(account, amount)
         elif action == 'BORROW':
@@ -85,7 +85,8 @@ class Banking(Module):
             LayerBank,
             Aave,
             ZeroLend,
-            CompoundV3
+            CompoundV3,
+            Cog
         }
 
     def log(self):

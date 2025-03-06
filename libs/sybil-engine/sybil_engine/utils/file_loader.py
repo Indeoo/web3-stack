@@ -10,6 +10,9 @@ def load_file_rows(path):
         return [row.strip() for row in f]
 
 
+def load_from_lib(path):
+    return load_abi(path)
+
 def load_abi(path):
     try:
         # Get the absolute file path of the function that calls `load_abi`.
