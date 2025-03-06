@@ -9,6 +9,7 @@ from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.bank.basilisk import Basilisk
+from web3_wizzard_lib.core.modules.bank.compound_v3 import CompoundV3
 from web3_wizzard_lib.core.modules.bank.eralend import Eralend
 from web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
 from web3_wizzard_lib.core.modules.bank.mendi_finance import MendiFinance
@@ -51,9 +52,12 @@ class Banking(Module):
             bank_app.repay_borrow(account, amount)
         elif action == 'REDEEM':
             amount = bank_app.get_deposit_amount(account, token)
-            logger.info(f"Redeem {amount} of {token} from {bank_app.app_name}")
 
-            bank_app.redeem(account, amount, token)
+            if amount > 0:
+                logger.info(f"Redeem {amount} of {token} from {bank_app.app_name}")
+                bank_app.redeem(account, amount, token)
+            else:
+                logger.info(f"{account.address} does not have {token}")
         else:
             raise ConfigurationException("Unsupported action")
 
@@ -80,7 +84,8 @@ class Banking(Module):
             MendiFinance,
             LayerBank,
             Aave,
-            ZeroLend
+            ZeroLend,
+            CompoundV3
         }
 
     def log(self):
