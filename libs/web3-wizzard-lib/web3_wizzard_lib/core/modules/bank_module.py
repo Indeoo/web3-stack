@@ -52,9 +52,12 @@ class Banking(Module):
             bank_app.repay_borrow(account, amount)
         elif action == 'REDEEM':
             amount = bank_app.get_deposit_amount(account, token)
-            logger.info(f"Redeem {amount} of {token} from {bank_app.app_name}")
 
-            bank_app.redeem(account, amount, token)
+            if amount > 0:
+                logger.info(f"Redeem {amount} of {token} from {bank_app.app_name}")
+                bank_app.redeem(account, amount, token)
+            else:
+                logger.info(f"{account.address} does not have {token}")
         else:
             raise ConfigurationException("Unsupported action")
 
