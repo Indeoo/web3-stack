@@ -57,7 +57,7 @@ class Banking(Module):
                 logger.info(f"Redeem {amount} of {token} from {bank_app.app_name}")
                 bank_app.redeem(account, amount, token)
             else:
-                logger.info(f"{account.address} does not have {token}")
+                logger.info(f"{token} balance is 0")
         else:
             raise ConfigurationException("Unsupported action")
 
