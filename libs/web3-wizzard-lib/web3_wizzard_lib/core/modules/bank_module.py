@@ -9,6 +9,7 @@ from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.bank.basilisk import Basilisk
+from web3_wizzard_lib.core.modules.bank.compound_v3 import CompoundV3
 from web3_wizzard_lib.core.modules.bank.eralend import Eralend
 from web3_wizzard_lib.core.modules.bank.layerbank import LayerBank
 from web3_wizzard_lib.core.modules.bank.mendi_finance import MendiFinance
@@ -80,7 +81,8 @@ class Banking(Module):
             MendiFinance,
             LayerBank,
             Aave,
-            ZeroLend
+            ZeroLend,
+            CompoundV3
         }
 
     def log(self):
