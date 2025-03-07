@@ -1,6 +1,7 @@
 from sybil_engine.data.contracts import get_contracts_for_chain
 from sybil_engine.data.networks import get_ids_chain
 from sybil_engine.data.tokens import get_tokens_for_chain
+from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.utils.utils import ConfigurationException
 
 from web3_wizzard_lib.core.contract.compound_v3 import CompoundV3Contract
@@ -21,8 +22,20 @@ class CompoundV3(Bank):
     def supply(self, account, amount):
         raise ConfigurationException("Only redeem supported for Compound V3")
 
+    def get_repay_borrow_amount(self, account):
+        return self.contract.borrow_balance_of(account)
+
+    def repay_borrow(self, account, amount):
+        erc20_token = Erc20Token(self.contract.chain_instance['chain'], "USDC", self.contract.web3)
+
+        if erc20_token.allowance(account, self.contract.contract_address) < 100:
+            erc20_token.approve(account, self.contract.contract_address)
+
+        return self.contract.supply(account, amount, erc20_token.erc20_contract.contract_address)
+
     def redeem(self, account, amount, token):
-        self.contract_bulker.invoke(account, amount)
+        actions = '0x414354494f4e5f57495448445241575f41535345540000000000000000000000'
+        self.contract_bulker.invoke(account, amount, actions)
 
     def get_deposit_amount(self, account, token):
         token_address = get_tokens_for_chain(get_ids_chain()[self.contract.web3.eth.chain_id])[token]

@@ -49,7 +49,13 @@ class Banking(Module):
         elif action == 'BORROW':
             bank_app.borrow(account, amount)
         elif action == 'REPAY':
-            bank_app.repay_borrow(account, amount)
+            amount = bank_app.get_repay_borrow_amount(account)
+
+            if amount > 0:
+                logger.info(f"Repay {amount} {token} in {bank_app.app_name}")
+                bank_app.repay_borrow(account, amount)
+            else:
+                logger.info(f"{token} borrow balance is 0")
         elif action == 'REDEEM':
             amount = bank_app.get_deposit_amount(account, token)
 
