@@ -5,6 +5,9 @@ class Bank:
     def borrow(self, account, amount):
         pass
 
+    def get_repay_borrow_amount(self, account):
+        pass
+
     def repay_borrow(self, account, amount):
         pass
 
