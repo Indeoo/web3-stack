@@ -1,3 +1,5 @@
+from loguru import logger
+
 from sybil_engine.contract.contract import Contract
 from sybil_engine.contract.transaction_executor import evm_transaction
 from sybil_engine.utils.file_loader import load_abi
@@ -15,11 +17,14 @@ class CompoundV3BulkerContract(Contract):
         hex_amount = decimal_to_padded_hexadecimal(amount, 32)
         data = f'0x000000000000000000000000b2f97c1bd3bf02f5e74d13f02e3e26f93d77ce44000000000000000000000000ef0f48dadd0abe4f99b4c14862df303ba956bd1300000000000000000000000000000000{hex_amount}'
 
-        return self.contract.functions.invoke(
+        txn = self.contract.functions.invoke(
             [hex_to_bytes(actions)],
             [hex_to_bytes(data)]
-        ).build_transaction(self.build_generic_data(account.address, False))
+        )
 
+        contract_txn = txn.build_transaction(self.build_generic_data(account.address, False))
+
+        return contract_txn
 
 def hex_to_bytes(hex_string):
     """

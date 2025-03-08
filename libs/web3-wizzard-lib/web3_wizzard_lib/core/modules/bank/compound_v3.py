@@ -34,7 +34,7 @@ class CompoundV3(Bank):
         return self.contract.supply(account, amount, erc20_token.erc20_contract.contract_address)
 
     def redeem(self, account, amount, token):
-        actions = '0x414354494f4e5f57495448445241575f41535345540000000000000000000000'
+        actions = '0x414354494f4e5f57495448445241575f4e41544956455f544f4b454e00000000'
         self.contract_bulker.invoke(account, amount, actions)
 
     def get_deposit_amount(self, account, token):
