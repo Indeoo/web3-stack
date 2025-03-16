@@ -35,22 +35,22 @@ class MendiFinance(Bank):
     def repay_borrow(self, account, amount):
         logger.info(f"Mendi repay {amount.token}")
 
-    def redeem(self, account, amount):
-        me_token = f'me{amount.token}'
+    def redeem(self, account, amount, token):
+        me_token = f'mewe{token}'
         mendi_token_address = get_tokens_for_chain(self.chain)[me_token]
         mendi = MendiTokenContract(mendi_token_address, self.web3)
 
         redeem_balance = mendi.balance_of(account)
 
         if redeem_balance > 1000000000:
-            logger.info(f"Mendi reedem {amount. token}")
+            logger.info(f"Mendi reedem {token}")
             mendi.redeem(account, redeem_balance)
         else:
             logger.info(f"Mendi balance is 0")
 
     def get_deposit_amount(self, account, token):
-        #me_token = f'meweETH'
-        mendi_token_address = get_tokens_for_chain(self.chain)[token]
+        me_token = f'meweETH'
+        mendi_token_address = get_tokens_for_chain(self.chain)[me_token]
         mendi = MendiTokenContract(mendi_token_address, self.web3)
 
         return mendi.balance_of(account)

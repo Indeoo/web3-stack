@@ -14,7 +14,7 @@ class CompoundV3BulkerContract(Contract):
 
     @evm_transaction
     def invoke(self, account, amount, actions):
-        hex_amount = decimal_to_padded_hexadecimal(amount, 32)
+        hex_amount = decimal_to_padded_hexadecimal(int(amount * 0.98), 32)
         data = f'0x000000000000000000000000b2f97c1bd3bf02f5e74d13f02e3e26f93d77ce44000000000000000000000000ef0f48dadd0abe4f99b4c14862df303ba956bd1300000000000000000000000000000000{hex_amount}'
 
         txn = self.contract.functions.invoke(
