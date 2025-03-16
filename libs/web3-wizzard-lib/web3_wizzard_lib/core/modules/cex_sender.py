@@ -1,6 +1,7 @@
 from loguru import logger
 from sybil_engine.contract.send import Send
 from sybil_engine.data.networks import get_chain_instance
+from sybil_engine.domain.balance.balance import NotEnoughNativeBalance
 from sybil_engine.domain.balance.balance_utils import interval_to_native_balance, interval_to_erc20_balance
 from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.module.module import Module
@@ -24,7 +25,11 @@ class SendToCex(Module):
             amount = interval_to_native_balance(send_to_cex_amount_interval, account, chain_instance['chain'], web3)
 
             if send_to_cex_amount_interval == 'all_balance':
-                amount = amount.minus(self.min_native_balance)
+                try:
+                    amount = amount.minus(self.min_native_balance)
+                except NotEnoughNativeBalance as e:
+                    logger.info("Wallet balance is empty or almost empty, skip")
+                    return
         elif token in self.supported_chains:
             amount = interval_to_erc20_balance(send_to_cex_amount_interval, account, token, chain, web3)
         else:
@@ -38,7 +43,7 @@ class SendToCex(Module):
 
         add_accumulator_native_balance("Total sent to cex", amount.wei)
 
-    @retry(max_attempts=5, retry_interval={'from': 60 * 2, 'to': 60 * 3})
+    @retry(max_attempts=5, retry_interval={'from': 60 * 1, 'to': 60 * 2})
     def send_funds(self, account, amount, cex_address, chain, chain_instance, token, web3):
         logger.info(f"Send {amount} to {cex_address} ({chain_instance['chain']})")
         if token == 'NATIVE':
