@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 from loguru import logger
 from sybil_engine.utils.google_utils import get_google_credentials
 
-from sybil_engine.utils.telegram import get_config
+from sybil_engine.utils.config_utils import get_config
 
 statistic_date_string = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 

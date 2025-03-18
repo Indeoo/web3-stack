@@ -28,12 +28,10 @@ def import_all_modules(package):
         importlib.import_module(absolute_module_name)
 
 
-def launch():
+def launch(config_map = None, module_map = None):
     import_all_modules(web3_wizzard_lib.core.modules)
 
     logger.info(Module.__subclasses__())
 
     modules_data = Modules(None, swap_facade)
-    #modules_data = load_module_vars("web3-wizzard-lib.utils.modules")['modules_data']
-
-    launch_with_data(modules_data)
+    launch_with_data(modules_data, config_map, module_map)
