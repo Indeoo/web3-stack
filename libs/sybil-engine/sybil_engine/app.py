@@ -9,36 +9,24 @@ from sybil_engine.module.module_executor import ModuleExecutor
 from sybil_engine.utils.accumulator import print_accumulated, add_accumulator_str, add_accumulator
 from sybil_engine.utils.app_account_utils import create_app_account
 from sybil_engine.utils.arguments_parser import parse_arguments, parse_profile
-from sybil_engine.utils.configuration_loader import load_config_maps, load_module_vars
+from sybil_engine.utils.configuration_loader import load_config_maps
 from sybil_engine.utils.duplicate_utils import check_duplicates
 from sybil_engine.utils.fee_storage import print_fee
 from sybil_engine.utils.logs import load_logger
 from sybil_engine.utils.package_import_utils import import_all_variables_from_directory
-from sybil_engine.utils.telegram import set_telegram_api_chat_id, set_telegram_api_key, send_to_bot, add_config
+from sybil_engine.utils.telegram import send_to_bot
+from sybil_engine.utils.config_utils import add_config
 from sybil_engine.utils.utils import ConfigurationException
-import pkgutil
-import importlib
-
-
-def prepare_launch_without_data(modules_package):
-    package = importlib.import_module(modules_package)
-
-    for loader, module_name, is_pkg in pkgutil.walk_packages(path=package.__path__):
-        if not is_pkg:
-            importlib.import_module('.' + module_name, package=modules_package)
-
-    modules_data = load_module_vars(modules_package)['modules_data']
-    launch_with_data(modules_data)
 
 
 def launch_with_data(modules_data):
     config_map, module_map = load_config_maps()
+    args = parse_arguments(config_map['password'], config_map['spreadsheet_id'], module_map['module'])
 
     load_logger(send_to_bot, config_map['telegram_enabled'], config_map['telegram_log_level'])
 
-    set_telegram_api_chat_id(config_map['telegram_api_chat_id'])
-    set_telegram_api_key(config_map['telegram_api_key'])
-
+    add_config("telegram_api_chat_id", config_map['telegram_api_chat_id'])
+    add_config("telegram_api_key", config_map['telegram_api_key'])
     add_config("STATISTICS_MODE", "CSV")
 
     if "statistic_config" in config_map:
@@ -48,13 +36,7 @@ def launch_with_data(modules_data):
             add_config("SPREADSHEET_ID", config_map['statistic_config']['spreadsheet_id'])
 
     setup_default_config(config_map)
-
-    args = parse_arguments(config_map['password'], config_map['spreadsheet_id'], module_map['module'])
-
-    try:
-        scenario = load_scenario(args, config_map, module_map, modules_data)
-    except ValueError as e:
-        return
+    scenario = load_scenario(args, config_map, module_map, modules_data)
 
     config = (
         modules_data,
