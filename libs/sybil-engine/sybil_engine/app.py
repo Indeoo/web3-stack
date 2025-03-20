@@ -36,6 +36,9 @@ def launch_with_data(modules_data, config_map=None, module_map=None):
     for k, v in config_map.items():
         add_config(k, v)
 
+    for k, v in module_map.items():
+        add_config(k, v)
+
     args = parse_arguments()
 
     for k, v in args.items():
