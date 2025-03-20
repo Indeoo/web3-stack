@@ -1,3 +1,5 @@
+import os
+
 from loguru import logger
 
 from sybil_engine.config.app_config import set_network, set_gas_prices, set_dex_retry_interval, set_module_data, \
@@ -66,6 +68,7 @@ def launch_with_data(modules_data, config_map=None, module_map=None):
 
 def __setup_default_config(config_map):
     defaults = {
+        'module': os.environ.get('MODULE', ''),
         'encryption': False,
         'shell_mode': 'classic',
         'proxy_mode': 'RANDOM',

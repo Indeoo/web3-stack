@@ -34,8 +34,7 @@ def parse_arguments():
                         help='a string to be processed')
     parser.add_argument('--network', type=str, required=False, default=os.environ.get('NETWORK', 'MAIN'),
                         help='a string to be processed')
-    parser.add_argument('--module', type=str, required=False, default=os.environ.get('MODULE'),
-                        help='a string to be processed')
+    parser.add_argument('--module', type=str, required=False)
     parser.add_argument('--cex_conf', type=str, required=False, default=os.environ.get('CEX_CONF', 'cex'),
                         help='a string to be processed')
     parser.add_argument('--spreadsheet_id', type=str, required=False,
