@@ -44,8 +44,7 @@ def launch_with_data(modules_data, config_map=None, module_map=None):
     for k, v in args.items():
         add_config(k, v)
 
-    args_module = args['module']
-    scenario = load_scenario(args_module, module_map, modules_data)
+    scenario = load_scenario(get_config('module'), module_map, modules_data)
 
     config = (
         modules_data,
