@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sybil_engine"
-version = "10.5.1"
+version = "10.5.2"
 description = "Engine for web3 smart contracts automatization."
 authors = [
     {name = "Indeoo", email = "indeooars@gmail.com"}
