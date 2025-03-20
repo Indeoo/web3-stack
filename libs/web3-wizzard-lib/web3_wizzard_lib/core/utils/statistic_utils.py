@@ -147,4 +147,4 @@ def get_statistic_writer():
     if get_config("STATISTICS_MODE") == "CSV":
         return CsvStatisticsWriter()
     else:
-        return GoogleStatisticsWriter(get_config("SPREADSHEET_ID"))
+        return GoogleStatisticsWriter(get_config("STATS_SPREADSHEET_ID"))
