@@ -37,9 +37,7 @@ def parse_arguments():
     parser.add_argument('--module', type=str, required=False)
     parser.add_argument('--cex_conf', type=str, required=False, default=os.environ.get('CEX_CONF', 'cex'),
                         help='a string to be processed')
-    parser.add_argument('--spreadsheet_id', type=str, required=False,
-                        default=os.environ.get('SPREADSHEET_ID'),
-                        help='a string to be processed')
+    parser.add_argument('--spreadsheet_id', type=str, required=False)
 
     args = parser.parse_args()
     args_dict = vars(args)
@@ -57,6 +55,8 @@ def parse_arguments():
 
     if '--module' not in sys.argv and args_dict['module'] is None:
         del args_dict['module']
+    if '--spreadsheet_id' not in sys.argv and args_dict['spreadsheet_id'] is None:
+        del args_dict['spreadsheet_id']
 
     return vars(args)
 

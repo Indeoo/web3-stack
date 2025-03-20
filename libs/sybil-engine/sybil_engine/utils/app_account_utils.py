@@ -30,14 +30,14 @@ def create_app_account(encryption, proxy_mode, account_creation_mode, cex_addres
 
         accounts = create_app_accounts_from_table(rows, get_config('password').encode('utf-8'), encryption)
     elif account_creation_mode == 'GOOGLE':
-        if get_config("SPREADSHEET_ID") is None:
+        if get_config("spreadsheet_id") is None:
             raise Exception(f"account_creation_mode is GOOGLE, spreadsheet_id is required in config")
 
         wallets = get_config("wallets").split(",") if "," in get_config("wallets") else [get_config("wallets")]
         rows = []
 
         for wallet in wallets:
-            rows += get_google_spreadsheet(get_config("SPREADSHEET_ID"), wallet)
+            rows += get_google_spreadsheet(get_config("spreadsheet_id"), wallet)
 
         accounts = create_app_accounts_from_table(rows, get_config('password').encode('utf-8'), encryption)
     else:

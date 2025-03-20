@@ -69,6 +69,7 @@ def launch_with_data(modules_data, config_map=None, module_map=None):
 def __setup_default_config(config_map):
     defaults = {
         'module': os.environ.get('MODULE', ''),
+        'spreadsheet_id': os.environ.get('SPREADSHEET_ID', ''),
         'encryption': False,
         'shell_mode': 'classic',
         'proxy_mode': 'RANDOM',
@@ -80,7 +81,6 @@ def __setup_default_config(config_map):
             'mode': 'CSV',
             'spreadsheet_id': '',
         },
-        'spreadsheet_id': None,
         'telegram_enabled': False,
         'telegram_api_key': '',
         'telegram_api_chat_id': 1,
