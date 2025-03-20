@@ -91,6 +91,7 @@ def __setup_default_config(config_map):
         'starknet_addresses': os.environ.get('STARKNET_ADDRESSES', f'{wallets_folder}/starknet_addresses.txt'),
         'proxy_file': os.environ.get('PROXY_FILE', f'{wallets_folder}/proxy.txt'),
         'cex_conf': os.environ.get('CEX_CONF', 'cex'),
+        'cex_data': os.environ.get('CEX_CONF', 'cex'),
         'network': os.environ.get('NETWORK', 'MAIN'),
         'account_csv': os.environ.get('ACCOUNT_CSV', f'{wallets_folder}/accounts.csv'),
         'telegram_enabled': False,
