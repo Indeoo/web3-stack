@@ -42,6 +42,7 @@ def parse_arguments():
                         help='a string to be processed')
 
     args = parser.parse_args()
+    args_dict = vars(args)
 
     if '--private_keys' not in sys.argv:
         args.private_keys = os.path.join(args.wallets, 'private_keys.txt')
@@ -53,6 +54,9 @@ def parse_arguments():
         args.proxy_file = os.path.join(args.wallets, 'proxy.txt')
     if '--account_csv' not in sys.argv:
         args.account_csv = os.path.join(args.wallets, 'accounts.csv')
+
+    if '--module' not in sys.argv and args_dict['module'] is None:
+        del args_dict['module']
 
     return vars(args)
 

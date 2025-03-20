@@ -33,7 +33,7 @@ def launch_with_data(modules_data, config_map=None, module_map=None):
 
     load_logger(send_to_bot, config_map['telegram_enabled'], config_map['telegram_log_level'])
     add_config("STATISTICS_MODE", config_map['statistic_config']['mode'])
-    add_config("SPREADSHEET_ID", config_map['statistic_config']['spreadsheet_id'])
+    add_config("STATS_SPREADSHEET_ID", config_map['statistic_config']['spreadsheet_id'])
 
     for k, v in config_map.items():
         add_config(k, v)
