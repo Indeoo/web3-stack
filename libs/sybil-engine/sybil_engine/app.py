@@ -67,6 +67,9 @@ def launch_with_data(modules_data, config_map=None, module_map=None):
 
 
 def __setup_default_config(config_map):
+    data_folder = 'data'
+    wallets_folder = f'{data_folder}/wallets'
+
     defaults = {
         'module': os.environ.get('MODULE', ''),
         'spreadsheet_id': os.environ.get('SPREADSHEET_ID', ''),
@@ -74,13 +77,22 @@ def __setup_default_config(config_map):
         'shell_mode': 'classic',
         'proxy_mode': 'RANDOM',
         'account_creation_mode': 'TXT',
-        'password': 'test',
+        'password': os.environ.get('PASSWORD', 'test'),
+        'profile': os.environ.get('PROFILE', 'default'),
         'cex_address_validation': False,
         'interactive_confirmation': False,
         'statistic_config': {
             'mode': 'CSV',
             'spreadsheet_id': '',
         },
+        'wallets': os.environ.get('WALLETS', wallets_folder),
+        'private_keys': os.environ.get('PRIVATE_KEYS', f'{wallets_folder}/private_keys.txt'),
+        'cex_addresses': os.environ.get('CEX_ADDRESSES', f'{wallets_folder}/cex_addresses.txt'),
+        'starknet_addresses': os.environ.get('STARKNET_ADDRESSES', f'{wallets_folder}/starknet_addresses.txt'),
+        'proxy_file': os.environ.get('PROXY_FILE', f'{wallets_folder}/proxy.txt'),
+        'cex_conf': os.environ.get('CEX_CONF', 'cex'),
+        'network': os.environ.get('NETWORK', 'MAIN'),
+        'account_csv': os.environ.get('ACCOUNT_CSV', f'{wallets_folder}/accounts.csv'),
         'telegram_enabled': False,
         'telegram_api_key': '',
         'telegram_api_chat_id': 1,
