@@ -9,153 +9,124 @@ from sybil_engine.module.module_executor import ModuleExecutor
 from sybil_engine.utils.accumulator import print_accumulated, add_accumulator_str, add_accumulator
 from sybil_engine.utils.app_account_utils import create_app_account
 from sybil_engine.utils.arguments_parser import parse_arguments, parse_profile
-from sybil_engine.utils.configuration_loader import load_config_maps, load_module_vars
-from sybil_engine.utils.duplicate_utils import check_duplicates
+from sybil_engine.utils.configuration_loader import load_config_maps
 from sybil_engine.utils.fee_storage import print_fee
 from sybil_engine.utils.logs import load_logger
-from sybil_engine.utils.package_import_utils import import_all_variables_from_directory
-from sybil_engine.utils.telegram import set_telegram_api_chat_id, set_telegram_api_key, send_to_bot, add_config
+from sybil_engine.utils.telegram import send_to_bot
+from sybil_engine.utils.config_utils import add_config, get_config
 from sybil_engine.utils.utils import ConfigurationException
-import pkgutil
-import importlib
+from sybil_engine.scenario_loader import load_scenario
 
 
-def prepare_launch_without_data(modules_package):
-    package = importlib.import_module(modules_package)
+def launch_with_data(modules_data, config_map=None, module_map=None):
+    if config_map is None or module_map is None:
+        profile = parse_profile()
+        loaded_config_map, loaded_module_map = load_config_maps(profile)
 
-    for loader, module_name, is_pkg in pkgutil.walk_packages(path=package.__path__):
-        if not is_pkg:
-            importlib.import_module('.' + module_name, package=modules_package)
+        if config_map is None:
+            config_map = loaded_config_map
 
-    modules_data = load_module_vars(modules_package)['modules_data']
-    launch_with_data(modules_data)
+        if module_map is None:
+            module_map = loaded_module_map
 
-
-def launch_with_data(modules_data):
-    config_map, module_map = load_config_maps()
+    __setup_default_config(config_map)
 
     load_logger(send_to_bot, config_map['telegram_enabled'], config_map['telegram_log_level'])
+    add_config("STATISTICS_MODE", config_map['statistic_config']['mode'])
+    add_config("STATS_SPREADSHEET_ID", config_map['statistic_config']['spreadsheet_id'])
 
-    set_telegram_api_chat_id(config_map['telegram_api_chat_id'])
-    set_telegram_api_key(config_map['telegram_api_key'])
+    for k, v in config_map.items():
+        add_config(k, v)
 
-    add_config("STATISTICS_MODE", "CSV")
+    for k, v in module_map.items():
+        add_config(k, v)
 
-    if "statistic_config" in config_map:
-        if "mode" in config_map['statistic_config']:
-            add_config("STATISTICS_MODE", config_map['statistic_config']['mode'])
-        if "spreadsheet_id" in config_map['statistic_config']:
-            add_config("SPREADSHEET_ID", config_map['statistic_config']['spreadsheet_id'])
+    args = parse_arguments()
 
-    setup_default_config(config_map)
+    for k, v in args.items():
+        add_config(k, v)
 
-    args = parse_arguments(config_map['password'], config_map['spreadsheet_id'], module_map['module'])
-
-    try:
-        scenario = load_scenario(args, config_map, module_map, modules_data)
-    except ValueError as e:
-        return
+    scenario = load_scenario(get_config('module'), module_map, modules_data)
 
     config = (
         modules_data,
-        config_map['encryption'],
+        get_config('encryption'),
         module_map['min_native_interval'],
-        config_map['proxy_mode'],
-        config_map['cex_data'],
+        get_config('proxy_mode'),
+        get_config('cex_data'),
         module_map['sleep_interval'],
         module_map['swap_retry_sleep_interval'],
-        config_map['gas_prices'],
-        config_map['account_creation_mode'],
-        config_map['cex_address_validation'],
-        config_map['interactive_confirmation']
+        get_config('gas_prices'),
+        get_config('account_creation_mode'),
+        get_config('cex_address_validation'),
+        get_config('interactive_confirmation'),
+        get_config('password').encode('utf-8')
     )
 
-    launch_app(args, scenario, config)
+    launch_app(scenario, config)
 
 
-def setup_default_config(config_map):
+def __setup_default_config(config_map):
+    data_folder = 'data'
+    wallets_folder = f'{data_folder}/wallets'
+
     defaults = {
+        'module': os.environ.get('MODULE', ''),
+        'spreadsheet_id': os.environ.get('SPREADSHEET_ID', ''),
+        'encryption': False,
         'shell_mode': 'classic',
+        'proxy_mode': 'RANDOM',
         'account_creation_mode': 'TXT',
+        'password': os.environ.get('PASSWORD', 'test'),
+        'profile': os.environ.get('PROFILE', 'default'),
         'cex_address_validation': False,
-        'interactive_confirmation': True,
-        'spreadsheet_id': None
+        'interactive_confirmation': False,
+        'statistic_config': {
+            'mode': 'CSV',
+            'spreadsheet_id': '',
+        },
+        'wallets': os.environ.get('WALLETS', wallets_folder),
+        'private_keys': os.environ.get('PRIVATE_KEYS', f'{wallets_folder}/private_keys.txt'),
+        'cex_addresses': os.environ.get('CEX_ADDRESSES', f'{wallets_folder}/cex_addresses.txt'),
+        'starknet_addresses': os.environ.get('STARKNET_ADDRESSES', f'{wallets_folder}/starknet_addresses.txt'),
+        'proxy_file': os.environ.get('PROXY_FILE', f'{wallets_folder}/proxy.txt'),
+        'cex_conf': os.environ.get('CEX_CONF', 'cex'),
+        'cex_data': os.environ.get('CEX_CONF', 'cex'),
+        'network': os.environ.get('NETWORK', 'MAIN'),
+        'account_csv': os.environ.get('ACCOUNT_CSV', f'{wallets_folder}/accounts.csv'),
+        'telegram_enabled': False,
+        'telegram_api_key': '',
+        'telegram_api_chat_id': 1,
+        'telegram_log_level': 'ERROR',  # ['INFO', 'ERROR', 'DEBUG']
     }
 
     for key, value in defaults.items():
         config_map.setdefault(key, value)
 
 
-def load_scenario(args, config_map, module_map, modules_data):
-    modules = []
-
-    for module in modules_data.get_modules():
-        module_name = module.module_name
-        modules.append(
-            {
-                'scenario_name': module_name,
-                'scenario': [
-                    {'module': module_name, 'params': modules_data.get_module_config_by_name(module_name, module_map)}]
-            }
-        )
-    modules_scenario_map = {
-        module_scenario['scenario_name']: module_scenario for module_scenario in
-        load_scenarios() + modules
-    }
-    if config_map['shell_mode'] == 'interactive':
-        logger.info("Choose module (by id) or scenario (by name):")
-
-        for module_id, module in modules_data.get_module_map().items():
-            module_name = get_module_name(module)
-            logger.info(f"  {module_id} {module_name}")
-
-        for scenario in load_scenarios():
-            logger.info(f"  {scenario['scenario_name']}")
-
-        choice = input()
-
-        if choice.isdigit():
-            selected_module = modules_data.get_module_map()[int(choice)]
-            module_name = get_module_name(selected_module)
-        else:
-            module_name = choice
-    else:
-        module_name = args.module
-    scenario = modules_scenario_map[module_name]
-
-    return scenario
-
-
-def get_module_name(module):
-    if module[0] is not None:
-        return module[0].module_name
-    else:
-        return 'SCENARIO'
-
-
-def launch_app(args, module_config, config):
+def launch_app(scenario, config):
     (modules_data, encryption, min_native_interval, proxy_mode, cex_data, sleep_interval, swap_retry_sleep_interval,
-     gas_price, account_creation_mode, cex_address_validation, interactive_confirmation) = config
+     gas_price, account_creation_mode, cex_address_validation, interactive_confirmation, password) = config
 
-    set_network(args.network)
+    set_network(get_config('network'))
     set_dex_retry_interval(swap_retry_sleep_interval)
     set_gas_prices(gas_price)
     set_module_data(modules_data)
-    set_cex_data((args.password.encode('utf-8'), cex_data))
-    set_cex_conf(args.cex_conf)
+    set_cex_data((password, cex_data))
+    set_cex_conf(get_config('cex_conf'))
 
-    logger.info(f"START {module_config['scenario_name']} module in {args.network}")
+    logger.info(f"START {scenario['scenario_name']} module in {get_config("network")}")
 
-    profile = parse_profile().profile
+    profile = parse_profile()
     logger.info(f"Profile {profile} activated")
 
-    if not all(modules_data.get_module_class_by_name(module['module']) for module in module_config['scenario']):
+    if not all(modules_data.get_module_class_by_name(module['module']) for module in scenario['scenario']):
         raise ConfigurationException("Non-existing module is used")
 
-    accounts = create_app_account(args, encryption, proxy_mode, account_creation_mode, cex_address_validation)
+    accounts = create_app_account(encryption, proxy_mode, account_creation_mode, cex_address_validation)
     add_accumulator("Acc Amount", len(accounts))
 
-    execution_plans = create_execution_plans(accounts, min_native_interval, module_config, modules_data)
+    execution_plans = create_execution_plans(accounts, min_native_interval, scenario, modules_data)
 
     if interactive_confirmation:
         logger.info("Are you sure you want to start with this configuration? Y/n")
@@ -165,27 +136,16 @@ def launch_app(args, module_config, config):
             return
 
     try:
-        proceed_accounts(accounts, execution_plans, sleep_interval)
+        __proceed_accounts(accounts, execution_plans, sleep_interval)
     finally:
         print_fee()
         print_accumulated()
 
 
-def proceed_accounts(accounts, execution_plans, sleep_interval):
+def __proceed_accounts(accounts, execution_plans, sleep_interval):
     for account in accounts:
         add_accumulator_str("Pending accounts: ", account)
 
     for index, (account, modules) in execution_plans:
         logger.info(f"[{index}/{len(accounts)}][{account.app_id}] {account.address}")
         ModuleExecutor().execute_modules(modules, account, sleep_interval)
-
-
-def load_scenarios():
-    scenarios_path = 'data/scenarios'
-    if os.path.exists(scenarios_path) and os.path.isdir(scenarios_path):
-        scenarios = import_all_variables_from_directory(scenarios_path)
-        check_duplicates(scenarios, 'scenario_name')
-
-        return scenarios
-    else:
-        return []

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "web3-wizzard-lib"
-version = "1.9.3"
+version = "1.11.6"
 description = "Engine for web3 smart contracts automatization."
 authors = [
     {name = "Indeoo", email = "indeooars@gmail.com"}
@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 license = {text = "MIT"}
 dependencies = [
-    "sybil-engine==10.3.6",
+    "sybil-engine==10.5.4",
 ]
 
 [project.urls]

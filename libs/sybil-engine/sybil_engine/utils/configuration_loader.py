@@ -1,7 +1,5 @@
 import importlib.util
 
-from sybil_engine.utils.arguments_parser import parse_profile
-
 
 def load_module_vars(filename):
     spec = importlib.util.spec_from_file_location("module.name", filename)
@@ -10,8 +8,7 @@ def load_module_vars(filename):
     return vars(module)
 
 
-def load_config_maps():
-    profile = parse_profile().profile
+def load_config_maps(profile):
     try:
         config_map = load_module_vars(f'data/config_{profile}.py')
     except FileNotFoundError as e:

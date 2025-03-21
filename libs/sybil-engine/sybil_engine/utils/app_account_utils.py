@@ -7,6 +7,7 @@ from web3 import Web3
 
 from pk_encryptor.utils.decryptor import decrypt_private_key
 from sybil_engine.domain.cex.cex import get_cex_addresses
+from sybil_engine.utils.config_utils import get_config
 from sybil_engine.utils.csv_reader import read_csv_rows
 from sybil_engine.utils.file_loader import load_file_rows
 from sybil_engine.utils.google_utils import get_google_spreadsheet
@@ -14,36 +15,36 @@ from sybil_engine.utils.utils import ConfigurationException
 from sybil_engine.utils.wallet_loader import load_addresses
 
 
-def create_app_account(args, encryption, proxy_mode, account_creation_mode, cex_address_validation):
+def create_app_account(encryption, proxy_mode, account_creation_mode, cex_address_validation):
     if account_creation_mode == 'TXT' or account_creation_mode is None:
         accounts = create_app_accounts_from_txt(
-            args.private_keys,
-            (proxy_mode, args.proxy_file),
-            args.cex_addresses,
-            args.starknet_addresses,
-            args.password.encode('utf-8'),
+            get_config("private_keys"),
+            (proxy_mode, get_config("proxy_file")),
+            get_config("cex_addresses"),
+            get_config("starknet_addresses"),
+            get_config('password').encode('utf-8'),
             encryption
         )
     elif account_creation_mode == 'CSV':
-        rows = read_csv_rows(args.account_csv)
+        rows = read_csv_rows(get_config("account_csv"))
 
-        accounts = create_app_accounts_from_table(rows, args.password.encode('utf-8'), encryption)
+        accounts = create_app_accounts_from_table(rows, get_config('password').encode('utf-8'), encryption)
     elif account_creation_mode == 'GOOGLE':
-        if args.spreadsheet_id is None:
+        if get_config("spreadsheet_id") is None:
             raise Exception(f"account_creation_mode is GOOGLE, spreadsheet_id is required in config")
 
-        wallets = args.wallets.split(",") if "," in args.wallets else [args.wallets]
+        wallets = get_config("wallets").split(",") if "," in get_config("wallets") else [get_config("wallets")]
         rows = []
 
         for wallet in wallets:
-            rows += get_google_spreadsheet(args.spreadsheet_id, wallet)
+            rows += get_google_spreadsheet(get_config("spreadsheet_id"), wallet)
 
-        accounts = create_app_accounts_from_table(rows, args.password.encode('utf-8'), encryption)
+        accounts = create_app_accounts_from_table(rows, get_config('password').encode('utf-8'), encryption)
     else:
         raise ConfigurationException("account_creation_mode should be TXT, CSV or GOOGLE")
 
     if cex_address_validation:
-        validate_cex_addresses(accounts, get_cex_addresses(args.cex_conf))
+        validate_cex_addresses(accounts, get_cex_addresses(get_config("cex_conf")))
 
     return accounts
 

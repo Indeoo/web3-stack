@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 from loguru import logger
 from sybil_engine.utils.google_utils import get_google_credentials
 
-from sybil_engine.utils.telegram import get_config
+from sybil_engine.utils.config_utils import get_config
 
 statistic_date_string = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
@@ -147,4 +147,4 @@ def get_statistic_writer():
     if get_config("STATISTICS_MODE") == "CSV":
         return CsvStatisticsWriter()
     else:
-        return GoogleStatisticsWriter(get_config("SPREADSHEET_ID"))
+        return GoogleStatisticsWriter(get_config("STATS_SPREADSHEET_ID"))
