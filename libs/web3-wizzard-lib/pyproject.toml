@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "web3-wizzard-lib"
-version = "version = "1.11.7""
+version = "version = "1.11.8""
 description = "Engine for web3 smart contracts automatization."
 authors = [
     {name = "Indeoo", email = "indeooars@gmail.com"}
