@@ -115,7 +115,7 @@ def launch_app(scenario, config):
     set_cex_data((password, cex_data))
     set_cex_conf(get_config('cex_conf'))
 
-    logger.info(f"START {scenario['scenario_name']} module in {get_config("network")}")
+    logger.info(f"START {scenario['scenario_name']} module in {get_config('network')}")
 
     profile = parse_profile()
     logger.info(f"Profile {profile} activated")
