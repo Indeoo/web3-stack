@@ -1,7 +1,6 @@
 import functools
 
 from loguru import logger
-from sybil_engine.utils.web3_utils import init_web3
 
 from sybil_engine.data.networks import get_chain_instance
 
@@ -10,6 +9,7 @@ from sybil_engine.domain.balance.balance_utils import from_wei_to_gwei
 from sybil_engine.utils.utils import randomized_sleeping
 
 def l1_gas_price(func):
+    from sybil_engine.utils.web3_utils import init_web3
     web3_main = init_web3(get_chain_instance("ETH_MAINNET"), None)
 
     @functools.wraps(func)
