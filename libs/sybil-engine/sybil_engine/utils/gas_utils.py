@@ -1,17 +1,17 @@
 import functools
 
 from loguru import logger
+from sybil_engine.utils.web3_utils import init_web3
+
 from sybil_engine.data.networks import get_chain_instance
-from web3 import Web3
 
 from sybil_engine.config.app_config import get_gas_prices
 from sybil_engine.domain.balance.balance_utils import from_wei_to_gwei
 from sybil_engine.utils.utils import randomized_sleeping
 
-web3_main = Web3(Web3.HTTPProvider(get_chain_instance("ETH_MAINNET")["rpc"]))
-
-
 def l1_gas_price(func):
+    web3_main = init_web3(get_chain_instance("ETH_MAINNET"), None)
+
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         l1_max_gas_price = get_gas_prices()['ETH_MAINNET']

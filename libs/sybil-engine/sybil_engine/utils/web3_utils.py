@@ -1,13 +1,11 @@
 import random
 from typing import Optional, Any
 
-from sybil_engine.config.app_config import get_network
 import requests
-from eth_tester import EthereumTester, PyEVMBackend
 from loguru import logger
 from requests.adapters import HTTPAdapter
 from urllib3 import Retry
-from web3 import Web3, EthereumTesterProvider
+from web3 import Web3
 
 from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.domain.balance.balance_utils import get_native_balance, find_chain_with_max_usdc, \
