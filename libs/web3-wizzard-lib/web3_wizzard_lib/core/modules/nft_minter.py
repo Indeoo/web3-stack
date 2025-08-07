@@ -63,7 +63,7 @@ class NFTMinter(RepeatableModule):
         self.storage.put("minted_nfts", minted_nfts)
 
     def get_nfts(self):
-        import_all_modules_in_directory("utils.modules.nft")
+        import_all_modules_in_directory("web3_wizzard_lib.core.modules.nft")
         return get_all_subclasses(SubModule) + get_all_subclasses(NftSubmodule)
 
     def get_nft_address(self, chain, inited_module):

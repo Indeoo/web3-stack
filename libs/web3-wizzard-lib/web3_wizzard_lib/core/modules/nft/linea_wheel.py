@@ -10,10 +10,9 @@ from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
 
 class LineaWheel(NftSubmodule):
     module_name = 'LINEA_WHEEL'
+    nft_address = '0xDb3a3929269281F157A58D91289185F21E30A1e0'
 
     def execute(self, account, chain='LINEA'):
-        contract_address = "0xDb3a3929269281F157A58D91289185F21E30A1e0"  # LINEA WHEEL CONTRACT
-
         data = encode_data(account)
 
         Send(
@@ -21,7 +20,7 @@ class LineaWheel(NftSubmodule):
             self.create_web3(account, chain)
         ).send_to_wallet(
             account,
-            contract_address,
+            self.nft_address,
             NativeBalance(0, chain, "ETH"),
             data
         )
@@ -40,12 +39,12 @@ def encode_data(account):
 
     # Each parameter is 32 bytes (64 hex chars) - your provided values
     params = [
-        "0000000000000000000000000000000000000000000000000000000000000003",  # nonce
-        get_timestamp_plus_3h_hex(),  # expirationTimestamp
+        "0000000000000000000000000000000000000000000000000000000000000001",  # nonce
+        get_timestamp_plus_3h_hex()['hex_timestamp'],  # expirationTimestamp
         "0000000000000000000000000000000000000000000000000000000005f5e100",  # boost
-        "a7f4fce19924b90ef588d7c37672f6a0a0747d35d123fd4b9925f480303844d4",  # signature.r
-        "725ed81bdfb0d71f153e7b32b859722433cae97f013a4dd53826b6435a2ae8d4",  # signature.s
-        "000000000000000000000000000000000000000000000000000000000000001c"  # signature.v
+        r,  # signature.r
+        s,  # signature.s
+        v  # signature.v
     ]
 
     # Combine all parts
@@ -116,11 +115,11 @@ def sign_message_rsv(message, account):
     encoded_message = encode_defunct(text=message)
 
     # Sign the message
-    signed_message = account.sign_message(encoded_message)
+    signed_message = account.sign_message(encoded_message, account.key)
 
-    # Extract r, s, v values
-    r = hex(signed_message.r)
-    s = hex(signed_message.s)
-    v = signed_message.v
+    # Extract r, s, v values and format as 32-byte hex strings (64 chars)
+    r = format(signed_message.r, '064x')
+    s = format(signed_message.s, '064x')
+    v = format(signed_message.v, '064x')
 
     return r, s, v
