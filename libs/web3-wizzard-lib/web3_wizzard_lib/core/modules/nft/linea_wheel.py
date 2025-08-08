@@ -36,12 +36,31 @@ class LineaWheel(NftSubmodule):
     def log(self):
         return "LINEA WHEEL"
 
+
 def get_jwt_token(account, web3, contract_address):
+    from datetime import datetime, timezone
+
     nonce = requests.get("https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/nonce")
     print(f"NONCE {nonce.text}")
     nonce_text = nonce.json()['nonce']
 
-    message_to_sign = f"linea.build wants you to sign in with your Ethereum account:\n{account.address}\n\nWelcome to Linea Hub. Signing is the only way we can truly know that you are the owner of the wallet you are connecting. Signing is a safe, gas-less transaction that does not in any way give Linea Hub permission to perform any transactions with your wallet.\n\nURI: https://linea.build/hub/rewards\nVersion: 1\nChain ID: 59144\nNonce: {nonce_text}\nIssued At: 2025-08-08T13:08:56.275Z\nRequest ID: ae98b9b4-daaf-4bb3-b5e0-3f07175906ed"
+    # Use current timestamp instead of hardcoded one
+    current_time = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+    message_to_sign = ("""linea.build wants you to sign in with your Ethereum account:
+    {account.address}
+    
+    Welcome to Linea Hub. Signing is the only way we can truly know that you are the owner of the wallet you are connecting. Signing is a safe, gas-less transaction that does not in any way give Linea Hub permission to perform any transactions with your wallet.
+    
+    URI: https://linea.build/hub/rewards
+    Version: 1
+    Chain ID: 59144
+    Nonce: {nonce_text}
+    Issued At: {current_time}
+    Request ID: ae98b9b4-daaf-4bb3-b5e0-3f07175906ed"""
+                       .format(account=account,
+                               nonce_text=nonce_text,
+                               current_time=current_time)
+                       )
     print(f"message to sign: {message_to_sign}")
     encoded_message_to_sign = encode_defunct(text=message_to_sign)
     signed_message = web3.eth.account.sign_message(encoded_message_to_sign, private_key=account.key)
@@ -51,8 +70,12 @@ def get_jwt_token(account, web3, contract_address):
     params = {
         "signedMessage": signed_message.signature.hex(),
         "messageToSign": message_to_sign,
-        "publicWalletAddress": account.address, "chain": "EVM", "walletName": "metamask",
-        "walletProvider": "browserExtension", "network": "59144", "additionalWalletAddresses": [],
+        "publicWalletAddress": account.address,
+        "chain": "EVM",
+        "walletName": "metamask",
+        "walletProvider": "browserExtension",
+        "network": "59144",
+        "additionalWalletAddresses": [],
         "sessionPublicKey": "03225f269ac4021962998f67e5486b8cc9bcdc3936542a0fb69fdb128c92c299f9"
     }
 
@@ -63,6 +86,7 @@ def get_jwt_token(account, web3, contract_address):
     print(result.text)
 
     return result.text
+
 
 def create_data(jwt_token):
     # Do not implement yet
