@@ -16,18 +16,19 @@ class LineaWheel(NftSubmodule):
         web3 = init_web3(
             {
                 "rpc": "https://rpc.linea.build",
-                "poa": "true"
+                "poa": "true",
+                "chain_id": 59144
             },
             account.proxy
         )
         jwt_token = get_jwt_token(account, web3)
-        data = create_data(jwt_token)
+        data = create_data(jwt_token, web3)
 
         print(f"DATA {data}")
 
         Send(
             None,
-            self.create_web3(account, chain)
+            web3
         ).send_to_wallet(
             account,
             self.nft_address,
@@ -90,8 +91,9 @@ Request ID: ae98b9b4-daaf-4bb3-b5e0-3f07175906ed"""
     return result.json()["jwt"]
 
 
-def create_data(jwt_token):
+def create_data(jwt_token, web3):
     import requests
+    from sybil_engine.utils.file_loader import load_abi
 
     url = "https://hub-api.linea.build/spins"
 
@@ -117,4 +119,37 @@ def create_data(jwt_token):
     print("Status code:", response.status_code)
     print("Response body:", response.content)
 
-    return response.json() if response.status_code == 200 else None
+    if response.status_code != 200:
+        raise Exception(response.json()['message'])
+    
+    # Get the JSON response data
+    response_data = response.json()
+    print(f"Response JSON: {response_data}")
+    
+    # Load LineaWheel contract ABI and create contract instance
+    abi = load_abi("resources/abi/linea_wheel/abi.json")
+    contract_address = '0xDb3a3929269281F157A58D91289185F21E30A1e0'  # LineaWheel contract address
+    contract = web3.eth.contract(address=contract_address, abi=abi)
+    
+    # Convert response data to contract function parameters
+    nonce = int(response_data['nonce'])
+    expiration_timestamp = int(response_data['expirationTimestamp'])
+    boost = int(response_data['boost'])
+    
+    # Convert signature array to struct format
+    signature_array = response_data['signature']
+    signature_struct = {
+        'r': signature_array[0],  # bytes32
+        's': signature_array[1],  # bytes32  
+        'v': int(signature_array[2])  # uint8
+    }
+    
+    # Encode the participate function call
+    encoded_data = contract.encode_abi("participate", args=(
+        nonce,
+        expiration_timestamp, 
+        boost,
+        signature_struct
+    ))
+    
+    return encoded_data

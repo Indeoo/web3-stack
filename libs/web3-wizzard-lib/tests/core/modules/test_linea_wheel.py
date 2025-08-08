@@ -16,7 +16,7 @@ class LineaWheelTest(unittest.TestCase):
         try:
             set_network('MAIN')
 
-            private_key = "0x81200c88ce95fd24b8789eefd3db6e7e5a7384181b86b464720becd41aa55ce1"
+            private_key = ""
             account = Account.from_key(private_key)
             app_account = AppAccount(1, None, account, None, None)
             linea_wheel = LineaWheel()
