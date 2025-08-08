@@ -1,9 +1,9 @@
-from datetime import datetime, timedelta
-
+import requests
 from eth_account.messages import encode_defunct
 
 from sybil_engine.contract.send import Send
 from sybil_engine.domain.balance.balance import NativeBalance
+from sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
 
@@ -13,11 +13,22 @@ class LineaWheel(NftSubmodule):
     nft_address = '0xDb3a3929269281F157A58D91289185F21E30A1e0'
 
     def execute(self, account, chain='LINEA'):
-        data = encode_data(account)
+        web3 = init_web3(
+            {
+                "rpc": "https://rpc.linea.build",
+                "poa": "true",
+                "chain_id": 59144
+            },
+            account.proxy
+        )
+        jwt_token = get_jwt_token(account, web3)
+        data = create_data(jwt_token, web3)
+
+        print(f"DATA {data}")
 
         Send(
             None,
-            self.create_web3(account, chain)
+            web3
         ).send_to_wallet(
             account,
             self.nft_address,
@@ -29,97 +40,116 @@ class LineaWheel(NftSubmodule):
         return "LINEA WHEEL"
 
 
-def encode_data(account):
-    # Function selector
-    method_id = "7d5168d1"
+def get_jwt_token(account, web3):
+    from datetime import datetime, timezone
 
-    message = "Welcome to Linea Hub. Signing is the only way we can truly know that you are the owner of the wallet you are connecting. Signing is a safe, gas-less transaction that does not in any way give Linea Hub permission to perform any transactions with your wallet."
+    nonce = requests.get("https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/nonce")
+    print(f"NONCE {nonce.text}")
+    nonce_text = nonce.json()['nonce']
 
-    r,s,v = sign_message_rsv(message, account)
+    # Use current timestamp instead of hardcoded one
+    current_time = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
+    message_to_sign = f"""linea.build wants you to sign in with your Ethereum account:
+{account.address}
 
-    # Each parameter is 32 bytes (64 hex chars) - your provided values
-    params = [
-        "0000000000000000000000000000000000000000000000000000000000000001",  # nonce
-        get_timestamp_plus_3h_hex()['hex_timestamp'],  # expirationTimestamp
-        "0000000000000000000000000000000000000000000000000000000005f5e100",  # boost
-        r,  # signature.r
-        s,  # signature.s
-        v  # signature.v
-    ]
+Welcome to Linea Hub. Signing is the only way we can truly know that you are the owner of the wallet you are connecting. Signing is a safe, gas-less transaction that does not in any way give Linea Hub permission to perform any transactions with your wallet.
 
-    # Combine all parts
-    encoded_data = "0x" + method_id + "".join(params)
+URI: https://linea.build/hub/rewards
+Version: 1
+Chain ID: 59144
+Nonce: {nonce_text}
+Issued At: {current_time}
+Request ID: ae98b9b4-daaf-4bb3-b5e0-3f07175906ed"""
+    print(f"message to sign: {message_to_sign}")
+    encoded_message_to_sign = encode_defunct(text=message_to_sign)
+    signed_message = web3.eth.account.sign_message(encoded_message_to_sign, private_key=account.key)
 
+    print(f"HASH {signed_message.signature.hex()}")
+
+    # Try without the 0x prefix for the signature
+    signature_hex = signed_message.signature.hex()
+    if signature_hex.startswith('0x'):
+        signature_hex = signature_hex[2:]
+    params = {
+        "signedMessage": f"0x{signature_hex}",
+        "messageToSign": message_to_sign,
+        "publicWalletAddress": account.address,
+        "chain": "EVM",
+        "walletName": "metamask",
+        "walletProvider": "browserExtension",
+        "network": "59144",
+        "additionalWalletAddresses": []
+        # Removed sessionPublicKey - it's likely causing the verification failure
+    }
+
+    result = requests.post("https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/verify",
+                           json=params)
+
+    print(result)
+    print(result.text)
+
+    return result.json()["jwt"]
+
+
+def create_data(jwt_token, web3):
+    import requests
+    from sybil_engine.utils.file_loader import load_abi
+
+    url = "https://hub-api.linea.build/spins"
+
+    headers = {
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate, br, zstd",
+        "Referer": "https://linea.build/",
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {jwt_token}",
+        "Origin": "https://linea.build",
+        "Connection": "keep-alive",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site",
+        "Priority": "u=0",
+        "Content-Length": "0",
+        "TE": "trailers"
+    }
+
+    response = requests.post(url, headers=headers)
+
+    print("Status code:", response.status_code)
+    print("Response body:", response.content)
+
+    if response.status_code != 200:
+        raise Exception(response.json()['message'])
+    
+    # Get the JSON response data
+    response_data = response.json()
+    print(f"Response JSON: {response_data}")
+    
+    # Load LineaWheel contract ABI and create contract instance
+    abi = load_abi("resources/abi/linea_wheel/abi.json")
+    contract_address = '0xDb3a3929269281F157A58D91289185F21E30A1e0'  # LineaWheel contract address
+    contract = web3.eth.contract(address=contract_address, abi=abi)
+    
+    # Convert response data to contract function parameters
+    nonce = int(response_data['nonce'])
+    expiration_timestamp = int(response_data['expirationTimestamp'])
+    boost = int(response_data['boost'])
+    
+    # Convert signature array to struct format
+    signature_array = response_data['signature']
+    signature_struct = {
+        'r': signature_array[0],  # bytes32
+        's': signature_array[1],  # bytes32  
+        'v': int(signature_array[2])  # uint8
+    }
+    
+    # Encode the participate function call
+    encoded_data = contract.encode_abi("participate", args=(
+        nonce,
+        expiration_timestamp, 
+        boost,
+        signature_struct
+    ))
+    
     return encoded_data
-
-
-def get_timestamp_plus_3h_hex():
-    """
-    Get current timestamp + 3 hours and convert to 32-byte hex format for EVM
-    """
-    # Get current timestamp
-    current_time = datetime.now()
-
-    # Add 3 hours
-    future_time = current_time + timedelta(hours=3)
-
-    # Convert to Unix timestamp (seconds since epoch)
-    timestamp = int(future_time.timestamp())
-
-    # Convert to hex and pad to 32 bytes (64 hex characters)
-    hex_timestamp = format(timestamp, '064x')
-
-    return {
-        'current_time': current_time,
-        'future_time': future_time,
-        'timestamp': timestamp,
-        'hex_timestamp': hex_timestamp,
-        'hex_with_prefix': f'0x{hex_timestamp}'
-    }
-
-
-def hex_to_readable_time(hex_string):
-    """
-    Convert hex timestamp back to readable format
-    """
-    # Remove '0x' prefix if present
-    if hex_string.startswith('0x'):
-        hex_string = hex_string[2:]
-
-    # Convert hex to integer
-    timestamp = int(hex_string, 16)
-
-    # Convert to datetime
-    readable_time = datetime.fromtimestamp(timestamp)
-
-    return {
-        'timestamp': timestamp,
-        'readable_time': readable_time,
-        'iso_format': readable_time.isoformat()
-    }
-
-
-def sign_message_rsv(message, account):
-    """
-    Sign a message and return r, s, v values
-
-    Args:
-        message (str): The message to sign
-        private_key (str): Private key as hex string (with or without 0x prefix)
-
-    Returns:
-        dict: Dictionary containing r, s, v values
-    """
-    # Create account from private key
-    # Encode the message for signing
-    encoded_message = encode_defunct(text=message)
-
-    # Sign the message
-    signed_message = account.sign_message(encoded_message, account.key)
-
-    # Extract r, s, v values and format as 32-byte hex strings (64 chars)
-    r = format(signed_message.r, '064x')
-    s = format(signed_message.s, '064x')
-    v = format(signed_message.v, '064x')
-
-    return r, s, v
