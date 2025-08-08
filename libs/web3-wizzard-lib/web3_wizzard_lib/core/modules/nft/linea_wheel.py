@@ -20,24 +20,26 @@ class LineaWheel(NftSubmodule):
             },
             account.proxy
         )
-        jwt_token = get_jwt_token(account, web3, self.nft_address)
+        jwt_token = get_jwt_token(account, web3)
         data = create_data(jwt_token)
 
-        # Send(
-        #     None,
-        #     self.create_web3(account, chain)
-        # ).send_to_wallet(
-        #     account,
-        #     self.nft_address,
-        #     NativeBalance(0, chain, "ETH"),
-        #     data
-        # )
+        print(f"DATA {data}")
+
+        Send(
+            None,
+            self.create_web3(account, chain)
+        ).send_to_wallet(
+            account,
+            self.nft_address,
+            NativeBalance(0, chain, "ETH"),
+            data
+        )
 
     def log(self):
         return "LINEA WHEEL"
 
 
-def get_jwt_token(account, web3, contract_address):
+def get_jwt_token(account, web3):
     from datetime import datetime, timezone
 
     nonce = requests.get("https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/nonce")
@@ -85,9 +87,34 @@ Request ID: ae98b9b4-daaf-4bb3-b5e0-3f07175906ed"""
     print(result)
     print(result.text)
 
-    return result.text
+    return result.json()["jwt"]
 
 
 def create_data(jwt_token):
-    # Do not implement yet
-    pass
+    import requests
+
+    url = "https://hub-api.linea.build/spins"
+
+    headers = {
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate, br, zstd",
+        "Referer": "https://linea.build/",
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {jwt_token}",
+        "Origin": "https://linea.build",
+        "Connection": "keep-alive",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-site",
+        "Priority": "u=0",
+        "Content-Length": "0",
+        "TE": "trailers"
+    }
+
+    response = requests.post(url, headers=headers)
+
+    print("Status code:", response.status_code)
+    print("Response body:", response.content)
+
+    return response.json() if response.status_code == 200 else None
