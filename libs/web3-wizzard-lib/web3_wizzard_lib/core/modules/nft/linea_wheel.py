@@ -1,5 +1,10 @@
+import os
+import uuid
+
 import requests
 from eth_account.messages import encode_defunct
+from web3 import Web3
+from datetime import datetime, timezone
 
 from sybil_engine.contract.send import Send
 from sybil_engine.domain.balance.balance import NativeBalance
@@ -22,9 +27,9 @@ class LineaWheel(NftSubmodule):
             },
             account.proxy
         )
+        sign_wheel(account)
         jwt_token = get_jwt_token(account, web3)
         data = create_data(jwt_token, web3)
-
         print(f"DATA {data}")
 
         Send(
@@ -42,16 +47,74 @@ class LineaWheel(NftSubmodule):
 
 
 def get_jwt_token(account, web3):
-    from datetime import datetime, timezone
-
     nonce = requests.get("https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/nonce")
-    print(f"NONCE {nonce.text}")
+    # print(f"NONCE {nonce.text}")
     nonce_text = nonce.json()['nonce']
 
     # Use current timestamp instead of hardcoded one
     current_time = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] + 'Z'
-    message_to_sign = f"""linea.build wants you to sign in with your Ethereum account:
-{account.address}
+    message_to_sign = form_message_to_sign(account, current_time, nonce_text)
+    encoded_message_to_sign = encode_defunct(text=message_to_sign)
+    signed_message = web3.eth.account.sign_message(encoded_message_to_sign, private_key=account.key)
+    # print(f"message to sign: {message_to_sign}")
+    # print(f"HASH {signed_message.signature.hex()}")
+
+    signature_hex = signed_message.signature.hex()
+
+    session_pubkey = generate_session_pubkey()
+    print(f"SESSION PUBKEY {session_pubkey}")
+    params = {
+        "signedMessage": f"0x{signature_hex}",
+        "messageToSign": message_to_sign,
+        "publicWalletAddress": Web3.to_checksum_address(account.address),
+        "chain": "EVM",
+        "walletName": "metamask",
+        "walletProvider": "browserExtension",
+        "network": "59144",
+        "additionalWalletAddresses": [],
+        "sessionPublicKey": session_pubkey
+    }
+
+    # Generate unique request ID
+    request_id = str(uuid.uuid4()).replace('-', '')
+
+    headers = {
+        "accept": "*/*",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8,ru;q=0.7",
+        "content-type": "application/json",
+        "origin": "https://linea.build",
+        "priority": "u=1, i",
+        "referer": "https://linea.build/",
+        "sec-ch-ua-mobile": "?0",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "cross-site",
+        "x-dyn-api-version": "API/0.0.681",
+        "x-dyn-request-id": request_id,
+    }
+
+    result = requests.post(
+        "https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/verify",
+        json=params,
+        headers=headers
+    )
+
+    print(f"JWT Auth Status Code: {result.status_code}")
+    print(f"JWT Auth Response: {result.text}")
+
+    if result.status_code != 200:
+        raise Exception(f"JWT Authentication failed: {result.text}")
+
+    response_data = result.json()
+    if "jwt" not in response_data:
+        raise Exception(f"JWT token not found in response: {response_data}")
+
+    return response_data["jwt"]
+
+
+def form_message_to_sign(account, current_time, nonce_text):
+    return f"""linea.build wants you to sign in with your Ethereum account:
+{Web3.to_checksum_address(account.address)}
 
 Welcome to Linea Hub. Signing is the only way we can truly know that you are the owner of the wallet you are connecting. Signing is a safe, gas-less transaction that does not in any way give Linea Hub permission to perform any transactions with your wallet.
 
@@ -61,40 +124,9 @@ Chain ID: 59144
 Nonce: {nonce_text}
 Issued At: {current_time}
 Request ID: ae98b9b4-daaf-4bb3-b5e0-3f07175906ed"""
-    print(f"message to sign: {message_to_sign}")
-    encoded_message_to_sign = encode_defunct(text=message_to_sign)
-    signed_message = web3.eth.account.sign_message(encoded_message_to_sign, private_key=account.key)
-
-    print(f"HASH {signed_message.signature.hex()}")
-
-    # Try without the 0x prefix for the signature
-    signature_hex = signed_message.signature.hex()
-    if signature_hex.startswith('0x'):
-        signature_hex = signature_hex[2:]
-    params = {
-        "signedMessage": f"0x{signature_hex}",
-        "messageToSign": message_to_sign,
-        "publicWalletAddress": account.address,
-        "chain": "EVM",
-        "walletName": "metamask",
-        "walletProvider": "browserExtension",
-        "network": "59144",
-        "additionalWalletAddresses": []
-        # Removed sessionPublicKey - it's likely causing the verification failure
-    }
-
-    result = requests.post("https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/verify",
-                           json=params)
-
-    print(result)
-    print(result.text)
-
-    return result.json()["jwt"]
 
 
 def create_data(jwt_token, web3):
-    import requests
-
     url = "https://hub-api.linea.build/spins"
 
     headers = {
@@ -104,38 +136,33 @@ def create_data(jwt_token, web3):
         "Referer": "https://linea.build/",
         "Content-Type": "application/json",
         "Authorization": f"Bearer {jwt_token}",
-        "Origin": "https://linea.build",
-        "Connection": "keep-alive",
-        "Sec-Fetch-Dest": "empty",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-site",
-        "Priority": "u=0",
-        "Content-Length": "0",
-        "TE": "trailers"
     }
 
     response = requests.post(url, headers=headers)
 
-    print("Status code:", response.status_code)
-    print("Response body:", response.content)
+    print(f"Spins API Status Code: {response.status_code}")
+    print(f"Spins API Response: {response.content}")
 
-    if response.status_code != 200:
-        raise Exception(response.json()['message'])
-    
+    if response.status_code == 404:
+        print(f"User not found in Linea Hub system. Address may need to be registered first.")
+        raise Exception(f"User not found: {response.text}")
+    elif response.status_code != 200:
+        try:
+            error_msg = response.json().get('message', 'Unknown error')
+        except:
+            error_msg = response.text
+        raise Exception(f"Spins API failed with status {response.status_code}: {error_msg}")
+
     # Get the JSON response data
     response_data = response.json()
     print(f"Response JSON: {response_data}")
-    
-    # Load LineaWheel contract ABI and create contract instance
-    abi = LineaWheel.abi
-    contract_address = '0xDb3a3929269281F157A58D91289185F21E30A1e0'  # LineaWheel contract address
-    contract = web3.eth.contract(address=contract_address, abi=abi)
-    
+
+    contract = web3.eth.contract(address=LineaWheel.nft_address, abi=LineaWheel.abi)
     # Convert response data to contract function parameters
     nonce = int(response_data['nonce'])
     expiration_timestamp = int(response_data['expirationTimestamp'])
     boost = int(response_data['boost'])
-    
+
     # Convert signature array to struct format
     signature_array = response_data['signature']
     signature_struct = {
@@ -143,13 +170,41 @@ def create_data(jwt_token, web3):
         's': signature_array[1],  # bytes32  
         'v': int(signature_array[2])  # uint8
     }
-    
-    # Encode the participate function call
-    encoded_data = contract.encode_abi("participate", args=(
+
+    return contract.encode_abi("participate", args=(
         nonce,
-        expiration_timestamp, 
+        expiration_timestamp,
         boost,
         signature_struct
     ))
-    
-    return encoded_data
+
+
+def sign_wheel(account):
+    url = "https://app.dynamicauth.com/api/v0/sdk/ae98b9b4-daaf-4bb3-b5e0-3f07175906ed/connect"
+
+    payload = {
+        "address": Web3.to_checksum_address(account.address),
+        "chain": "EVM",
+        "provider": "browserExtension",
+        "walletName": "metamask",
+        "authMode": "connect-and-sign"
+    }
+
+    response = requests.post(url, json=payload)
+    print(f"REGISTER: {response.status_code} {response.content}")
+
+
+def generate_session_pubkey() -> str:
+    # Generate a 32-byte private key
+    private_key_bytes = os.urandom(32)
+
+    # Create a private key object
+    from eth_keys import keys
+
+    private_key = keys.PrivateKey(private_key_bytes)
+
+    # Get the compressed public key (33 bytes, starts with 02 or 03)
+    compressed_pubkey = private_key.public_key.to_compressed_bytes()
+
+    # Return hex string
+    return compressed_pubkey.hex()
