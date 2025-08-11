@@ -1,4 +1,5 @@
 import os
+import time
 import uuid
 
 import requests
@@ -31,7 +32,9 @@ class LineaWheel(NftSubmodule):
         )
         #sign_wheel(account)
         jwt_token = get_jwt_token(account, web3)
+        time.sleep(1)
         linea_auth(jwt_token)
+        time.sleep(1)
         data = create_data(jwt_token, web3)
         print(f"DATA {data}")
 
