@@ -19,7 +19,7 @@ class NFTMinter(RepeatableModule):
     random_order = Order.RANDOM
     repeat_conf = 'nft_amount_interval'
     sleep_after_var = True
-    retries = 100
+    retries = 1
 
     @RepeatableModule.repeatable_log
     def execute(self, nft_module_names, nft_amount_interval, unique_nft, skip_delay, account):
