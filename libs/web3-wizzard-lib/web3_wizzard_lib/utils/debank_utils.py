@@ -8,7 +8,7 @@ def debank_request(address):
     }
     headers = {
         'accept': 'application/json',
-        'AccessKey': '6cd56a970242386fa2a57e380c39f00f10b31778'
+        'AccessKey': 'b7b237e1902d1bc66e8fbd1695a0470aac692123'
     }
     response = requests.get(url, headers=headers, params=params)
     data = response.json()
