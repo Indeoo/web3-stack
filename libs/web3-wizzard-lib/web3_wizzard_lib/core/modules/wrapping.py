@@ -1,5 +1,5 @@
 from loguru import logger
-from sybil_engine.contract.weth import WETH
+from web3_wizzard_lib.core.contract.weth import WETH
 from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.data.tokens import get_tokens_for_chain
 from sybil_engine.domain.balance.balance import NotEnoughNativeBalance

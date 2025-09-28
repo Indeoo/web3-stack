@@ -2,8 +2,8 @@ import inspect
 
 from web3 import Web3
 
-from sybil_engine.contract.erc20contract import Erc20Contract
-from sybil_engine.contract.weth import WETH
+from web3_wizzard_lib.core.contract.erc20contract import Erc20Contract
+from web3_wizzard_lib.core.contract.weth import WETH
 from sybil_engine.data.tokens import get_tokens_for_chain
 from sybil_engine.domain.balance.balance import Erc20Balance, WETHBalance
 

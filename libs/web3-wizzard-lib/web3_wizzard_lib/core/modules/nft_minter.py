@@ -2,7 +2,7 @@ import random
 
 from loguru import logger
 from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_chain_instance, set_rpc_for_chain
+from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.module.module import RepeatableModule, Order
 from sybil_engine.utils.package_import_utils import import_all_modules_in_directory, get_all_subclasses
 from sybil_engine.utils.scan_utils import find_interacted_contracts
@@ -95,7 +95,6 @@ class NFTMinter(RepeatableModule):
         if self.retry_counter < self.retries:
             self.retry_counter = self.retry_counter + 1
             logger.info(f"{self.retry_counter} retries from {self.retries}")
-            set_rpc_for_chain('LINEA')
             randomized_sleeping({'from': 1, 'to': 60})
             raise RetryException(e)
 

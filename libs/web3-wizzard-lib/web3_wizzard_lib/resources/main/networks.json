@@ -3,7 +3,7 @@
     "gas_token": "ETH",
     "poa": false,
     "eip1599": false,
-    "rpc": "https://rpc.ankr.com/eth",
+    "rpc": "https://eth.llamarpc.com",
     "scan": "https://etherscan.io/",
     "api_scan": "https://api.etherscan.io/",
     "transaction_sleep_interval": {

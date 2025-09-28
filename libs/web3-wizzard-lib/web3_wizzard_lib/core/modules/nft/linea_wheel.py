@@ -7,7 +7,7 @@ from eth_account.messages import encode_defunct
 from web3 import Web3
 from datetime import datetime, timezone
 
-from sybil_engine.contract.send import Send
+from web3_wizzard_lib.core.contract.send import Send
 from sybil_engine.domain.balance.balance import NativeBalance
 from sybil_engine.utils.web3_utils import init_web3
 

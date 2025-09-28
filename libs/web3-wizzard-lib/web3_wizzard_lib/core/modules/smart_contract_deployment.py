@@ -1,6 +1,6 @@
 import random
 
-from sybil_engine.contract.deploy_contract import DeployContract
+from web3_wizzard_lib.core.contract.deploy_contract import DeployContract
 from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.module.module import Module
 from sybil_engine.utils.web3_utils import init_web3

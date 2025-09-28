@@ -2,7 +2,7 @@ import requests
 from eth_account import Account
 from eth_account.messages import encode_defunct
 from loguru import logger
-from sybil_engine.contract.send import Send
+from web3_wizzard_lib.core.contract.send import Send
 from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.domain.balance.balance import NativeBalance
 from sybil_engine.utils.web3_utils import init_web3

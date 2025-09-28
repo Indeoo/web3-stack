@@ -1,8 +1,8 @@
 import random
 
 from loguru import logger
-from sybil_engine.contract.erc20contract import Erc20Contract
-from sybil_engine.contract.send import Send
+from web3_wizzard_lib.core.contract.erc20contract import Erc20Contract
+from web3_wizzard_lib.core.contract.send import Send
 from sybil_engine.data.contracts import get_contracts_for_chain
 from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.data.tokens import get_tokens_for_chain

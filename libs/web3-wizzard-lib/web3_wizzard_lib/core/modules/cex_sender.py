@@ -1,5 +1,5 @@
 from loguru import logger
-from sybil_engine.contract.send import Send
+from web3_wizzard_lib.core.contract.send import Send
 from sybil_engine.data.networks import get_chain_instance
 from sybil_engine.domain.balance.balance import NotEnoughNativeBalance
 from sybil_engine.domain.balance.balance_utils import interval_to_native_balance, interval_to_erc20_balance
