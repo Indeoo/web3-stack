@@ -1,6 +1,6 @@
 from loguru import logger
 from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.domain.dex import Dex
+from web3_wizzard_lib.core.domain.dex import Dex
 from sybil_engine.utils.gas_utils import l1_gas_price
 from sybil_engine.utils.utils import AccountException
 

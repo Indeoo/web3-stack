@@ -4,7 +4,7 @@ from loguru import logger
 from sybil_engine.data.contracts import get_contracts_for_chain
 from sybil_engine.domain.balance.balance import NativeBalance, NotEnoughNativeBalance
 from sybil_engine.domain.balance.balance_utils import get_native_balance, from_eth_to_wei
-from sybil_engine.utils.l0_utils import L0FeeToHigh
+from web3_wizzard_lib.core.utils.l0_utils import L0FeeToHigh
 from sybil_engine.utils.utils import randomized_sleeping
 
 

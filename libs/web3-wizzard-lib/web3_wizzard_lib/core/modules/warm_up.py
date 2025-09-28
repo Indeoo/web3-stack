@@ -2,7 +2,7 @@ import random
 
 from loguru import logger
 from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.data.pairs import Pairs
+from web3_wizzard_lib.core.domain.pairs import Pairs
 from sybil_engine.domain.balance.balance_utils import verify_balance, amount_to_swap_from_interval
 from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.module.module import Order, RepeatableModule

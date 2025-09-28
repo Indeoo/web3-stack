@@ -2,10 +2,10 @@ import unittest
 
 from loguru import logger
 from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.data.pairs import Pairs
+from web3_wizzard_lib.core.domain.pairs import Pairs
 from sybil_engine.utils.web3_utils import init_web3
 from test import init_set_test_config
-from test.module.swap.mock_test_swap_facade import swap_facade
+from web3_wizzard_lib.tests.core.mock_test_swap_facade import swap_facade
 
 
 class TestSwapFacade(unittest.TestCase):

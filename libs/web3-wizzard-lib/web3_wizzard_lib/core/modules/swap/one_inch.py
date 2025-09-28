@@ -1,6 +1,6 @@
 import requests
 from sybil_engine.contract.transaction_executor import evm_transaction
-from sybil_engine.domain.dex import Dex
+from web3_wizzard_lib.core.domain.dex import Dex
 from sybil_engine.utils.gas_utils import l1_gas_price
 from sybil_engine.utils.utils import randomized_sleeping, SwapException
 from web3 import Web3

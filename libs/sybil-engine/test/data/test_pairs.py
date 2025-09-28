@@ -1,6 +1,5 @@
 import unittest
 
-from sybil_engine.data.pairs import Pairs
 from test import init_set_test_config
 
 

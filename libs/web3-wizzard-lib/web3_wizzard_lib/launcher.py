@@ -6,7 +6,7 @@ import web3_wizzard_lib
 
 from sybil_engine.module.modules import *
 from loguru import logger
-from sybil_engine.app import launch_with_data
+from web3_wizzard_lib.core.app import launch_with_data
 
 from web3_wizzard_lib.core.modules.swap.swap_list import swap_facade
 import importlib.util

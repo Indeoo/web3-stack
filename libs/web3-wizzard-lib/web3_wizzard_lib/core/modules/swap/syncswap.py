@@ -1,4 +1,4 @@
-from sybil_engine.domain.dex import Dex
+from web3_wizzard_lib.core.domain.dex import Dex
 
 from web3_wizzard_lib.core.contract.syncswap_classic_pool_factory import SyncSwapClassicPoolFactory
 from web3_wizzard_lib.core.contract.syncswap_pool import SyncSwapPoolContract

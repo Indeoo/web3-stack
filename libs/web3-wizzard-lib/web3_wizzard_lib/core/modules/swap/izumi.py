@@ -1,4 +1,4 @@
-from sybil_engine.domain.dex import Dex
+from web3_wizzard_lib.core.domain.dex import Dex
 
 from ...contract.izumi import IzumiRouter
 
