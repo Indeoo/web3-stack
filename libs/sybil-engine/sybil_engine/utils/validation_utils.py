@@ -1,4 +1,4 @@
-from sybil_engine.config.app_config import get_module_data
+from sybil_engine.data.networks import network_manager
 from sybil_engine.utils.utils import ConfigurationException
 
 class ValidationException(Exception):
@@ -9,14 +9,14 @@ class ValidationException(Exception):
 
 def validate_chain(chain):
     if not is_chain(chain):
-        raise ValidationException(chain, f'Possible values: {get_module_data().get_supported_chains()}', type='chain')
+        raise ValidationException(chain, f'Possible values: {network_manager.get_supported_chains()}', type='chain')
 
 
 def is_chain(chain_str):
     if not isinstance(chain_str, str):
         return False
 
-    return chain_str in get_module_data().get_supported_chains()
+    return chain_str in network_manager.get_supported_chains()
 
 
 def validate_interval(interval):
@@ -72,7 +72,7 @@ def validate_dex_list(dex_list):
     if len(dex_list) == 0:
         raise ConfigurationException("Dex list is empty")
 
-    dex_apps = get_module_data().get_swap_apps()
+    dex_apps = network_manager.get_swap_apps()
 
     for dex in dex_list:
         if not is_dex(dex):
@@ -80,7 +80,7 @@ def validate_dex_list(dex_list):
 
 
 def validate_dex(dex):
-    dex_apps = get_module_data().get_swap_apps()
+    dex_apps = network_manager.get_swap_apps()
 
     if not is_dex(dex) and dex != 'random':
         raise ValidationException(dex, dex_apps, type='dex')
@@ -90,4 +90,4 @@ def is_dex(dex):
     if not isinstance(dex, str):
         return False
 
-    return dex in get_module_data().get_swap_apps()
+    return dex in network_manager.get_swap_apps()
