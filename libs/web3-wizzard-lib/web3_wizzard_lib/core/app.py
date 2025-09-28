@@ -2,20 +2,20 @@ import os
 
 from loguru import logger
 
-from sybil_engine.config.app_config import set_network, set_gas_prices, set_dex_retry_interval, set_module_data, \
+from web3_wizzard_lib.core.sybil_engine.config.app_config import set_network, set_gas_prices, set_dex_retry_interval, set_module_data, \
     set_cex_data, set_cex_conf
-from sybil_engine.module.execution_planner import create_execution_plans
-from sybil_engine.module.module_executor import ModuleExecutor
-from sybil_engine.utils.accumulator import print_accumulated, add_accumulator_str, add_accumulator
-from sybil_engine.utils.app_account_utils import create_app_account
-from sybil_engine.utils.arguments_parser import parse_arguments, parse_profile
-from sybil_engine.utils.configuration_loader import load_config_maps
-from sybil_engine.utils.fee_storage import print_fee
-from sybil_engine.utils.logs import load_logger
-from sybil_engine.utils.telegram import send_to_bot
-from sybil_engine.utils.config_utils import add_config, get_config
-from sybil_engine.utils.utils import ConfigurationException
-from sybil_engine.scenario_loader import load_scenario
+from web3_wizzard_lib.core.sybil_engine.module.execution_planner import create_execution_plans
+from web3_wizzard_lib.core.sybil_engine.module.module_executor import ModuleExecutor
+from web3_wizzard_lib.core.sybil_engine.utils.accumulator import print_accumulated, add_accumulator_str, add_accumulator
+from web3_wizzard_lib.core.sybil_engine.utils.app_account_utils import create_app_account
+from web3_wizzard_lib.core.sybil_engine.utils.arguments_parser import parse_arguments, parse_profile
+from web3_wizzard_lib.core.sybil_engine.utils.configuration_loader import load_config_maps
+from web3_wizzard_lib.core.sybil_engine.utils.fee_storage import print_fee
+from web3_wizzard_lib.core.sybil_engine.utils.logs import load_logger
+from web3_wizzard_lib.core.sybil_engine.utils.telegram import send_to_bot
+from web3_wizzard_lib.core.sybil_engine.utils.config_utils import add_config, get_config
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.scenario_loader import load_scenario
 
 
 def launch_with_data(modules_data, config_map=None, module_map=None):

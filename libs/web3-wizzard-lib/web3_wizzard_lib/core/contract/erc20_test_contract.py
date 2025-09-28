@@ -1,8 +1,8 @@
 from loguru import logger
 from web3 import Web3
 
-from sybil_engine.contract.contract import Contract
-from sybil_engine.utils.file_loader import load_abi
+from web3_wizzard_lib.core.sybil_engine.contract.contract import Contract
+from web3_wizzard_lib.core.sybil_engine.utils.file_loader import load_abi
 
 abi = load_abi("resources/abi/erc20_test.json")
 

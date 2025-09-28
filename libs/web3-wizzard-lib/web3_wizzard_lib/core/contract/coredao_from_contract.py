@@ -1,6 +1,6 @@
-from sybil_engine.contract.contract import Contract
-from sybil_engine.contract.transaction_executor import l0_evm_transaction
-from sybil_engine.utils.file_loader import load_abi
+from web3_wizzard_lib.core.sybil_engine.contract import Contract
+from web3_wizzard_lib.core.sybil_engine.contract.transaction_executor import l0_evm_transaction
+from web3_wizzard_lib.core.sybil_engine.utils.file_loader import load_abi
 
 from web3_wizzard_lib.core.modules.stargate.l0_data import l0_chain_ids
 

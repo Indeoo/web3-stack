@@ -1,7 +1,7 @@
 from loguru import logger
 #from pyuseragents import random as random_ua
 from requests import Session
-from sybil_engine.utils.retry import retry
+from web3_wizzard_lib.core.sybil_engine.utils.retry import retry
 
 
 class IntractAPI:

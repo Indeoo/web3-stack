@@ -2,8 +2,8 @@ import random
 
 from web3 import Web3
 
-from sybil_engine.contract.contract import Contract
-from sybil_engine.contract.transaction_executor import evm_transaction
+from web3_wizzard_lib.core.sybil_engine.contract.contract import Contract
+from web3_wizzard_lib.core.sybil_engine.contract.transaction_executor import evm_transaction
 
 
 class DeployContract(Contract):

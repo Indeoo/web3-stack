@@ -1,4 +1,4 @@
-from sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
 
 
 class Pool:

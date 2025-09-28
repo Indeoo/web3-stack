@@ -1,9 +1,9 @@
-from sybil_engine.config.app_config import get_cex_data, get_cex_conf
-from sybil_engine.domain.cex.binance import Binance
-from sybil_engine.domain.cex.okx import OKX
-from sybil_engine.module.module import Module
-from sybil_engine.utils.app_account_utils import AppAccount
-from sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.config.app_config import get_cex_data, get_cex_conf
+from web3_wizzard_lib.core.sybil_engine.domain.cex.binance import Binance
+from web3_wizzard_lib.core.sybil_engine.domain.cex.okx import OKX
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils import AppAccount
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
 
 
 class CEXSubAccountTransfer(Module):

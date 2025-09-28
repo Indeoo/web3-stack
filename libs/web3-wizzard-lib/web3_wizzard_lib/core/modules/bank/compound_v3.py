@@ -1,8 +1,8 @@
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_ids_chain
-from sybil_engine.data.tokens import get_tokens_for_chain
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_ids_chain
+from web3_wizzard_lib.core.sybil_engine.data.tokens import get_tokens_for_chain
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
 
 from web3_wizzard_lib.core.contract.compound_v3 import CompoundV3Contract
 from web3_wizzard_lib.core.contract.compund_v3_bulker import CompoundV3BulkerContract

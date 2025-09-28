@@ -1,4 +1,4 @@
-from sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
 from web3_wizzard_lib.core.domain.dex import Dex
 
 from web3_wizzard_lib.core.contract.maverick_multicall import MaverickMulticall

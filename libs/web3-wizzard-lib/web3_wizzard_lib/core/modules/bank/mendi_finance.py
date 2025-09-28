@@ -1,6 +1,6 @@
 from loguru import logger
-from sybil_engine.data.tokens import get_tokens_for_chain
-from sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.data.tokens import get_tokens_for_chain
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
 
 from web3_wizzard_lib.core.contract.mendi_token import MendiTokenContract
 from web3_wizzard_lib.core.modules.bank.bank import Bank

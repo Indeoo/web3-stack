@@ -1,6 +1,6 @@
-from sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
 
-from sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
 
 
 class SwapFacade:

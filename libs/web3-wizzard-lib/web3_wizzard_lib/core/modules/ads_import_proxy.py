@@ -1,7 +1,7 @@
 from urllib.parse import urlparse
 
 from loguru import logger
-from sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
 import requests
 
 

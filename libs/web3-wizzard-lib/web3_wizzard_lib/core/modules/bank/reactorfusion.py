@@ -1,6 +1,6 @@
 from web3_wizzard_lib.core.contract.weth import WETH
-from sybil_engine.data.networks import get_ids_chain
-from sybil_engine.data.tokens import get_tokens_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_ids_chain
+from web3_wizzard_lib.core.sybil_engine.data.tokens import get_tokens_for_chain
 
 from web3_wizzard_lib.core.contract.reactor_fusion_contract import ReactorFusionContract
 from web3_wizzard_lib.core.modules.bank.bank import Bank

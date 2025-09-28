@@ -1,13 +1,13 @@
 import random
 
 from loguru import logger
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.module.module import RepeatableModule, Order
-from sybil_engine.utils.package_import_utils import import_all_modules_in_directory, get_all_subclasses
-from sybil_engine.utils.scan_utils import find_interacted_contracts
-from sybil_engine.utils.utils import ConfigurationException, randomized_sleeping, RetryException, print_exception_chain
-from sybil_engine.utils.validation_utils import validate_interval
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.module.module import RepeatableModule, Order
+from web3_wizzard_lib.core.sybil_engine.utils.package_import_utils import import_all_modules_in_directory, get_all_subclasses
+from web3_wizzard_lib.core.sybil_engine.utils.scan_utils import find_interacted_contracts
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException, randomized_sleeping, RetryException, print_exception_chain
+from web3_wizzard_lib.core.sybil_engine.utils.validation_utils import validate_interval
 
 from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
 from web3_wizzard_lib.core.utils.sub_module import SubModule

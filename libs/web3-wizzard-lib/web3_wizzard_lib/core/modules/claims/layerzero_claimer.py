@@ -1,10 +1,10 @@
 import requests
 from loguru import logger
-from sybil_engine.config.app_config import get_cex_conf, get_cex_data
-from sybil_engine.domain.balance.balance import NativeBalance, Erc20Balance
-from sybil_engine.domain.balance.balance_utils import get_native_balance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.domain.cex.okx import OKX
+from web3_wizzard_lib.core.sybil_engine.config.app_config import get_cex_conf, get_cex_data
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import NativeBalance, Erc20Balance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import get_native_balance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.domain.cex.okx import OKX
 
 total_zro = 0
 

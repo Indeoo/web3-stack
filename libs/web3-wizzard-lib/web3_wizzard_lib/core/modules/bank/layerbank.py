@@ -1,7 +1,7 @@
 from loguru import logger
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.tokens import get_tokens_for_chain
-from sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.tokens import get_tokens_for_chain
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
 
 from web3_wizzard_lib.core.contract.layerbank_price import LayerBankPrice
 from web3_wizzard_lib.core.contract.layerbank_token import LayerBankToken

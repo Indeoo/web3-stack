@@ -1,11 +1,11 @@
 import requests
 from loguru import logger
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.domain.balance.balance import Erc20Balance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.module.module import Module
-from sybil_engine.utils.accumulator import add_accumulator_balance, add_accumulator, get_value
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import Erc20Balance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.accumulator import add_accumulator_balance, add_accumulator, get_value
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.utils.statistic_utils import statistic_date_string, get_statistic_writer
 

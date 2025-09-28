@@ -1,14 +1,14 @@
 from loguru import logger
 
-from sybil_engine.config.app_config import get_dex_retry_interval
-from sybil_engine.contract.transaction_executor import execute_transaction
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.tokens import get_tokens_for_chain
-from sybil_engine.domain.balance.balance import NotEnoughERC20Balance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.utils.gas_utils import l1_gas_price
-from sybil_engine.utils.retry import retry_self
-from sybil_engine.utils.utils import SwapException, AccountException, TransactionExecutionException
+from web3_wizzard_lib.core.sybil_engine.config.app_config import get_dex_retry_interval
+from web3_wizzard_lib.core.sybil_engine.contract.transaction_executor import execute_transaction
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.tokens import get_tokens_for_chain
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import NotEnoughERC20Balance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.utils.gas_utils import l1_gas_price
+from web3_wizzard_lib.core.sybil_engine.utils.retry import retry_self
+from web3_wizzard_lib.core.sybil_engine.utils.utils import SwapException, AccountException, TransactionExecutionException
 
 
 class Dex:

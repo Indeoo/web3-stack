@@ -8,8 +8,8 @@ from web3 import Web3
 from datetime import datetime, timezone
 
 from web3_wizzard_lib.core.contract.send import Send
-from sybil_engine.domain.balance.balance import NativeBalance
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import NativeBalance
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.nft.nft_submodule import NftSubmodule
 

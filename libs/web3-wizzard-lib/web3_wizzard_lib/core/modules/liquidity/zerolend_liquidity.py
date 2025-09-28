@@ -1,7 +1,7 @@
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.domain.balance.balance_utils import interval_to_eth_balance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.utils.retry import retry
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import interval_to_eth_balance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.utils.retry import retry
 
 from web3_wizzard_lib.core.contract.zerolend_liq_contract import ZeroLendLiqContract
 from web3_wizzard_lib.core.modules.liquidity.pool import Pool

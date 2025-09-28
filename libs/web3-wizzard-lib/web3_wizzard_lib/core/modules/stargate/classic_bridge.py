@@ -1,4 +1,4 @@
-from sybil_engine.module.module import Module, Order
+from web3_wizzard_lib.core.sybil_engine.module.module import Module, Order
 
 from web3_wizzard_lib.core.modules.stargate.bridge import StargateBridge
 

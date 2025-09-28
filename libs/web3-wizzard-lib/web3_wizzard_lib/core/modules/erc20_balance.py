@@ -1,9 +1,9 @@
 from loguru import logger
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.module.module import Order, Module
-from sybil_engine.utils.accumulator import add_accumulator_balance
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.module.module import Order, Module
+from web3_wizzard_lib.core.sybil_engine.utils.accumulator import add_accumulator_balance
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.contract.dmail_send_mail import DmailSend
 

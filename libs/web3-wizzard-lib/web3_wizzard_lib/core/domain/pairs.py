@@ -1,10 +1,10 @@
 import random
 from collections import defaultdict
 
-from sybil_engine.config.app_config import get_network
-from sybil_engine.data.exception import NetworkNotFoundException
-from sybil_engine.utils.file_loader import load_json_resource
-from sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.config.app_config import get_network
+from web3_wizzard_lib.core.sybil_engine.data.exception import NetworkNotFoundException
+from web3_wizzard_lib.core.sybil_engine.utils.file_loader import load_json_resource
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
 
 
 class Pairs:

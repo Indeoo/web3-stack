@@ -3,8 +3,8 @@ import unittest
 from eth_account import Account
 from loguru import logger
 
-from sybil_engine.config.app_config import set_network
-from sybil_engine.utils.app_account_utils import AppAccount
+from web3_wizzard_lib.core.sybil_engine.config.app_config import set_network
+from web3_wizzard_lib.core.sybil_engine.utils.app_account_utils import AppAccount
 from web3_wizzard_lib.core.modules.nft.linea_wheel import LineaWheel
 
 

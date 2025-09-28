@@ -1,7 +1,7 @@
-from sybil_engine.contract.contract import Contract
-from sybil_engine.contract.transaction_executor import evm_transaction
-from sybil_engine.domain.balance.balance_utils import from_eth_to_wei
-from sybil_engine.utils.file_loader import load_abi
+from web3_wizzard_lib.core.sybil_engine.contract import Contract
+from web3_wizzard_lib.core.sybil_engine.contract.transaction_executor import evm_transaction
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import from_eth_to_wei
+from web3_wizzard_lib.core.sybil_engine.utils.file_loader import load_abi
 
 abi = load_abi("resources/abi/linea_day_3.json")
 

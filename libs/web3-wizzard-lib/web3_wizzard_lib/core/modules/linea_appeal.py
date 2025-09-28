@@ -2,8 +2,8 @@ import random
 import webbrowser
 
 from loguru import logger
-from sybil_engine.module.module import Module
-from sybil_engine.utils.accumulator import add_accumulator, get_value
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.accumulator import add_accumulator, get_value
 
 from web3_wizzard_lib.core.utils.ai_utils import get_ai_chat
 

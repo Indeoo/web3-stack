@@ -1,13 +1,13 @@
 from loguru import logger
-from sybil_engine.config.app_config import get_network
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.domain.balance.balance import Erc20Balance, NativeBalance
-from sybil_engine.domain.balance.balance_utils import get_native_balance, interval_to_eth_balance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.module.module import Module
-from sybil_engine.utils.utils import randomized_sleeping
-from sybil_engine.utils.web3_utils import init_web3, get_amount_to_bridge_usdc, get_max_balance_data
+from web3_wizzard_lib.core.sybil_engine.config.app_config import get_network
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import Erc20Balance, NativeBalance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import get_native_balance, interval_to_eth_balance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.utils import randomized_sleeping
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3, get_amount_to_bridge_usdc, get_max_balance_data
 
 from web3_wizzard_lib.core.contract.stargate_farming import StargateFarming
 from web3_wizzard_lib.core.contract.stargate_router import StargateRouter

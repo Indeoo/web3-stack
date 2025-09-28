@@ -1,8 +1,8 @@
 import logging
 
-from sybil_engine.module.module import Module
-from sybil_engine.utils.utils import randomized_sleeping
-from sybil_engine.utils.validation_utils import validate_amount_interval
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.utils import randomized_sleeping
+from web3_wizzard_lib.core.sybil_engine.utils.validation_utils import validate_amount_interval
 
 
 class SleepModule(Module):

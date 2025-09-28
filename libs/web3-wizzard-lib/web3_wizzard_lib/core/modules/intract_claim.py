@@ -1,10 +1,10 @@
 from eth_account.messages import encode_defunct
 from loguru import logger
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.module.module import Module
-from sybil_engine.utils.file_loader import load_abi
-from sybil_engine.utils.utils import AccountException
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.file_loader import load_abi
+from web3_wizzard_lib.core.sybil_engine.utils.utils import AccountException
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.intract.intract_api import IntractAPI
 from web3_wizzard_lib.core.modules.intract.utils import TgReport, WindowName, make_text_border

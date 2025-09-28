@@ -1,7 +1,7 @@
 import requests
 
-from sybil_engine.config.app_config import get_network
-from sybil_engine.domain.balance.balance_utils import from_eth_to_wei
+from web3_wizzard_lib.core.sybil_engine.config.app_config import get_network
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import from_eth_to_wei
 
 
 def get_binance_price(symbol):

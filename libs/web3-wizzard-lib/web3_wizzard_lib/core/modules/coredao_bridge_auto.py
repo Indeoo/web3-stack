@@ -1,5 +1,5 @@
-from sybil_engine.module.module import Order, RepeatableModule
-from sybil_engine.utils.utils import interval_to_int, randomized_sleeping
+from web3_wizzard_lib.core.sybil_engine.module.module import Order, RepeatableModule
+from web3_wizzard_lib.core.sybil_engine.utils.utils import interval_to_int, randomized_sleeping
 
 from web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
 

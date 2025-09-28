@@ -1,10 +1,10 @@
 import random
 
 from loguru import logger
-from sybil_engine.domain.balance.balance_utils import find_chain_with_max_usdc, find_chain_with_max_native
-from sybil_engine.module.module import Module
-from sybil_engine.utils.utils import randomized_sleeping
-from sybil_engine.utils.web3_utils import print_account_data, get_all_account_data
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import find_chain_with_max_usdc, find_chain_with_max_native
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.utils import randomized_sleeping
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import print_account_data, get_all_account_data
 
 from web3_wizzard_lib.core.modules.stargate.bridge import StargateBridge
 

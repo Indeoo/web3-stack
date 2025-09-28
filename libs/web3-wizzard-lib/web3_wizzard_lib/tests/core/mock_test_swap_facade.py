@@ -1,5 +1,5 @@
 from web3_wizzard_lib.core.domain.swap_facade import SwapFacade
-from test.module.swap.mock_dex import MockFailDex
+from web3_wizzard_lib.tests.core.sybil_engine.module.swap.mock_dex import MockFailDex
 
 
 class MockTestSwapFacade(SwapFacade):
