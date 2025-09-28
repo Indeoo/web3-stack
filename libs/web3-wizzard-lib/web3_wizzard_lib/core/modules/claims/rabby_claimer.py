@@ -6,7 +6,6 @@ from fake_useragent import UserAgent
 from loguru import logger
 
 import requests
-from sybil_engine.utils.utils import randomized_sleeping
 
 url = "https://api.rabby.io/v2/points/claim_snapshot"
 

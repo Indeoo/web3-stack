@@ -7,13 +7,32 @@ name = "web3-wizzard-lib"
 version = "1.12.5"
 description = "Engine for web3 smart contracts automatization."
 authors = [
-    {name = "Indeoo", email = "indeooars@gmail.com"}
+    {name = "Indeoo", email = "indeoo.xyz@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.7"
 license = {text = "MIT"}
 dependencies = [
-    "sybil-engine==10.5.10",
+    "loguru==0.7.2",
+    "setuptools==70.0.0",
+    "ccxt==4.2.100",
+    "tqdm==4.66.2",
+    "web3==7.2.0",
+    "requests==2.32.0",
+    "pyTelegramBotAPI==4.17.0",
+    "python-okx==0.2.8",
+    "termcolor==2.4.0",
+    "bumpversion==0.6.0",
+    "binance-connector==3.6.0",
+    "base58==2.1.1",
+    "google-api-python-client==2.126.0",
+    "google-auth-httplib2==0.2.0",
+    "google-auth-oauthlib==1.2.0",
+    "eth-tester==0.10.0b4",
+    "py-evm==0.10.1b2",
+    "fake-useragent==1.4.0",
+    "Faker~=27.0.0",
+    "pk-encryptor==0.0.5",
     "brotli==1.1.0"
 ]
 

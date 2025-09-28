@@ -1,4 +1,4 @@
-from sybil_engine.domain.dex import Dex
+from web3_wizzard_lib.core.domain.dex import Dex
 
 from web3_wizzard_lib.core.contract.horizondex_router import HorizonDexRouter
 from ...contract.horizondex_quoter import HorizonDexQuoter

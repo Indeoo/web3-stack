@@ -1,12 +1,12 @@
-from sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
 
 from web3_wizzard_lib.core.modules.bridge.bridge import Bridge
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.domain.balance.balance import NotEnoughNativeBalance
-from sybil_engine.domain.balance.balance_utils import interval_to_native_balance, verify_balance
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import NotEnoughNativeBalance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import interval_to_native_balance, verify_balance
 
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.contract.eth_scroll_bridge_contract import EthScrollBridgeContract
 from web3_wizzard_lib.core.contract.scroll_bridge_contract import ScrollBridgeContract

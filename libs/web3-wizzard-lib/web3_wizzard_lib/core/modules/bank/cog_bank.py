@@ -1,5 +1,5 @@
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
 
 from web3_wizzard_lib.core.contract.cog_erc20 import CogErc20Contract
 from web3_wizzard_lib.core.modules.bank.bank import Bank

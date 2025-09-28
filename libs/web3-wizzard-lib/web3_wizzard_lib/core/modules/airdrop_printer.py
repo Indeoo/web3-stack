@@ -1,7 +1,7 @@
 import requests
 from loguru import logger
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
 from web3 import Web3
 
 from web3_wizzard_lib.core.utils.statistic_utils import get_statistic_writer, statistic_date_string

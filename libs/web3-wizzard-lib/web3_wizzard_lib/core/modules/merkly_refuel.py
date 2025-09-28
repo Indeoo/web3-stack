@@ -1,13 +1,13 @@
 import random
 
 from loguru import logger
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.domain.balance.balance_utils import interval_to_eth_balance, verify_balance, from_wei_to_eth
-from sybil_engine.module.module import Module
-from sybil_engine.utils.utils import ConfigurationException, randomized_sleeping, print_exception_chain
-from sybil_engine.utils.validation_utils import validate_chain, validate_refuel_interval
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import interval_to_eth_balance, verify_balance, from_wei_to_eth
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException, randomized_sleeping, print_exception_chain
+from web3_wizzard_lib.core.sybil_engine.utils.validation_utils import validate_chain, validate_refuel_interval
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.contract.merkly_minter import MerklyMinter
 from web3_wizzard_lib.core.modules.stargate.l0_data import l0_chain_ids

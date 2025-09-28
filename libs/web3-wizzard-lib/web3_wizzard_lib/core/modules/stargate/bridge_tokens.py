@@ -1,8 +1,8 @@
 from loguru import logger
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.domain.balance.balance import Erc20Balance, NotEnoughNativeBalance
-from sybil_engine.domain.balance.tokens import Erc20Token
-from sybil_engine.utils.web3_utils import get_amount_to_bridge_usdc
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import Erc20Balance, NotEnoughNativeBalance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.tokens import Erc20Token
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import get_amount_to_bridge_usdc
 
 from web3_wizzard_lib.core.contract.stargate_router import StargateRouter
 

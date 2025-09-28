@@ -1,14 +1,14 @@
 import random
 
 from loguru import logger
-from sybil_engine.contract.send import Send
-from sybil_engine.data.contracts import get_contracts_for_chain
-from sybil_engine.data.networks import get_chain_instance
-from sybil_engine.domain.balance.balance import NativeBalance
-from sybil_engine.domain.balance.balance_utils import get_native_balance
-from sybil_engine.module.module import Order, RepeatableModule
-from sybil_engine.utils.utils import interval_to_int, ConfigurationException
-from sybil_engine.utils.web3_utils import init_web3
+from web3_wizzard_lib.core.contract.send import Send
+from web3_wizzard_lib.core.sybil_engine.data.contracts import get_contracts_for_chain
+from web3_wizzard_lib.core.sybil_engine.data.networks import get_chain_instance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance import NativeBalance
+from web3_wizzard_lib.core.sybil_engine.domain.balance.balance_utils import get_native_balance
+from web3_wizzard_lib.core.sybil_engine.module.module import Order, RepeatableModule
+from web3_wizzard_lib.core.sybil_engine.utils.utils import interval_to_int, ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.utils.web3_utils import init_web3
 
 from web3_wizzard_lib.core.modules.bridge.orbiter_sub import bridge_codes
 

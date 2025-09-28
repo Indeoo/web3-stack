@@ -1,6 +1,6 @@
-from sybil_engine.module.module import Module
-from sybil_engine.utils.utils import ConfigurationException
-from sybil_engine.utils.validation_utils import validate_amount_interval, validate_chain
+from web3_wizzard_lib.core.sybil_engine.module.module import Module
+from web3_wizzard_lib.core.sybil_engine.utils.utils import ConfigurationException
+from web3_wizzard_lib.core.sybil_engine.utils.validation_utils import validate_amount_interval, validate_chain
 
 from web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
 from web3_wizzard_lib.core.modules.bridge.orbiter_sub import OrbiterSubModule

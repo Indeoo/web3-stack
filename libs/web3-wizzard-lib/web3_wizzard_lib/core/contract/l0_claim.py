@@ -1,5 +1,5 @@
-from sybil_engine.contract.contract import Contract
-from sybil_engine.contract.transaction_executor import evm_transaction
+from web3_wizzard_lib.core.sybil_engine.contract import Contract
+from web3_wizzard_lib.core.sybil_engine.contract.transaction_executor import evm_transaction
 
 abi = [{'inputs': [{'internalType': 'address', 'name': '_zroToken', 'type': 'address'},
                    {'internalType': 'address', 'name': '_endpoint', 'type': 'address'},

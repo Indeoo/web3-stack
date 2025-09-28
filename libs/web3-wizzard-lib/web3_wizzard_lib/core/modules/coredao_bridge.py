@@ -1,4 +1,4 @@
-from sybil_engine.module.module import Order, Module
+from web3_wizzard_lib.core.sybil_engine.module.module import Order, Module
 
 from web3_wizzard_lib.core.modules.bridge.coredao_bridge_sub import CoreDaoBridgeSubModule
 
