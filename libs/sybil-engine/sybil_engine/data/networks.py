@@ -30,7 +30,7 @@ class NetworkManager:
 
         items = [item for item in self._get_chains(network).items() if item[1]["chain_id"] == web3.eth.chain_id]
 
-        return items[0][1]
+        return self.get_chain_instance(items[0][0])
 
     def get_chain_instance(self, chain: str, network: str = None) -> Dict[str, Any]:
         network = network or get_network()
