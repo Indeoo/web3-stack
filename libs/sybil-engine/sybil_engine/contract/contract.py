@@ -1,6 +1,6 @@
 import random
 
-from sybil_engine.data.networks import get_chain_instance, get_ids_chain
+from sybil_engine.data.networks import network_manager
 
 
 class Contract:
@@ -8,7 +8,7 @@ class Contract:
     def __init__(self, contract_address, web3, abi=None):
         self.contract_address = contract_address
         self.web3 = web3
-        self.chain_instance = get_chain_instance(get_ids_chain()[web3.eth.chain_id])
+        self.chain_instance = network_manager.get_chain_instance_by_web3(web3)
         if abi is not None:
             self.contract = web3.eth.contract(address=contract_address, abi=abi)
 

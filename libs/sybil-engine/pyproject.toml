@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sybil_engine"
-version = "10.5.10"
+version = "10.6.3"
 description = "Engine for web3 smart contracts automatization."
 authors = [
     {name = "Indeoo", email = "indeooars@gmail.com"}
@@ -32,7 +32,7 @@ dependencies = [
     "py-evm==0.10.1b2",
     "fake-useragent==1.4.0",
     "Faker~=27.0.0",
-    "pk-encryptor==0.0.5",
+    "pk-encryptor==0.0.6",
 ]
 
 [project.urls]

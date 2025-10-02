@@ -3,7 +3,7 @@
     "gas_token": "ETH",
     "poa": false,
     "eip1599": false,
-    "rpc": "https://rpc.ankr.com/eth",
+    "rpc": "https://eth.llamarpc.com",
     "scan": "https://etherscan.io/",
     "api_scan": "https://api.etherscan.io/",
     "transaction_sleep_interval": {
@@ -31,7 +31,7 @@
   "BASE": {
     "gas_token": "ETH",
     "poa": false,
-    "eip1599": true,
+    "eip1599": false,
     "stargate_usdc_pool": 1,
     "stargate_eth_pool": 13,
     "stargate_chain_id": 184,

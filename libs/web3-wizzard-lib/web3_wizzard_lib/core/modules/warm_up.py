@@ -6,7 +6,7 @@ from sybil_engine.data.pairs import Pairs
 from sybil_engine.domain.balance.balance_utils import verify_balance, amount_to_swap_from_interval
 from sybil_engine.domain.balance.tokens import Erc20Token
 from sybil_engine.module.module import Order, RepeatableModule
-from sybil_engine.utils.utils import interval_to_int, randomized_sleeping, SwapException
+from sybil_engine.utils.utils import interval_to_int, randomized_sleeping, SwapException, ConfigurationException
 from sybil_engine.utils.validation_utils import validate_amount_interval_possible_empty, validate_token, \
     validate_interval, validate_dex_list
 from sybil_engine.utils.web3_utils import init_web3
@@ -31,36 +31,41 @@ class WarmUp(RepeatableModule):
 
         if len(pair_names) > 0:
             logger.info(f"Warmup pairs {pair_names}")
-
         pair = Pairs(swap_facade)
 
-        pair_swaps = pair.get_warmup_pair_swaps(allowed_dex, chain, pair_names, swap_amount, warm_token)
-        random.shuffle(pair_swaps)
-        self._warm_up(chain_instance, pair_swaps, sell_tokens, sleep_interval, swap_amount_interval, account, web3)
+        try:
+            pair_swaps = pair.get_warmup_pair_swaps(allowed_dex, chain, pair_names, swap_amount, warm_token)
+            random.shuffle(pair_swaps)
+            pair, swaps = random.choice(pair_swaps)
+        except ConfigurationException as e:
+            pair_name = random.choice(pair_names)
+            from_token = pair_name.split('>')[0]
+            to_token = pair_name.split('>')[1]
+            pair = self.create_pair_to_swap(from_token, allowed_dex, to_token)
+            swaps = allowed_dex
 
-    def _warm_up(self, chain_instance, pair_swaps, sell_tokens, sleep_interval, swap_amount_interval, account, web3):
-        pair, swaps = random.choice(pair_swaps)
-        random.shuffle(swaps)
+        self._warm_up(chain_instance, pair, swaps, sell_tokens, sleep_interval, swap_amount_interval, account, web3)
 
+    def _warm_up(self, chain_instance, pair, swaps, sell_tokens, sleep_interval, swap_amount_interval, account, web3):
         native_balance = verify_balance(self.min_native_balance, chain_instance, account, web3)
-        buy_dex, sell_dex = swaps[0], swaps[-1]
+        buy_dex = random.choice(swaps)
+        sell_dex = random.choice(swaps)
 
         self._warm_up_pair(buy_dex, sell_dex, native_balance, swap_amount_interval, chain_instance, pair, sell_tokens,
                            sleep_interval, account, web3)
-
         randomized_sleeping(sleep_interval)
 
     def _warm_up_pair(self, buy_dex, sell_dex, native_balance, swap_amount_interval, chain_instance, pair, sell_tokens,
                       sleep_interval, account, web3):
-        warm_up_token = pair['tokens'][0]
-        token = pair['tokens'][1]
+        from_token = pair['tokens'][0]
+        to_token = pair['tokens'][1]
 
         amount_to_swap = amount_to_swap_from_interval(account, chain_instance['chain'], self.min_native_balance,
-                                                      native_balance, swap_amount_interval, warm_up_token, web3)
-        swap_facade.swap(account, amount_to_swap, chain_instance, pair, buy_dex, warm_up_token, token, web3)
-        randomized_sleeping(sleep_interval)
+                                                      native_balance, swap_amount_interval, from_token, web3)
+        swap_facade.swap(account, amount_to_swap, chain_instance, pair, buy_dex, from_token, to_token, web3)
 
         if sell_tokens:
+            randomized_sleeping(sleep_interval)
             try:
                 self.execute_sell(chain_instance, pair, sell_dex, account, web3)
             except SwapException as e:
@@ -71,6 +76,15 @@ class WarmUp(RepeatableModule):
         amount_to_swap = Erc20Token(chain_instance['chain'], pair['tokens'][1], web3).balance(account)
         swap_facade.swap(account, amount_to_swap, chain_instance, pair, sell_dex, amount_to_swap.token,
                          pair['tokens'][0], web3)
+
+    def create_pair_to_swap(self, from_token, swap_app, to_token):
+        pair_to_swap = {
+            'name': f'{from_token}>{to_token}',
+            'tokens': [from_token, to_token],
+            'slippage': 2,
+            'app': swap_app
+        }
+        return pair_to_swap
 
     def parse_params(self, module_params):
         self.validate_supported_chain(module_params['chain'])

@@ -1,4 +1,5 @@
 from sybil_engine.config.app_config import get_module_data
+from sybil_engine.data.networks import network_manager
 from sybil_engine.utils.utils import ConfigurationException
 
 class ValidationException(Exception):
@@ -9,14 +10,14 @@ class ValidationException(Exception):
 
 def validate_chain(chain):
     if not is_chain(chain):
-        raise ValidationException(chain, f'Possible values: {get_module_data().get_supported_chains()}', type='chain')
+        raise ValidationException(chain, f'Possible values: {network_manager.get_supported_chains()}', type='chain')
 
 
 def is_chain(chain_str):
     if not isinstance(chain_str, str):
         return False
 
-    return chain_str in get_module_data().get_supported_chains()
+    return chain_str in network_manager.get_supported_chains()
 
 
 def validate_interval(interval):

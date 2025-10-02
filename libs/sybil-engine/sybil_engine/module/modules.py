@@ -1,5 +1,5 @@
 from sybil_engine.config.app_config import get_network
-from sybil_engine.data.networks import get_networks
+from sybil_engine.data.networks import network_manager
 from sybil_engine.module.module import Module, RepeatableModule
 
 
@@ -41,4 +41,4 @@ class Modules:
         return self.swap_facade.get_swap_apps()
 
     def get_supported_chains(self):
-        return list(get_networks(get_network()).copy().keys())
+        return list(network_manager._get_chains(get_network()).copy().keys())

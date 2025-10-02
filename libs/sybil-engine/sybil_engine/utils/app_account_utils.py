@@ -39,7 +39,7 @@ def create_app_account(encryption, proxy_mode, account_creation_mode, cex_addres
         for wallet in wallets:
             rows += get_google_spreadsheet(get_config("spreadsheet_id"), wallet)
 
-        accounts = create_app_accounts_from_table(rows, get_config('password').encode('utf-8'), encryption)
+        accounts = create_app_accounts_from_table(rows, get_config('password'), encryption)
     else:
         raise ConfigurationException("account_creation_mode should be TXT, CSV or GOOGLE")
 
