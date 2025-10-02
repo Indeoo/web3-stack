@@ -1,4 +1,5 @@
 import random
+from json import JSONDecodeError
 
 import requests
 from loguru import logger
@@ -58,6 +59,12 @@ class MetamuskSwap(Dex):
             }
         )
 
-        choice = random.choice(response.json())
+        try:
+            response = response.json()
+        except JSONDecodeError as e:
+            logger.error(response.content.decode('utf-8'))
+            raise e
+
+        choice = random.choice(response)
         data = choice['trade']['data']
         return data
