@@ -1,3 +1,4 @@
+from sybil_engine.config.app_config import get_module_data
 from sybil_engine.data.networks import network_manager
 from sybil_engine.utils.utils import ConfigurationException
 
@@ -72,7 +73,7 @@ def validate_dex_list(dex_list):
     if len(dex_list) == 0:
         raise ConfigurationException("Dex list is empty")
 
-    dex_apps = network_manager.get_swap_apps()
+    dex_apps = get_module_data().get_swap_apps()
 
     for dex in dex_list:
         if not is_dex(dex):
@@ -80,7 +81,7 @@ def validate_dex_list(dex_list):
 
 
 def validate_dex(dex):
-    dex_apps = network_manager.get_swap_apps()
+    dex_apps = get_module_data().get_swap_apps()
 
     if not is_dex(dex) and dex != 'random':
         raise ValidationException(dex, dex_apps, type='dex')
@@ -90,4 +91,4 @@ def is_dex(dex):
     if not isinstance(dex, str):
         return False
 
-    return dex in network_manager.get_swap_apps()
+    return dex in get_module_data().get_swap_apps()
