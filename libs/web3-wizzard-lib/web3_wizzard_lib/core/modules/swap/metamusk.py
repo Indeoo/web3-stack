@@ -12,7 +12,7 @@ from sybil_engine.utils.retry import retry
 class MetamuskSwap(Dex):
     dex_name = 'metamusk'
     swap_contract = 'METAMUSK'
-    supported_chains = ['ETH_MAINNET', 'BASE']
+    supported_chains = ['ETH_MAINNET', 'BASE', 'LINEA']
 
     def __init__(self, chain_instance, web3):
         super().__init__(chain_instance, web3)
